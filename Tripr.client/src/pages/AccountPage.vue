@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg-secondary account">
     <div class="row justify-content-center">
-      <div class="mt-3 account-info bg-body">
+      <div class="mt-4 account-info bg-body">
         <h2>
           {{ account.name }}
         </h2>
@@ -14,17 +14,21 @@
       <img class="patch mb-5" src="../assets/img/create.png" alt="Create Trip">
       <img class="patch" src="../assets/img/join.png" alt="Join Trip">
     </div>
-    <div class="row justify-content-between">
-      <button type="button" class="btn bg-primary w-50">
-        <h2 class="text-shadow">
-          Trips
-        </h2>
-      </button>
-      <div
-        class="text-primary"
-        @click="logout"
-      >
-        <i class="mdi mdi-logout-variant f-28"></i>
+    <div class="mt-5 row align-items-end justify-content-between">
+      <div class="col-6">
+        <button type="button" class="shadow btn bg-primary w-100">
+          <h2 class="text-shadow">
+            Trips
+          </h2>
+        </button>
+      </div>
+      <div class="d-flex col-6 pe-4 justify-content-end">
+        <div
+          class="text-primary"
+          @click="logout"
+        >
+          <i class="mdi mdi-logout-variant f-30"></i>
+        </div>
       </div>
     </div>
   </div>
@@ -33,11 +37,15 @@
 <script>
 import { computed } from 'vue'
 import { AppState } from '../AppState'
+import { AuthService } from '../services/AuthService'
 export default {
   name: 'Account',
   setup() {
     return {
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      async logout() {
+        AuthService.logout({ returnTo: window.location.origin })
+      }
     }
   }
 }

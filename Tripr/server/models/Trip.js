@@ -4,7 +4,6 @@ const Schema = mongoose.Schema
 export const TripSchema = new Schema(
   {
     title: { type: String, required: true },
-    travelerId: { type: Schema.Types.ObjectId, ref: 'Traveler', required: true },
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
     description: { type: String, required: true },
     location: { type: Array, required: true },
@@ -18,9 +17,9 @@ TripSchema.virtual('creator', {
   ref: 'Account',
   justOne: true
 })
-TripSchema.virtual('traveler', {
+TripSchema.virtual('travelers', {
   localField: 'travelerId',
   foreignField: '_id',
-  ref: 'Traveler',
+  ref: 'Travelers',
   justOne: true
 })

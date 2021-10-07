@@ -1,3 +1,4 @@
+import { Auth0Provider } from '@bcwdev/auth0provider'
 import { routeDetailsService } from '../services/RouteDetailsService'
 import BaseController from '../utils/BaseController'
 
@@ -5,6 +6,7 @@ export class RouteDetailsController extends BaseController {
   constructor() {
     super('api/trips/:tripId/routes')
     this.router
+      .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getRouteDetails)
       .put('/id', this.editRouteDetails)
       .post('', this.createRouteDeatils)
@@ -33,7 +35,7 @@ export class RouteDetailsController extends BaseController {
 
   async editRouteDetails(req, res, next) {
     try {
-      const route = await routeDetailsService.editRouteDetails(req.body)
+      const route = await routeDetailsService.editRouteDetails(req.params.id, req.body)
       res.send(route)
     } catch (error) {
       next(error)

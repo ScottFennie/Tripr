@@ -1,19 +1,24 @@
+import { dbContext } from '../db/DbContext'
 
 class RouteDetailsService {
-  getRouteDetails(id) {
-    throw new Error('Method not implemented.')
+  async getRouteDetails(id) {
+    const res = await dbContext.RouteDetail.find({ id }).populate('creator')
+    return res
   }
 
-  editRouteDetails(body) {
-    throw new Error('Method not implemented.')
+  async editRouteDetails(routeId, body) {
+    const res = await dbContext.RouteDetail.findByIdAndUpdate(routeId, body)
+    return res.populate('creator')
   }
 
-  createRouteDeatils(body) {
-    throw new Error('Method not implemented.')
+  async createRouteDeatils(body) {
+    const res = await dbContext.RouteDetail.create(body)
+    return res.populate('creator')
   }
 
-  removeRouteDetails(id) {
-    throw new Error('Method not implemented.')
+  async removeRouteDetails(id) {
+    const res = await dbContext.RouteDetail.findByIdAndDelete({ id })
+    return res
   }
 }
 

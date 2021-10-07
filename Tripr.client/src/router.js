@@ -22,9 +22,9 @@ const routes = [
     component: loadPage('TripPage'),
     children: [
       {
-        path: 'members',
-        name: 'Trip.Members',
-        component: loadPage('TripMembersPage')
+        path: 'travelers',
+        name: 'Trip.Travelers',
+        component: loadPage('TripTravelersPage')
 
       },
       {
@@ -36,6 +36,11 @@ const routes = [
         path: 'routes',
         name: 'Trip.Routes',
         component: loadPage('TripRoutesPage')
+      },
+      {
+        path: 'routes/:routeId',
+        name: 'Trip.RouteDetails',
+        component: loadPage('TripRouteDetailsPage')
       }
     ]
   },

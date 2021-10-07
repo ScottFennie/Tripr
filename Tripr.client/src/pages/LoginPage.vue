@@ -12,18 +12,18 @@
       <div class="row my-2">
         <div class="col d-flex flex-column align-items-center p-0 w-100">
           <button
-            class="btn bg-light thread-button mb-2"
+            class="btn bg-body thread-button mb-4"
             @click="login"
           >
-            <h3>
+            <h3 class="btn-center bg-light">
               Login
             </h3>
           </button>
           <button
-            class="btn bg-light thread-button"
+            class="btn bg-body thread-button"
             @click="login"
           >
-            <h4>
+            <h4 class="btn-center bg-light">
               About
             </h4>
           </button>
@@ -66,6 +66,7 @@ p {
 }
 .logo {
   width: 45vw;
+  filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
 }
 h1,h2 {
   font-family: museo-slab,serif;
@@ -79,6 +80,7 @@ h3 {
   font-size: 2rem;
   font-weight: 300;
   color: #6d7746;
+  margin-bottom: 0;
 }
 h4 {
   font-family: museo-slab,serif;
@@ -89,7 +91,14 @@ h4 {
 }
 .thread-button {
   width: 40%;
-  border: 4px dashed;
+  border: 3px dashed #f2f2f2;
+  border-radius: 10px;
+  padding: .25rem;
+}
+.btn-center {
+  padding: .25rem .25rem;
+  border-radius: 10px;
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
 .login{
   margin-top: 20vh;

@@ -12,6 +12,34 @@ const routes = [
     component: loadPage('LoginPage')
   },
   {
+    path: '/trips',
+    name: 'Trips',
+    component: loadPage('TripsPage')
+  },
+  {
+    path: '/trips/:tripId',
+    name: 'Trip',
+    component: loadPage('TripPage'),
+    children: [
+      {
+        path: 'members',
+        name: 'Trip.Members',
+        component: loadPage('TripMembersPage')
+
+      },
+      {
+        path: 'supplies',
+        name: 'Trip.Supplies',
+        component: loadPage('TripSuppliesPage')
+      },
+      {
+        path: 'routes',
+        name: 'Trip.Routes',
+        component: loadPage('TripRoutesPage')
+      }
+    ]
+  },
+  {
     path: '/about',
     name: 'About',
     component: loadPage('AboutPage')
@@ -20,7 +48,12 @@ const routes = [
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
-    beforeEnter: authGuard
+    beforeEnter: authGuard,
+    children: [{
+      path: 'trips',
+      name: 'Account.Trips',
+      component: loadPage('AccountTripsPage')
+    }]
   }
 ]
 

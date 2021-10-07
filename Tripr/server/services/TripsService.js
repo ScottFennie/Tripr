@@ -36,12 +36,19 @@ class TripsService {
     return trip
   }
 
-  async removeTrip(tripId, userId) {
-    const trip = await this.getTripById(tripId)
-    if (userId !== trip.creatorId.toString()) {
-      throw new Forbidden('you cant do that')
+  // async removeTrip(tripId, userId) {
+  //   const trip = await this.getTripById(tripId)
+  //   if (userId !== trip.creatorId.toString()) {
+  //     throw new Forbidden('you cant do that')
+  //   }
+  //   await trip.delete()
+  //   return trip
+  // }
+  async removeTrip(id) {
+    const trip = await dbContext.Trip.findByIdAndDelete({ id })
+    if (!trip) {
+      throw new BadRequest('Not the trip Id')
     }
-    await trip.remove()
     return trip
   }
 }

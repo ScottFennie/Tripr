@@ -8,10 +8,10 @@ export class TripsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getTrips)
-      .get('/tripId', this.getTripById)
+      .get('/:tripId', this.getTripById)
       .post('', this.createTrip)
-      .put('/tripId', this.editTrip)
-      .delete('/tripId', this.removeTrip)
+      .put('/:tripId', this.editTrip)
+      .delete('/:tripId', this.removeTrip)
   }
 
   async getTrips(req, res, next) {

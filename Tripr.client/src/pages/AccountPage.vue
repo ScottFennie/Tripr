@@ -11,8 +11,8 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <img class="patch mb-5" src="../assets/img/create.png" alt="Create Trip">
-      <img class="patch" src="../assets/img/join.png" alt="Join Trip">
+      <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
+      <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip">
     </div>
     <div class="mt-5 row align-items-end justify-content-between">
       <div class="col-6">
@@ -83,4 +83,12 @@ h2 {
   color: #A28558;
     text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
 }
+.cool-button{
+
+}
+.cool-button:hover{
+cursor: pointer;
+ transform: scale(1.03);
+}
+
 </style>

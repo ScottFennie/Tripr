@@ -41,7 +41,7 @@ class TripsService {
     if (userId !== trip.creatorId.toString()) {
       throw new Forbidden('you cant do that')
     }
-    await trip.remove()
+    await trip.delete()
     return trip
   }
 }

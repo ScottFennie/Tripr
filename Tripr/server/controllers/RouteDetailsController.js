@@ -54,7 +54,7 @@ export class RouteDetailsController extends BaseController {
 
   async getRouteDetails(req, res, next) {
     try {
-      const route = await routeDetailsService.getRouteDetails(req.params.id)
+      const route = await routeDetailsService.getRouteDetails()
       res.send(route)
     } catch (error) {
       next(error)

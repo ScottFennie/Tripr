@@ -6,7 +6,7 @@ export const SuppliesSchema = new Schema({
   isBringing: { type: Boolean, default: false },
   tripId: { type: Schema.Types.ObjectId, required: true, ref: 'Trip' },
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
-  travlerId: { type: Schema.Types.ObjectId, required: true, ref: 'Travler' }
+  travlerId: { type: Schema.Types.ObjectId, ref: 'Travler' }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
 SuppliesSchema.virtual('trip', {

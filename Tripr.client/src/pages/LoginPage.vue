@@ -19,13 +19,15 @@
               Login
             </h3>
           </button>
+
           <button
             class="btn bg-body thread-button"
-            @click="login"
           >
-            <h4 class="btn-center bg-light">
-              About
-            </h4>
+            <router-link :to="{ name: 'About' }" class="">
+              <h4 class="btn-center bg-light">
+                About
+              </h4>
+            </router-link>
           </button>
         </div>
       </div>

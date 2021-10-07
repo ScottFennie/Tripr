@@ -21,7 +21,6 @@
           </button>
           <button
             class="btn bg-body thread-button"
-            @click="login"
           >
             <h4 class="btn-center bg-light">
               About
@@ -45,12 +44,14 @@
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
+import { router } from '../router'
 export default {
   setup() {
     return {
       user: computed(() => AppState.user),
       async login() {
         AuthService.loginWithPopup()
+        router.push({ name: 'Account' })
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })

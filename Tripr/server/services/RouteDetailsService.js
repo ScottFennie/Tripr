@@ -3,15 +3,15 @@ import { BadRequest } from '../utils/Errors'
 
 class RouteDetailsService {
   async getRouteById(id) {
-    const res = await dbContext.RouteDetail.findById({ id })
+    const res = await dbContext.RouteDetail.findById(id)
     if (!res) {
       throw new BadRequest('No route by that Id')
     }
     return res
   }
 
-  async getRouteDetails(id) {
-    const res = await dbContext.RouteDetail.find({ id }).populate('creator')
+  async getRouteDetails() {
+    const res = await dbContext.RouteDetail.find().populate('creator')
     if (!res) {
       throw new BadRequest('No route by that Id')
     }
@@ -32,7 +32,7 @@ class RouteDetailsService {
   }
 
   async removeRouteDetails(id) {
-    const res = await dbContext.RouteDetail.findByIdAndDelete({ id })
+    const res = await dbContext.RouteDetail.findByIdAndDelete(id)
     if (!res) {
       throw new BadRequest('No route by that Id')
     }

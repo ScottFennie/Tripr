@@ -8,9 +8,19 @@ export class RouteDetailsController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getRouteDetails)
-      .put('/id', this.editRouteDetails)
+      .get('/:id', this.getRouteById)
+      .put('/:id', this.editRouteDetails)
       .post('', this.createRouteDeatils)
-      .delete('/id', this.removeRouteDetails)
+      .delete('/:id', this.removeRouteDetails)
+  }
+
+  async getRouteById(req, res, next) {
+    try {
+      const route = await routeDetailsService.getRouteById(req.params.id)
+      res.send(route)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async removeRouteDetails(req, res, next) {

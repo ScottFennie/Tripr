@@ -47,12 +47,14 @@
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
+import { router } from '../router'
 export default {
   setup() {
     return {
       user: computed(() => AppState.user),
       async login() {
         AuthService.loginWithPopup()
+        router.push({ name: 'Account' })
       },
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })

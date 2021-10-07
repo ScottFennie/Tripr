@@ -1,7 +1,7 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-export const RouteDetailsSchema = new Schema(
+export const RouteDetailSchema = new Schema(
   {
     description: { type: String, required: true },
     location: { type: Number, required: true },
@@ -11,7 +11,7 @@ export const RouteDetailsSchema = new Schema(
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-RouteDetailsSchema.virtual('creator', {
+RouteDetailSchema.virtual('creator', {
   localField: 'creatorId',
   foreignField: '_id',
   justOne: true,

@@ -19,12 +19,12 @@ require(['esri/config', 'esri/Map', 'esri/views/MapView'], function(esriConfig, 
 })
 
 export default {
-  props: {
-    trip: {
-      type: Trip,
-      required: true
-    }
-  },
+  // props: {
+  //   trip: {
+  //     type: Trip,
+  //     required: true
+  //   }
+  // },
   setup() {
     return {
       createMap() {

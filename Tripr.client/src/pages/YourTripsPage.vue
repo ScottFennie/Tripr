@@ -1,30 +1,48 @@
 <template>
   <div class="container-fluid bg-primary">
     <div class="row">
-      <div class="d-flex justify-content-end">
-        <h1 class="selectable t-shad2">
-          x
-        </h1>
+      <div class="col-12">
+        <div class="d-flex justify-content-end">
+          <router-link :to="{ name: 'Account' }" class="">
+            <h1 class="selectable t-shad3">
+              x
+            </h1>
+          </router-link>
+        </div>
       </div>
-      <div class="col-12 d-flex justify-content-center align-items-center head-height">
+      <div class="col-12 d-flex justify-content-center align-items-center head-height ">
         <div class="text-shadow2 t-shad2 d-flex justify-content-center align-items-center">
           <h1 class="">
             Trips
           </h1>
         </div>
       </div>
-      <div class="col-12 mt-4 d-flex justify-content-center">
-        <div class="trip-card shadow d-flex justify-content-between align-items-center">
-          <div>
-            <h2 class="d-flex align-items-center">
-              Trip Name
-            </h2>
-          </div>
-          <div>
-            <p class="d-flex align-items-center body-color m-0">
-              Date
-            </p>
-          </div>
+      <div class="col-12 d-flex justify-content-center align-items-center">
+      </div>
+      <TripCard :trip="t" v-for="t in trips" :key="t.id" />
+      <div class="col-12 d-flex justify-content-center box-bottom-shadow rounded p-0" v-if="trips.length > 2">
+        <i class=" t-shad3 mdi mdi-menu-down f-30"></i>
+      </div>
+    </div>
+    <div class="row bg-primary">
+      <div class="col-12 d-flex flex-column">
+        <div class="text-center">
+          <p class="mt-2 mb-0 t-shad3">
+            Past trips
+          </p>
+        </div>
+        <div class="text-center t-shad3">
+          <h2>Summer Trip</h2>
+        </div>
+        <div class="text-center body-color">
+          <h5>June 6, 2021</h5>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="card shadow">
+          <Map />
         </div>
       </div>
     </div>
@@ -32,7 +50,15 @@
 </template>
 
 <script>
+import { computed } from '@vue/runtime-core'
+import { AppState } from '../AppState'
 export default {
+  setup() {
+    return {
+      trips: computed(() => AppState.trips)
+
+    }
+  }
 
 }
 </script>
@@ -55,7 +81,7 @@ export default {
   color: #A28558;
   background-color: #CCA363;
     text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
-    width: 75vw;
+    width: 85vw;
     height: 7vh;
 }
 
@@ -69,5 +95,18 @@ export default {
 .t-shad2{
 
   text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+.bg-color{
+background-color: #CCA363;
+height: 100%;
+}
+.t-shad3{
+color: #A28558;
+text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
+}
+.box-bottom-shadow {
+-webkit-box-shadow: 0 8px 6px -6px black;
+-moz-box-shadow: 0 8px 6px -6px black;
+ box-shadow: 0 4px 6px -6px black;
 }
 </style>

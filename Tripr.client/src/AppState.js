@@ -13,7 +13,14 @@ export const AppState = reactive({
     {
       title: "The Boi's Trip",
       travelType: 'Camping',
-      id: 1
+      id: 1,
+      startDate: '11/20/2020'
+    },
+    {
+      title: 'The Dudes Trip',
+      travelType: 'Camping',
+      id: 1,
+      startDate: '11/30/2020'
     }
   ]
 })

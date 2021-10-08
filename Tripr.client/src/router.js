@@ -19,31 +19,30 @@ const routes = [
   {
     path: '/trips/:tripId',
     name: 'Trip',
-    component: loadPage('TripPage'),
-    children: [
-      {
-        path: 'travelers',
-        name: 'Trip.Travelers',
-        component: loadPage('TripTravelersPage')
-
-      },
-      {
-        path: 'supplies',
-        name: 'Trip.Supplies',
-        component: loadPage('TripSuppliesPage')
-      },
-      {
-        path: 'routes',
-        name: 'Trip.Routes',
-        component: loadPage('TripRoutesPage')
-      },
-      {
-        path: 'routes/:routeId',
-        name: 'Trip.RouteDetails',
-        component: loadPage('TripRouteDetailsPage')
-      }
-    ]
+    component: loadPage('TripPage')
   },
+  {
+    path: '/trips/:tripId/travelers',
+    name: 'Trip.Travelers',
+    component: loadPage('TripTravelersPage')
+
+  },
+  {
+    path: '/trips/:tripId/supplies',
+    name: 'Trip.Supplies',
+    component: loadPage('TripSuppliesPage')
+  },
+  {
+    path: '/trips/:tripId/routes',
+    name: 'Trip.Routes',
+    component: loadPage('TripRoutesPage')
+  },
+  {
+    path: '/trips/:tripId/routes/:routeId',
+    name: 'Trip.RouteDetails',
+    component: loadPage('TripRouteDetailsPage')
+  },
+
   {
     path: '/about',
     name: 'About',

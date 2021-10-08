@@ -8,7 +8,7 @@
         </div>
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>
-          <input type="location" class="form-control" id="location">
+          <input type="text" class="form-control" id="location">
         </div>
         <select class="form-select" aria-label="Travel type">
           <option selected>

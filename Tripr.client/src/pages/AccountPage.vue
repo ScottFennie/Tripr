@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
+      <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip" data-bs-toggle="modal" data-bs-target="#create-modal">
       <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
     </div>
     <div class="mt-5 row align-items-end justify-content-between">
@@ -39,6 +39,7 @@
       <h5>New Road Trip!</h5>
     </template>
     <template #modal-body>
+      <CreateTripForm />
     </template>
   </Modal>
   <Modal id="join-modal">

@@ -34,6 +34,20 @@
       </div>
     </div>
   </div>
+  <Modal id="create-modal">
+    <template #modal-title>
+      <h5>New Road Trip!</h5>
+    </template>
+    <template #modal-body>
+    </template>
+  </Modal>
+  <Modal id="join-modal">
+    <template #modal-title>
+      <h5>Join a Road Trip!</h5>
+    </template>
+    <template #modal-body>
+    </template>
+  </Modal>
 </template>
 
 <script>

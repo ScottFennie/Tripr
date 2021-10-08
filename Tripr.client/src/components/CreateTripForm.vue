@@ -3,7 +3,7 @@
     <div class="form-group">
       <label for="title" class="sr-only">Trip Name:</label>
       <input type="text"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="title"
              id="title"
              placeholder="For Da Boi's"
@@ -12,7 +12,7 @@
       >
       <label for="description" class="sr-only">Trip Description:</label>
       <input type="text"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="description"
              id="descrition"
              placeholder="For Da Boi's"
@@ -20,7 +20,7 @@
       >
       <label for="location" class="sr-only">How Many Stops:</label>
       <input type="number"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="location"
              id="location"
              placeholder="For Da Boi's"
@@ -28,14 +28,14 @@
       >
       <label for="startDate" class="sr-only">How long is the Trip:</label>
       <input type="date"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="startDate"
              id="startDate"
              placeholder="Start Today"
              v-model="editable.startDate"
       >
       <label for="travelType" class="sr-only">Type of Outing:</label>
-      <select class="form-control bg-secondary"
+      <select class="form-control bg-primary"
               name="travelType"
               id="travelType"
               required

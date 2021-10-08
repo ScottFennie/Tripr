@@ -4,7 +4,7 @@ import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
 import { api } from './AxiosService'
 
-class TripService {
+class TripsService {
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
     logger.log('new Trip', res)
@@ -12,4 +12,4 @@ class TripService {
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
   }
 }
-export const tripService = new TripService()
+export const tripsService = new TripsService()

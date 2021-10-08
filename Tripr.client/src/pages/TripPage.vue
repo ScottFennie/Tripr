@@ -13,28 +13,28 @@
       <Map class="map" />
     </div>
     <div class="row">
-      <div class="bottom travelers bg-body">
+      <div @click="goToTravelersPage" class="bottom travelers">
+        <img class="negative-margin" src="../assets/img/travelers-bg_2.png" alt="">
+        <img class="travelers-bg" src="../assets/img/travelers-bg.png" alt="">
+        <i class="mdi mdi-account-multiple travelers-logo"></i>
       </div>
-      <div class="bottom travelers-shadow">
-      </div>
-      <div class="bottom supplies bg-secondary">
-        <h2 class="supplies-text">
+      <div class="bottom supplies">
+        <img class="" src="../assets/img/supplies-bg.png" style="width:100vw;" alt="">
+        <h2 @click="goToSuppliesPage" class="selectable supplies-text">
           Supplies
           <svg style="width:36px;height:36px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
           </svg>
         </h2>
         <div class="join-code">
-          <h3 class="text-light">
+          <h6 class="mb-0">
             Join Code:
-          </h3>
-          <h2 class="text-secondary darken-30">
+          </h6>
+          <h3 @click="copyText" id="join-code" class="trip-code">
             <!-- {{ trip.tripCode }} -->
             H5FRP
-          </h2>
+          </h3>
         </div>
-      </div>
-      <div class="bottom supplies-shadow">
       </div>
     </div>
   </div>
@@ -43,17 +43,44 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { tripService } from '../services/TripService'
+import Pop from '../utils/Pop'
+import { router } from '../router'
 export default {
   setup() {
     return {
       trip: computed(() => AppState.currentTrip),
-      account: computed(() => AppState.account)
+      account: computed(() => AppState.account),
+      async goToSuppliesPage() {
+        try {
+          router.push({ name: 'Trip.Supplies' })
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      async goToTravelersPage() {
+        try {
+          router.push({ name: 'Trip.Travelers' })
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      copyText() {
+        try {
+          tripService.copyText()
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
     }
   }
 }
 </script>
 
 <style scoped lang='scss'>
+.negative-margin {
+  margin-left: -15px;
+}
 .map {
   z-index: 0;
   height: 90vh;
@@ -75,10 +102,8 @@ export default {
    -webkit-text-stroke: 1px #4A502F;
 }
 .supplies {
-  z-index: 5;
-  clip-path: polygon(0 80%, 100% 45%, 100% 100%, 0% 100%);
-  height: 50vh;
   width: 100vw;
+  z-index: 5;
 }
 .supplies-shadow {
   z-index: 4;
@@ -100,28 +125,46 @@ export default {
   position: absolute;
   bottom: 10px;
   left: 25px;
-  font-family: 'Roboto';
+  font-family: 'museo-slab', serif;
 }
-h2 {
-
+h3 {
+  font-weight: 600;
+  color: #4A502F;
+}
+h6 {
+  color: #A9B37F;
 }
 .travelers {
   z-index: 3;
-  clip-path: polygon(0 45%, 100% 80%, 100% 100%, 0% 100%);
-  height: 50vh;
+  height: 55vh;
   width: 100vw;
 }
 .travelers-shadow {
   z-index: 2;
   content: "";
   background: rgba(0, 0, 0, .25);
-  height: 52vh;
+  height: 57vh;
   width: 100vw;
   clip-path: polygon(0 45%, 100% 80%, 100% 100%, 0% 100%)
+}
+.travelers-bg {
+  position: absolute;
+  bottom: 130px;
+  left: 15px;
+  width: 20vw;
+  filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
+}
+.travelers-logo {
+  position: absolute;
+    bottom: 138px;
+    left: 33px;
+    font-size: 2.3rem;
+    color: #e7debe;
+    text-shadow: 2px 1px 2px rgba(194, 194, 194, 0.5);
+    -webkit-text-stroke: 1px #e7debe;
 }
 .bottom {
   position: absolute;
   bottom: 0;
-
 }
 </style>

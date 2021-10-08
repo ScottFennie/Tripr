@@ -15,5 +15,8 @@ export const AppState = reactive({
       travelType: 'Camping',
       id: 1
     }
-  ]
+  ],
+  supplies: [],
+  routeDetails: [],
+  travelers: []
 })

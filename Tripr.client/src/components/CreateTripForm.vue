@@ -49,15 +49,14 @@
 
 <script>
 import { ref } from '@vue/reactivity'
-import { useRoute } from 'vue-router'
 import { watchEffect } from '@vue/runtime-core'
+import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 export default {
-  props: {
-    trip: { type: Trip }
-  },
+//   props: {
+//     trip: { type: Trip }
+//   },
   setup(props) {
-    const route = useRoute()
     const editable = ref({})
     watchEffect(() => {
       editable.value = { ...props.trip }

@@ -26,6 +26,14 @@
              placeholder="For Da Boi's"
              v-model="editable.location"
       >
+      <label for="startDate" class="sr-only">How long is the Trip:</label>
+      <input type="date"
+             class="form-control bg-secondary"
+             name="startDate"
+             id="startDate"
+             placeholder="Start Today"
+             v-model="editable.startDate"
+      >
       <label for="travelType" class="sr-only">Type of Outing:</label>
       <select class="form-control bg-secondary"
               name="travelType"

@@ -1,7 +1,6 @@
 import { AppState } from '../AppState'
 import { router } from '../router'
 import { logger } from '../utils/Logger'
-import Pop from '../utils/Pop'
 import { api } from './AxiosService'
 
 class TripsService {

@@ -37,6 +37,7 @@ class SuppliesService {
     }
     supply.description = suppliesData.description || supply.description
     supply.isBringing = suppliesData.isBringing || supply.isBringing
+    supply.quantity = suppliesData.quantity || supply.quantity
     await supply.save()
     return supply
   }

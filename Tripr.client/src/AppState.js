@@ -22,5 +22,8 @@ export const AppState = reactive({
       id: 1,
       startDate: '11/30/2020'
     }
-  ]
+  ],
+  supplies: [],
+  routeDetails: [],
+  travelers: []
 })

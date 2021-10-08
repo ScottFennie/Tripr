@@ -53,12 +53,19 @@ const routes = [
     path: '/account',
     name: 'Account',
     component: loadPage('AccountPage'),
-    beforeEnter: authGuard,
-    children: [{
-      path: 'trips',
-      name: 'Account.Trips',
-      component: loadPage('AccountTripsPage')
-    }]
+    beforeEnter: authGuard
+  },
+  {
+    path: '/account/trips',
+    name: 'YourTrips',
+    component: loadPage('YourTripsPage'),
+    beforeEnter: authGuard
+  },
+  {
+    path: '/account/createtrip',
+    name: 'CreateTrip',
+    component: loadPage('CreateTripPage'),
+    beforeEnter: authGuard
   }
 ]
 

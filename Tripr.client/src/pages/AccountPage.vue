@@ -2,12 +2,12 @@
   <div class="container-fluid bg-secondary account">
     <div class="row justify-content-center">
       <div class="mt-4 account-info bg-body">
-        <h2>
+        <h2 v-if="account">
           {{ account.name }}
         </h2>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
-        <img :src="account.picture" alt="account picture">
+        <img v-if="account" :src="account.picture" alt="account picture">
       </div>
     </div>
     <div class="row justify-content-center">
@@ -17,9 +17,11 @@
     <div class="mt-5 row align-items-end justify-content-between">
       <div class="col-6">
         <button type="button" class="shadow btn bg-primary w-100">
-          <h2 class="text-shadow">
-            Trips
-          </h2>
+          <router-link :to="{ name: 'YourTrips' }" class="">
+            <h2 class="text-shadow">
+              Trips
+            </h2>
+          </router-link>
         </button>
       </div>
       <div class="d-flex col-6 pe-4 justify-content-end">

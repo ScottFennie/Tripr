@@ -2,9 +2,9 @@
   <div class="container-fluid bg-secondary account">
     <div class="row justify-content-center">
       <div class="mt-4 account-info bg-body">
-        <h2 v-if="account">
+        <h4 class="mt-2" v-if="account">
           {{ account.name }}
-        </h2>
+        </h4>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
         <img v-if="account" :src="account.picture" alt="account picture" class="accountPicture rounded-circle">
@@ -110,7 +110,7 @@ cursor: pointer;
 }
 
 .accountPicture{
-  height: 64px;
-  width: 64px;
+  height: 48px;
+  width: 48px;
 }
 </style>

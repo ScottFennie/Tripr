@@ -4,9 +4,9 @@
       <div class="col-12">
         <div class="d-flex justify-content-end">
           <router-link :to="{ name: 'Account' }" class="">
-            <h1 class="selectable t-shad3">
+            <h2 class="selectable t-shad3">
               x
-            </h1>
+            </h2>
           </router-link>
         </div>
         <div class="d-flex justify-content-center my-0">
@@ -23,7 +23,7 @@
     </div>
     <div class="row bg-primary">
       <div class="col-12 d-flex justify-content-center box-bottom-shadow rounded p-0" v-if="trips.length >= 2">
-        <i class=" t-shad3 mdi mdi-menu-down f-30"></i>
+        <i class=" t-shad3 mdi mdi-menu-down f-30 "></i>
       </div>
       <div class="col-12 d-flex flex-column">
         <div class="text-center">

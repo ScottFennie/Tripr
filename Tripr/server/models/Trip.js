@@ -7,7 +7,8 @@ export const TripSchema = new Schema(
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
     description: { type: String, required: true },
     location: { type: Array, required: true },
-    travelType: { type: String, enum: ['Foot', 'Road', 'Camping'], required: true }
+    travelType: { type: String, enum: ['Foot', 'Road', 'Camping'], required: true },
+    startDate: { type: Date }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

@@ -55,9 +55,6 @@ export default {
       async login() {
         AuthService.loginWithPopup()
         router.push({ name: 'Account' })
-      },
-      async logout() {
-        AuthService.logout({ returnTo: window.location.origin })
       }
     }
   }

@@ -1,12 +1,13 @@
 <template>
-  <button @click="createMap">
+  <!-- <button @click="createMap">
     Create Map
-  </button>
+  </button> -->
   <div id="map">
   </div>
 </template>
 
 <script>
+import { onMounted } from '@vue/runtime-core'
 // import { onMounted } from '@vue/runtime-core'
 // import { loadModules } from 'esri-loader'
 
@@ -26,19 +27,22 @@ export default {
   //   }
   // },
   setup() {
-    return {
-      createMap() {
-        const map = new Map({
-          basemap: 'arcgis-topographic' // Basemap layer service
-        })
+    onMounted(async() => {
+      // createMap() {
+      const map = new Map({
+        basemap: 'arcgis-topographic' // Basemap layer service
+      })
 
-        const view = new MapView({
-          map: map,
-          center: [-118.805, 34.027], // Longitude, latitude
-          zoom: 13, // Zoom level
-          container: 'map' // Div element
-        })
-      }
+      const view = new MapView({
+        map: map,
+        center: [-118.805, 34.027], // Longitude, latitude
+        zoom: 13, // Zoom level
+        container: 'map' // Div element
+      })
+      // }
+    })
+    return {
+
     }
   }
 }
@@ -46,6 +50,7 @@ export default {
 
 <style lang="scss" scoped>
   #map {
+    padding: 0;
     min-height: 50vh;
     min-width: 50vw;
   }

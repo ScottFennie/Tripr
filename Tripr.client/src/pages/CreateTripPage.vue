@@ -4,7 +4,7 @@
       <form>
         <div class="mb-3">
           <label for="title" class="form-label">Title</label>
-          <input type="title" class="form-control" id="title">
+          <input type="title" class="form-control" id="title" minlength="3" maxlength="15">
         </div>
         <div class="mb-3">
           <label for="location" class="form-label">Location</label>

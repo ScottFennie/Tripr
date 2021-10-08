@@ -1,22 +1,21 @@
 import mongoose from 'mongoose'
 const Schema = mongoose.Schema
 
-export const TravlerSchema = new Schema(
+export const TravelerSchema = new Schema(
   {
     tripId: { type: Schema.Types.ObjectId, ref: 'Trip', required: true },
-    accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
-    athorization: { type: String, required: true }
+    accountId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )
 
-TravlerSchema.virtual('creator', {
+TravelerSchema.virtual('creator', {
   localField: 'accountId',
   foreignField: '_id',
   justOne: true,
   ref: 'Account'
 })
-TravlerSchema.virtual('trip', {
+TravelerSchema.virtual('trip', {
   localField: 'tripId',
   foreignField: '_id',
   justOne: true,

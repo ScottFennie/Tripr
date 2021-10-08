@@ -7,7 +7,7 @@
         </h2>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
-        <img v-if="account" :src="account.picture" alt="account picture">
+        <img v-if="account" :src="account.picture" alt="account picture" class="accountPicture rounded-circle">
       </div>
     </div>
     <div class="row justify-content-center">
@@ -108,4 +108,8 @@ cursor: pointer;
  transform: scale(1.03);
 }
 
+.accountPicture{
+  height: 64px;
+  width: 64px;
+}
 </style>

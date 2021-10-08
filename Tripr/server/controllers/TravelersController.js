@@ -7,8 +7,18 @@ export class TravelersController extends BaseController {
     super('api/trips/:tripId/travelers')
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
+      .get('', this.getTravelers)
       .post('', this.addTraveler)
       .delete('/:id', this.removeTraveler)
+  }
+
+  async getTravelers(req, res, next) {
+    try {
+      const traveler = await travelersService.getTravelers()
+      res.send(traveler)
+    } catch (error) {
+      next(error)
+    }
   }
 
   async removeTraveler(req, res, next) {

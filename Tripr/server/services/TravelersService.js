@@ -2,9 +2,19 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class TravelersService {
+  async getTravelers() {
+    const res = await dbContext.Travler.find()
+    if (!res) {
+      throw new BadRequest('No travelers')
+    }
+    return res
+  }
+
   async addTraveler(body) {
     const res = await dbContext.Travler.create(body)
-    return res.populate('creator').populate('trip')
+    res.populate('creator')
+    res.populate('trip')
+    return res
   }
 
   async removeTraveler(id) {

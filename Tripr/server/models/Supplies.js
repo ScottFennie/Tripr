@@ -4,6 +4,7 @@ const Schema = mongoose.Schema
 export const SuppliesSchema = new Schema({
   description: { type: String, required: true },
   isBringing: { type: Boolean, default: false },
+  quantity: { type: Number, min: 1 },
   tripId: { type: Schema.Types.ObjectId, required: true, ref: 'Trip' },
   creatorId: { type: Schema.Types.ObjectId, required: true, ref: 'Account' },
   travlerId: { type: Schema.Types.ObjectId, ref: 'Travler' }

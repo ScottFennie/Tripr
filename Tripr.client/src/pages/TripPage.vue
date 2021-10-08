@@ -24,6 +24,15 @@
             <path fill="currentColor" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
           </svg>
         </h2>
+        <div class="join-code">
+          <h3 class="text-light">
+            Join Code:
+          </h3>
+          <h2 class="text-secondary darken-30">
+            <!-- {{ trip.tripCode }} -->
+            H5FRP
+          </h2>
+        </div>
       </div>
       <div class="bottom supplies-shadow">
       </div>
@@ -84,10 +93,17 @@ export default {
     bottom: 50px;
     right: 45px;
     color: #cca363;
+    font-family: 'museo-slab',serif;
+    font-size: 2.1rem;
+}
+.join-code {
+  position: absolute;
+  bottom: 10px;
+  left: 25px;
+  font-family: 'Roboto';
 }
 h2 {
-      font-family: 'museo-slab',serif;
-    font-size: 2.1rem;
+
 }
 .travelers {
   z-index: 3;

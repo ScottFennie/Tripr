@@ -9,22 +9,22 @@
             </h1>
           </router-link>
         </div>
-      </div>
-      <div class="col-12 d-flex justify-content-center align-items-center head-height ">
-        <div class="text-shadow2 t-shad2 d-flex justify-content-center align-items-center">
-          <h1 class="">
-            Trips
-          </h1>
+        <div class="d-flex justify-content-center my-0">
+          <div class="text-shadow2 t-shad2 d-flex justify-content-center align-items-center">
+            <h1 class="py-0">
+              Trips
+            </h1>
+          </div>
         </div>
       </div>
-      <div class="col-12 d-flex justify-content-center align-items-center">
-      </div>
+    </div>
+    <div class="row d-flex justify-content-center row-h">
       <TripCard :trip="t" v-for="t in trips" :key="t.id" />
-      <div class="col-12 d-flex justify-content-center box-bottom-shadow rounded p-0" v-if="trips.length > 2">
-        <i class=" t-shad3 mdi mdi-menu-down f-30"></i>
-      </div>
     </div>
     <div class="row bg-primary">
+      <div class="col-12 d-flex justify-content-center box-bottom-shadow rounded p-0" v-if="trips.length >= 2">
+        <i class=" t-shad3 mdi mdi-menu-down f-30"></i>
+      </div>
       <div class="col-12 d-flex flex-column">
         <div class="text-center">
           <p class="mt-2 mb-0 t-shad3">
@@ -82,11 +82,11 @@ export default {
   background-color: #CCA363;
     text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
     width: 85vw;
-    height: 7vh;
+    height: 6vh;
 }
 
 .head-height{
-    height: 5vh;
+    height: 3vh;
 }
 .body-color{
     color: #E7DEBE;
@@ -108,5 +108,9 @@ text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
 -webkit-box-shadow: 0 8px 6px -6px black;
 -moz-box-shadow: 0 8px 6px -6px black;
  box-shadow: 0 4px 6px -6px black;
+}
+.row-h{
+    max-height: 20vh;
+    overflow: auto;
 }
 </style>

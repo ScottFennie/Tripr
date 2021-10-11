@@ -10,7 +10,7 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
-Travler = mongoose.model('Travler', TravelerSchema);
+Traveler = mongoose.model('Traveler', TravelerSchema);
 Trip = mongoose.model('Trip', TripSchema);
 Supplies = mongoose.model('Supplies', SuppliesSchema);
 

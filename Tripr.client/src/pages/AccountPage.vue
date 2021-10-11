@@ -1,10 +1,13 @@
 <template>
   <div class="container-fluid bg-secondary account">
-    <div class="row justify-content-center">
+    <div class="row account-info-wrapper justify-content-center">
       <div class="mt-4 account-info bg-body">
-        <h4 class="mt-2" v-if="account">
-          {{ account.name }}
-        </h4>
+        <div class="d-flex justify-content-between align-content-center">
+          <h4 class="mt-2 font-m" v-if="account">
+            {{ account.name }}
+          </h4>
+          <img class="pin mt-3" src="../assets/img/pin.png" alt="nope">
+        </div>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
         <img v-if="account" :src="account.picture" alt="account picture" class="accountPicture rounded-circle">
@@ -16,7 +19,7 @@
     </div>
     <div class="mt-5 row align-items-end justify-content-between">
       <div class="col-6">
-        <button type="button" class="shadow btn bg-primary w-100">
+        <button type="button" class="ms-2 shadow btn bg-primary w-100">
           <router-link :to="{ name: 'YourTrips' }" class="">
             <h2 class="text-shadow">
               Trips
@@ -80,8 +83,15 @@ h2 {
   font-weight: 600;
   margin-bottom: 0;
 }
+.font-m{
+  font-family: museo-slab,serif;
+  font-weight: 600;
+}
 .account {
   height: 100vh;
+}
+.account-info-wrapper{
+  filter: drop-shadow(0px 5px 5px rgba(20, 19, 20, 0.25));
 }
 .account-info {
   border-radius: 10px;
@@ -89,6 +99,9 @@ h2 {
   width: 90vw;
   height: 35vh;
   margin-bottom: -60px;
+//  -moz-box-shadow:    inset 0 0 10px #000000;
+//    -webkit-box-shadow: inset 0 0 10px #000000;
+//    box-shadow:         inset 0 0 10px #000000;
 }
 .patch {
   width: 55vw;
@@ -99,7 +112,7 @@ h2 {
   padding: .5rem 1rem;
   border: 3px dashed rgba(255,255,255,0.5);
   color: #A28558;
-    text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
+  text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
 }
 .cool-button{
 
@@ -112,5 +125,14 @@ cursor: pointer;
 .accountPicture{
   height: 48px;
   width: 48px;
+}
+.inset{
+     -moz-box-shadow:    inset 0 0 10px #000000;
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px #000000;
+}
+.pin{
+height: 32px;
+width: 42px;
 }
 </style>

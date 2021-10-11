@@ -4,7 +4,7 @@ import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
 class TravelersService {
-  async getAllTravlers(tripId) {
+  async getAllTravelers(tripId) {
     try {
       const res = await api.get(`api/trips/${tripId}/travelers`)
       AppState.travelers = []
@@ -14,7 +14,7 @@ class TravelersService {
     }
   }
 
-  async createTravler(tripId, travelerData) {
+  async createTraveler(tripId, travelerData) {
     try {
       const res = await api.post(`api/trips/${tripId}/travelers`, travelerData)
       AppState.travelers.push(new Traveler(res.data))
@@ -23,7 +23,7 @@ class TravelersService {
     }
   }
 
-  async removeTravler(tripId, travelerId) {
+  async removeTraveler(tripId, travelerId) {
     try {
       const res = await api.delete(`api/trips/${tripId}/travelers/${travelerId}`)
       const foundIndex = AppState.travelers.findIndex({ travelerId })

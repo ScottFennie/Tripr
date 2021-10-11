@@ -1,3 +1,4 @@
+import { AppState } from '../AppState'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
@@ -5,6 +6,7 @@ class SuppliesService {
   async createSupplies(newSupply, tripId) {
     const res = await api.post(`api/trips/${tripId}/supplies`, newSupply)
     logger.log('created supply', res)
+    AppState.supplies.push(res.data)
   }
 
   async editSupplies(supplyData, tripId, suppliesId) {

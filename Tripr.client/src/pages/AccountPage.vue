@@ -10,7 +10,13 @@
         </div>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
-        <img v-if="account" :src="account.picture" alt="account picture" class="accountPicture rounded-circle">
+        <img v-if="account"
+             :src="account.picture"
+             alt="account picture"
+             class="accountPicture rounded-circle"
+             data-bs-toggle="modal"
+             data-bs-target="#editprofile-modal"
+        >
       </div>
     </div>
     <div class="row justify-content-center">
@@ -43,14 +49,14 @@
       </div>
     </div>
   </div>
-  <!-- <Modal id="create-modal">
+  <Modal id="editprofile-modal">
     <template #modal-title>
-      <h5>New Road Trip!</h5>
+      <h5>Edit Profile</h5>
     </template>
     <template #modal-body>
-      <CreateTripForm />
+      <EditProfileForm />
     </template>
-  </Modal> -->
+  </Modal>
   <Modal id="join-modal">
     <template #modal-title>
       <h5>Join a Road Trip!</h5>

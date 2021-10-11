@@ -7,15 +7,30 @@
           {{ trip.title }}
         </h2>
         <p>
-          locations: {{ trip.locations }}
+          locations: {{ trip.locations.length }}
         </p>
       </div>
     </div>
   </header>
-  <Map class="map" />
+  <div>
+    <Map class="map" />
+  </div>
   <footer class="bg-light">
-    <div v-for="r in routes">
-    </div>
+    <ul class="list-group">
+      <li class="selectable list-group-item d-flex justify-content-between" v-for="l in trip.locations" :key="l.id">
+        <div class="d-flex align-items-center">
+          <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+            <path fill="#E26363" d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" />
+          </svg>
+          <h3 class="text-grey">
+            {{ (trip.locations.indexOf(l) +1) }}
+          </h3>
+        </div>
+        <h4 class="text-primary">
+          {{ l.name }}
+        </h4>
+      </li>
+    </ul>
   </footer>
 </template>
 
@@ -41,8 +56,19 @@ export default {
 }
 .map {
   z-index: 0;
-  height: 90vh;
+  height: 85vh;
   width: 100vw;
   position: absolute;
+}
+footer {
+  z-index: 2;
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  max-height: 25vh;
+  overflow-y: scroll;
+}
+li {
+
 }
 </style>

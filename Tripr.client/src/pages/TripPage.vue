@@ -94,6 +94,13 @@ export default {
 </script>
 
 <style scoped lang='scss'>
+.profile-picture {
+  border-radius: 50%;
+    width: 17vw;
+    position: absolute;
+    left: 7vw;
+    top: 3.5vh;
+}
 .map {
   z-index: 0;
   height: 90vh;

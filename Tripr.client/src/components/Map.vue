@@ -45,7 +45,7 @@ export default {
         view: view
       })
 
-      view.ui.add(coordinates, 'bottom-left')
+      view.ui.add(coordinates, 'top-right')
       // }
     })
     return {

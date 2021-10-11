@@ -13,13 +13,13 @@
       <Map class="map" />
     </div>
     <div class="row">
-      <div @click="goToTravelersPage" class="bottom travelers">
-        <img class="negative-margin" src="../assets/img/travelers-bg_2.png" alt="">
-        <img class="travelers-bg" src="../assets/img/travelers-bg.png" alt="">
+      <div class="bottom">
+        <img class="selectable bottom-card t-height" src="../assets/img/traveler-bg(updated).png" alt="">
+        <img @click="goToTravelersPage" class="travelers-bg" src="../assets/img/travelers-bg.png" alt="">
         <i class="mdi mdi-account-multiple travelers-logo"></i>
       </div>
       <div class="bottom supplies">
-        <img class="" src="../assets/img/supplies-bg.png" style="width:100vw;" alt="">
+        <img class="bottom-card s-height" src="../assets/img/supplies-bg(updated).png" style="width:100vw;" alt="">
         <h2 @click="goToSuppliesPage" class="selectable supplies-text">
           Supplies
           <svg style="width:36px;height:36px" viewBox="0 0 24 24">
@@ -78,9 +78,6 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.negative-margin {
-  margin-left: -15px;
-}
 .map {
   z-index: 0;
   height: 90vh;
@@ -136,8 +133,16 @@ h6 {
 }
 .travelers {
   z-index: 3;
-  height: 55vh;
   width: 100vw;
+}
+.t-height {
+  height: 35vh;
+}
+.s-height {
+  height: 28vh;
+}
+.bottom-card {
+  margin-left: -15px;
 }
 .travelers-shadow {
   z-index: 2;
@@ -149,15 +154,15 @@ h6 {
 }
 .travelers-bg {
   position: absolute;
-  bottom: 130px;
+  bottom: 147px;
   left: 15px;
   width: 20vw;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
 }
 .travelers-logo {
   position: absolute;
-    bottom: 138px;
-    left: 33px;
+    bottom: 160px;
+    left: 37px;
     font-size: 2.3rem;
     color: #e7debe;
     text-shadow: 2px 1px 2px rgba(194, 194, 194, 0.5);

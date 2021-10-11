@@ -1,5 +1,6 @@
 import { AppState } from '../AppState'
 import { Supplies } from '../Models/Supplies'
+import { router } from '../router'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
@@ -9,6 +10,10 @@ class SuppliesService {
     logger.log('supplies list', res.data)
     AppState.supplies = res.data.map(s => new Supplies(s))
     logger.log(AppState.supplies)
+  }
+
+  async gotoTripPage() {
+    await router.push({ name: 'Trip' })
   }
 
   async createSupplies(newSupply, tripId) {

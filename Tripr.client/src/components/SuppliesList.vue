@@ -2,19 +2,20 @@
   <div class="Supplies container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card text-center rounded shadow">
+        <div class="card text-center rounded shadow p-0 mt-2">
           <div class="card-body">
-            <span class="d-flex justify-content-between">
-              <label for="isBringing" class="sr-only"> Who wants to bring:</label>
+            <span class="d-flex justify-content-between p-0 m-0">
+              <label for="isBringing" class="sr-only">Who wants to bring:</label>
               <input type="checkbox"
                      name="isBringing"
                      id="isBringing"
+                     class="mt-2"
               >
               <p class="card-text">
                 {{ supply.description }}
               </p>
               <p class="card-text">
-                {{ supply.quantity }}
+                QTY: {{ supply.quantity }}
               </p>
             </span>
           </div>

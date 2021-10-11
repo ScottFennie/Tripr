@@ -2,7 +2,7 @@
   <div class="Supplies container-fluid">
     <div class="row my-3 p-0">
       <div class="">
-        <img class="logo" src="../assets/img/circle-logo.png" alt="Tripr Logo">
+        <img class="logo selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
       </div>
       <div class="d-flex align-items-start justify-content-end">
         <h1>Supplies</h1>
@@ -55,7 +55,14 @@ export default {
       }
     })
     return {
-      supplies: computed(() => AppState.supplies)
+      supplies: computed(() => AppState.supplies),
+      async toTripPage() {
+        try {
+          await suppliesService.gotoTripPage()
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
     }
   }
 }

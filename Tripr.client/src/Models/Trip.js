@@ -1,5 +1,6 @@
 export class Trip {
   constructor(tripData) {
+    this.jkey = tripData.jkey
     this.id = tripData.id
     this.title = tripData.title
     this.creatorId = tripData.creatorId

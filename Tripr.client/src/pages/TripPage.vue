@@ -43,7 +43,7 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
-import { tripService } from '../services/TripService'
+import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 import { router } from '../router'
 export default {
@@ -67,7 +67,7 @@ export default {
       },
       copyText() {
         try {
-          tripService.copyText()
+          tripsService.copyText()
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

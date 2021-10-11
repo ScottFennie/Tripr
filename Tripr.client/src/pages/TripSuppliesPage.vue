@@ -7,7 +7,7 @@
       <div class="col-md-8 d-flex align-items-start justify-content-end">
         <h1>Supplies</h1>
         <button title="Add Supplies" class="btn" data-bs-toggle="modal" data-bs-target="#supply-modal">
-          <i class="mdi mdi-plus"></i>
+          <i class="mdi mdi-plus f-16"></i>
         </button>
       </div>
     </div>

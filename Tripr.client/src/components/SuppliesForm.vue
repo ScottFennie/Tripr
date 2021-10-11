@@ -3,14 +3,14 @@
     <div class="form-group">
       <label for="descrtipion" class="sr-only">Item Needed: </label>
       <input type="text"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="description"
              placeholder="Item Needed"
              v-model="editable.description"
       >
       <label for="quantity" class="sr-only">Amount of Items Needed: </label>
       <input type="number"
-             class="form-control bg-secondary"
+             class="form-control bg-primary"
              name="quantity"
              placeholder="1"
              v-model="editable.quantity"

@@ -5,6 +5,12 @@
 
 <script>
 export default {
+  props: {
+    traveler: {
+      type: Object,
+      required: true
+    }
+  },
   setup() {
     return {}
   }

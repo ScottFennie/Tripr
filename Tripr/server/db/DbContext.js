@@ -2,7 +2,7 @@ import mongoose from 'mongoose'
 import { AccountSchema, ProfileSchema } from '../models/Account'
 import { RouteDetailSchema } from '../models/RouteDetail'
 import { SuppliesSchema } from '../models/Supplies'
-import { TravlerSchema } from '../models/Traveler'
+import { TravelerSchema } from '../models/Traveler'
 import { TripSchema } from '../models/Trip'
 import { ValueSchema } from '../models/Value'
 
@@ -10,7 +10,7 @@ class DbContext {
   Values = mongoose.model('Value', ValueSchema);
   Account = mongoose.model('Account', AccountSchema);
   Profiles = mongoose.model('Profile', ProfileSchema, 'accounts');
-Travler = mongoose.model('Travler', TravlerSchema);
+Traveler = mongoose.model('Traveler', TravelerSchema);
 Trip = mongoose.model('Trip', TripSchema);
 Supplies = mongoose.model('Supplies', SuppliesSchema);
 

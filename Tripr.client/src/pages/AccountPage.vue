@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <button type="button" class="ms-2 shadow btn bg-primary w-100">
+      <button type="button" class="ms-2 mb-3 btn w-100">
         <router-link :to="{ name: 'CreateTrip' }" class="">
           <h2>
             <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
@@ -23,9 +23,9 @@
         <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
       </button>
     </div>
-    <div class="mt-5 row align-items-end justify-content-between">
+    <div class="mt-1 row align-items-end justify-content-between">
       <div class="col-6">
-        <button type="button" class="ms-2 shadow btn bg-primary w-100">
+        <button type="button" class="ms-2 bg-primary btn w-100">
           <router-link :to="{ name: 'YourTrips' }" class="">
             <h2 class="text-shadow">
               Trips

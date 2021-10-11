@@ -10,7 +10,7 @@
              v-model="editable.title"
              required
       >
-      <label for="description" class="sr-only">Trip Description:</label>
+      <!-- <label for="description" class="sr-only">Trip Description:</label>
       <input type="text"
              class="form-control bg-primary"
              name="description"
@@ -25,7 +25,7 @@
              id="location"
              placeholder="For Da Boi's"
              v-model="editable.location"
-      >
+      > -->
       <label for="startDate" class="sr-only">How long is the Trip:</label>
       <input type="date"
              class="form-control bg-primary"

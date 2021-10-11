@@ -14,8 +14,14 @@
       </div>
     </div>
     <div class="row justify-content-center">
-      <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip" data-bs-toggle="modal" data-bs-target="#create-modal">
-      <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+      <button type="button" class="ms-2 shadow btn bg-primary w-100">
+        <router-link :to="{ name: 'CreateTrip' }" class="">
+          <h2>
+            <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
+          </h2>
+        </router-link>
+        <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+      </button>
     </div>
     <div class="mt-5 row align-items-end justify-content-between">
       <div class="col-6">
@@ -37,14 +43,14 @@
       </div>
     </div>
   </div>
-  <Modal id="create-modal">
+  <!-- <Modal id="create-modal">
     <template #modal-title>
       <h5>New Road Trip!</h5>
     </template>
     <template #modal-body>
       <CreateTripForm />
     </template>
-  </Modal>
+  </Modal> -->
   <Modal id="join-modal">
     <template #modal-title>
       <h5>Join a Road Trip!</h5>

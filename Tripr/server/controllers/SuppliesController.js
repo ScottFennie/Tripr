@@ -35,6 +35,7 @@ export class SuppliesController extends BaseController {
   async createSupplies(req, res, next) {
     try {
       req.body.creatorId = req.userInfo.id
+      req.body.tripId = req.params.tripId
       const supply = await suppliesService.createSupplies(req.body)
       res.send(supply)
     } catch (error) {

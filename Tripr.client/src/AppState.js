@@ -7,7 +7,8 @@ export const AppState = reactive({
   currentTrip: {
     title: "The Boi's Trip",
     travelType: 'Camping',
-    id: 1
+    id: 1,
+    locations: 4
   },
   trips: [
     {
@@ -30,6 +31,7 @@ export const AppState = reactive({
     }
   ],
   supplies: [],
+  supply: null,
   routeDetails: [],
   travelers: []
 })

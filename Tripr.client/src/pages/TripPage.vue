@@ -6,11 +6,18 @@
           <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
           <img class="profile-picture" :src="account.picture" alt="">
         </div>
-        <h2 class="trip-title">
-          {{ trip.title }}
-        </h2>
+        <div>
+          <h2 class="trip-title">
+            {{ trip.title }}
+          </h2>
+          <div @click="goToTripRoutes" class="d-flex justify-content-end" id="slide">
+            <h4 class="bg-body p-1 px-2 text-primary rounded">
+              Route Details
+            </h4>
+          </div>
+        </div>
       </div>
-      <Map @dblclick="goTo" class="map" />
+      <Map class="map" />
     </div>
     <div class="row">
       <div class="bottom travelers">
@@ -63,6 +70,13 @@ export default {
       async goToTravelersPage() {
         try {
           router.push({ name: 'Trip.Travelers' })
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      async goToTripRoutes() {
+        try {
+          router.push({ name: 'Trip.Routes' })
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

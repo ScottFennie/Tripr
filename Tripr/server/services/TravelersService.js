@@ -3,7 +3,7 @@ import { BadRequest } from '../utils/Errors'
 
 class TravelersService {
   async getTravelers() {
-    const res = await dbContext.Travler.find()
+    const res = await dbContext.Traveler.find()
     if (!res) {
       throw new BadRequest('No travelers')
     }
@@ -11,14 +11,14 @@ class TravelersService {
   }
 
   async addTraveler(body) {
-    const res = await dbContext.Travler.create(body)
+    const res = await dbContext.Traveler.create(body)
     res.populate('creator')
     res.populate('trip')
     return res
   }
 
   async removeTraveler(id) {
-    const res = await dbContext.Travler.findByIdAndDelete(id)
+    const res = await dbContext.Traveler.findByIdAndDelete(id)
     if (!res) {
       throw new BadRequest('No Traveler by that Id')
     }

@@ -4,12 +4,19 @@
       <div class="col-md-12">
         <div class="card text-center rounded shadow">
           <div class="card-body">
-            <p class="card-text">
-              {{ supply.description }}
-            </p>
-            <p class="card-text">
-              {{ supply.quantity }}
-            </p>
+            <span class="d-flex justify-content-between">
+              <label for="isBringing" class="sr-only"> Who wants to bring:</label>
+              <input type="checkbox"
+                     name="isBringing"
+                     id="isBringing"
+              >
+              <p class="card-text">
+                {{ supply.description }}
+              </p>
+              <p class="card-text">
+                {{ supply.quantity }}
+              </p>
+            </span>
           </div>
         </div>
       </div>

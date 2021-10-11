@@ -1,10 +1,10 @@
 <template>
   <div class="Supplies container-fluid">
-    <div class="row">
-      <div class="col-md-4">
+    <div class="row my-3 p-0">
+      <div class="">
         <img class="logo" src="../assets/img/circle-logo.png" alt="Tripr Logo">
       </div>
-      <div class="col-md-8 d-flex align-items-start justify-content-end">
+      <div class="d-flex align-items-start justify-content-end">
         <h1>Supplies</h1>
         <button title="Add Supplies" class="btn" data-bs-toggle="modal" data-bs-target="#supply-modal">
           <i class="mdi mdi-plus f-20"></i>
@@ -15,7 +15,7 @@
       <h1>Needed:</h1>
       <SuppliesList :key="s.id" v-for="s in supplies" :supply="s" />
     </div>
-    <div class="row">
+    <div class="row my-2">
       <h1>Assigned:</h1>
       <!-- inject Assigned list here -->
     </div>
@@ -62,5 +62,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.logo {
+  width: 64px;
+  filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
+}
 </style>

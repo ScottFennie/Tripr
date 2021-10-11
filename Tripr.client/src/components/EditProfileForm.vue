@@ -20,9 +20,15 @@
              required
       >
     </div>
-    <button type="submit" class="btn">
-      <i class="mdi mdi-plus" />
-    </button>
+    <div class="row">
+      <div class="col-md-6">
+        <button type="submit" class="btn btn-primary mt-3 p-1">
+          <i class="text-shadow">
+            Update:
+          </i>
+        </button>
+      </div>
+    </div>
   </form>
 </template>
 
@@ -49,5 +55,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.text-shadow {
+  border-radius: 3px;
+  padding: .15rem 1rem;
+  border: 3px dashed rgba(255,255,255,0.5);
+  color: #A28558;
+  text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
+}
 </style>

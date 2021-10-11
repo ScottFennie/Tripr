@@ -1,4 +1,5 @@
 import { dbContext } from '../db/DbContext'
+import { Forbidden } from '../utils/Errors'
 
 // Private Methods
 
@@ -73,6 +74,17 @@ class AccountService {
       { runValidators: true, setDefaultsOnInsert: true, new: true }
     )
     return account
+  }
+
+  async editProfile(proId, userId, proData) {
+    const profile = await dbContext.Account.findById(proId)
+    if (userId !== profile.creatorId.toString()) {
+      throw new Forbidden('you cant do that! STAHP!!!')
+    }
+    profile.name = proData.name || profile.name
+    profile.picture = proData.picture || profile.picture
+    await profile.save()
+    return profile
   }
 }
 export const accountService = new AccountService()

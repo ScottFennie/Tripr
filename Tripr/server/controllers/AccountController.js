@@ -8,12 +8,22 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
+      .put('/:id', this.editProfile)
   }
 
   async getUserAccount(req, res, next) {
     try {
       const account = await accountService.getAccount(req.userInfo)
       res.send(account)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async editProfile(req, res, next) {
+    try {
+      const profile = await accountService.editProfile(req.params.id, req.userInfo.id, req.body)
+      res.send(profile)
     } catch (error) {
       next(error)
     }

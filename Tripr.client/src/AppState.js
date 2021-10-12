@@ -35,6 +35,7 @@ export const AppState = reactive({
     }
   ],
   assignSupplies: [],
+  currentSupplies: [],
   supplies: [],
   supply: null,
   routeDetails: [],

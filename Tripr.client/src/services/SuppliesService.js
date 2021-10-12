@@ -22,6 +22,7 @@ class SuppliesService {
     const res = await api.post(`api/trips/${tripId}/supplies`, newSupply)
     logger.log('created supply', res)
     AppState.supplies.push(new Supplies(res.data))
+    this.getSupplies(tripId)
   }
 
   async editSupplies(supplyData, tripId, suppliesId) {

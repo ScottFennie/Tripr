@@ -36,6 +36,7 @@ export default {
   props: {
     supply: {
       type: Supplies,
+      default: () => new Supplies(),
       required: true
     }
   },

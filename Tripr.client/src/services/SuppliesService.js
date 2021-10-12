@@ -10,7 +10,7 @@ class SuppliesService {
     const res = await api.get(`api/trips/${tripId}/supplies`)
     logger.log('supplies list', res.data)
     AppState.supplies = res.data.map(s => new Supplies(s))
-    AppState.currentSupplies = AppState.supplies.find(s => s.tripId === tripId)
+    AppState.currentSupplies = AppState.supplies.filter(s => s.tripId === tripId)
     logger.log('current supplies', AppState.currentSupplies)
   }
 

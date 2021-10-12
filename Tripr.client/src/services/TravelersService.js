@@ -30,11 +30,11 @@ class TravelersService {
   async removeTraveler(tripId, travelerId) {
     try {
       const res = await api.delete(`api/trips/${tripId}/travelers/${travelerId}`)
-      const foundIndex = AppState.travelers.findIndex({ travelerId })
-      if (!foundIndex) {
+      const foundItem = AppState.travelers.find(t => t.id === travelerId)
+      if (!foundItem) {
         throw new Error("Can't find Traveler")
       }
-      AppState.travelers.splice(foundIndex, 1)
+      AppState.travelers = AppState.travelers.filter(t => t.id !== travelerId)
       logger.log('what is the deleted res?', res.data)
     } catch (error) {
       logger.log('What Happened?', error)

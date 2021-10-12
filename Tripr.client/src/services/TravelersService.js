@@ -8,7 +8,7 @@ class TravelersService {
     try {
       const res = await api.get(`api/trips/${tripId}/travelers`)
       AppState.travelers = []
-      AppState.travelers = new Traveler(res.data)
+      AppState.travelers = res.data.map(t => new Traveler(t))
     } catch (error) {
       logger.log('What Happened?', error)
     }

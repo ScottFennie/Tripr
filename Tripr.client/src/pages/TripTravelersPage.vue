@@ -2,7 +2,7 @@
   <div class="component">
     <div class="row">
       <div class="col-4">
-        <img class="icon-logo pt-2 ps-2" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="ClosePage()">
+        <img class="icon-logo pt-2 ps-2" src="../assets/img/circle-logo.png" alt="Tripr Logo">
       </div>
       <div class="col-8 text-center pt-4">
         <h1>
@@ -11,19 +11,25 @@
       </div>
     </div>
     <div class="row">
-      <Traveler :v-for="t in travelers" :key="t.id" :traveler="t" />
+      <Traveler v-for="t in travelers" :key="t.id" :traveler="t" />
     </div>
   </div>
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onBeforeMount } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { travelersService } from '../services/TravelersService'
 export default {
   setup() {
+    onBeforeMount(async() => {
+      travelersService.getAllTravelers(TripId)
+    })
     const travelers = computed(() => AppState.travelers)
+    const TripId = computed(() => AppState.currentTripId)
     return {
       travelers,
+      TripId,
       ClosePage() {
       }
     }

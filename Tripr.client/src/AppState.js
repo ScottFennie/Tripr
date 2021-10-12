@@ -34,6 +34,7 @@ export const AppState = reactive({
       startDate: '11/30/2020'
     }
   ],
+  currentTripId: null,
   supplies: [],
   supply: null,
   routeDetails: [],

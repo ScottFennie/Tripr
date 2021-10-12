@@ -10,7 +10,12 @@
             {{ traveler.creator.name }}
           </div>
           <div class="col-4">
-            {{ traveler.trip.title }}
+            <div class="row">
+              Supplies: <br> {{ traveler.trip.title }}
+            </div>
+            <div class="row">
+              Places: <br>
+            </div>
           </div>
         </div>
       </div>

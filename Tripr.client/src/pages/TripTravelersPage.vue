@@ -17,15 +17,18 @@
 </template>
 
 <script>
-import { computed, onBeforeMount } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { travelersService } from '../services/TravelersService'
+import { useRoute } from 'vue-router'
 export default {
   setup() {
-    onBeforeMount(async() => {
-      await travelersService.getAllTravelers(TripId)
+    const route = useRoute()
+    onMounted(async() => {
+      AppState.currentTripId = route.params.tripId
+      await travelersService.getAllTravelers(route.params.tripId)
     })
-    const travelers = computed(() => AppState.travelers)
+    const travelers = computed(() => AppState.currTravelers)
     const TripId = computed(() => AppState.currentTripId)
     return {
       travelers,

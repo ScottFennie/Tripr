@@ -23,7 +23,7 @@ import { travelersService } from '../services/TravelersService'
 export default {
   setup() {
     onBeforeMount(async() => {
-      travelersService.getAllTravelers(TripId)
+      await travelersService.getAllTravelers(TripId)
     })
     const travelers = computed(() => AppState.travelers)
     const TripId = computed(() => AppState.currentTripId)

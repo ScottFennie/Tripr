@@ -1,14 +1,18 @@
 <template>
-  <div class="component card py-2 my-2">
-    <div class="row">
-      <div class="col-2 ps-4">
-        <img :src="traveler.creator.picture" class="icon">
-      </div>
-      <div class="col-6">
-        {{ traveler.creator.name }}
-      </div>
-      <div class="col-4">
-        {{ traveler.trip.title }}
+  <div class="component py-2 my-2 conainter-fluid">
+    <div class="row justify-content-center">
+      <div class="col-10 card py-1">
+        <div class="row">
+          <div class="col-2 ps-2">
+            <img :src="traveler.creator.picture" class="icon rounded">
+          </div>
+          <div class="col-6">
+            {{ traveler.creator.name }}
+          </div>
+          <div class="col-4">
+            {{ traveler.trip.title }}
+          </div>
+        </div>
       </div>
     </div>
   </div>

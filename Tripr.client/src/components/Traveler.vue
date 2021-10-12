@@ -1,5 +1,5 @@
 <template>
-  <div class="component py-2 my-2 conainter-fluid">
+  <div class="component py-2 my-2 ">
     <div class="row justify-content-center">
       <div class="col-10 card py-1">
         <div class="row">

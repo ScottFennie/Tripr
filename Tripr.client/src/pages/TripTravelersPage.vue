@@ -10,7 +10,7 @@
         </h1>
       </div>
     </div>
-    <div class="row">
+    <div class="container-fluid">
       <Traveler v-for="t in travelers" :key="t.id" :traveler="t" />
     </div>
   </div>

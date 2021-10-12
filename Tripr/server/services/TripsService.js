@@ -7,8 +7,16 @@ class TripsService {
     return trips
   }
 
-  async getTripById(tripId) {
-    const trip = await dbContext.Trip.findById(tripId).populate('creator')
+  async getTripByJKey(jkey) {
+    const trip = await dbContext.Trip.find({ jkey }).populate('creator')
+    if (!trip) {
+      throw new BadRequest('Invalid Trip Id')
+    }
+    return trip
+  }
+
+  async getTripById(id) {
+    const trip = await dbContext.Trip.find(id).populate('creator')
     if (!trip) {
       throw new BadRequest('Invalid Trip Id')
     }

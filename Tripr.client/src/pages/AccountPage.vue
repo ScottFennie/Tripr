@@ -68,12 +68,16 @@
 </template>
 
 <script>
-import { computed } from 'vue'
+import { computed, onMounted } from 'vue'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
+import { tripsService } from '../services/TripsService'
 export default {
   name: 'Account',
   setup() {
+    onMounted(async() => {
+      await tripsService.getAllTrips()
+    })
     return {
       account: computed(() => AppState.account),
       async logout() {

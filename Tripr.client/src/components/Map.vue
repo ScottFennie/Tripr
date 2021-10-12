@@ -13,12 +13,10 @@ import { onMounted } from '@vue/runtime-core'
 
 let Map = {}
 let MapView = {}
-let CoordinateConversion = []
-require(['esri/config', 'esri/Map', 'esri/views/MapView', 'esri/widgets/CoordinateConversion'], function(esriConfig, MapSRC, MapViewSRC, CoordinateConversionSRC) {
+require(['esri/config', 'esri/Map', 'esri/views/MapView'], function(esriConfig, MapSRC, MapViewSRC) {
   esriConfig.apiKey = 'AAPKa4bb649adabd41ecb17f3b4614ec7de7fuFnN6h7T8A3zAcPcAcHaegzQPO-vZsAP6BBQxC3xkINSgaNvUlnI_ZmhHz3yTlU'
   Map = MapSRC
   MapView = MapViewSRC
-  CoordinateConversion = CoordinateConversionSRC
 })
 
 export default {
@@ -41,11 +39,6 @@ export default {
         zoom: 13, // Zoom level
         container: 'map' // Div element
       })
-      const coordinates = new CoordinateConversion({
-        view: view
-      })
-
-      view.ui.add(coordinates, 'top-right')
       // }
     })
     return {

@@ -14,9 +14,9 @@ class TripsService {
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
     const TravData = {}
-    AppState.currentTripId = res.data.id
-    await travelersService.createTraveler(res.data.id, TravData)
-    await router.push({ name: 'Trip', params: { tripId: res.data.id } })
+    AppState.currentTripId = res.data.id.toString()
+    router.push({ name: 'Trip', params: { tripId: res.data.id } })
+    travelersService.createTraveler(res.data.id, TravData)
   }
 
   async checkIfTrip(jkey) {

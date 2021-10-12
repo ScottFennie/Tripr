@@ -8,9 +8,11 @@ class TravelersService {
     try {
       const res = await api.get(`api/trips/${tripId}/travelers`)
       AppState.travelers = []
-      let TravArr = []
-      TravArr = res.data.map(t => new Traveler(t))
-      AppState.travelers = TravArr.filter(t => t.tripId === tripId)
+      AppState.travelers = res.data.map(t => new Traveler(t))
+      AppState.currTravelers = AppState.travelers.filter(t => t.tripId === tripId)
+      logger.log('travelers', AppState.travelers)
+      logger.log('curent travelers', AppState.currTravelers)
+      logger.log('currId', AppState.currentTripId)
     } catch (error) {
       logger.log('What Happened?', error)
     }

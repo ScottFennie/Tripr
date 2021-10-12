@@ -17,12 +17,12 @@
 </template>
 
 <script>
-import { computed, onBeforeMount } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { travelersService } from '../services/TravelersService'
 export default {
   setup() {
-    onBeforeMount(async() => {
+    onMounted(async() => {
       await travelersService.getAllTravelers(TripId)
     })
     const travelers = computed(() => AppState.travelers)

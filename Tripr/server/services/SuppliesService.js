@@ -36,7 +36,7 @@ class SuppliesService {
       throw new Forbidden('you cant do that')
     }
     supply.description = suppliesData.description || supply.description
-    supply.isBringing = suppliesData.isBringing || supply.isBringing
+    supply.isBringing = suppliesData.isBringing == null ? supply.isBringing : suppliesData.isBringing
     supply.quantity = suppliesData.quantity || supply.quantity
     await supply.save()
     return supply

@@ -26,7 +26,9 @@ class SuppliesService {
 
   async editSupplies(supplyData, tripId, suppliesId) {
     const res = await api.put(`api/trips/${tripId}/supplies/${suppliesId}`, supplyData)
-    logger.log('edit supply', res)
+    logger.log('edit supply', res.data)
+    // FIXME update appstate with updated data
+    AppState.currentSupplies = 
   }
 }
 

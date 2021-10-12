@@ -11,13 +11,15 @@
         </button>
       </div>
     </div>
-    <div class="row">
+    <div>
       <h1>Needed:</h1>
-      <SuppliesList v-for="s in currentSupplies" :key="s.id" :supply="s" />
-    </div>
-    <div class="row my-2">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
+        <SuppliesList v-if="!s.isBringing" :key="s.id" :supply="s" />
+      </div>
       <h1>Assigned:</h1>
-      <!-- inject Assigned list here -->
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
+        <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
+      </div>
     </div>
   </div>
 

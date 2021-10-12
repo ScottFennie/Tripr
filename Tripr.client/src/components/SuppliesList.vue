@@ -10,6 +10,8 @@
                      name="isBringing"
                      id="isBringing"
                      class="mt-2"
+                     :checked="editable.isBringing"
+                     @change="isBringing(supply.id)"
               >
               <p class="card-text">
                 {{ supply.description }}
@@ -26,12 +28,12 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, ref, watchEffect } from '@vue/runtime-core'
 import { AppState } from '../AppState'
-// import Pop from '../utils/Pop'
-// import { suppliesService } from '../services/SuppliesService'
+import Pop from '../utils/Pop'
 import { Supplies } from '../Models/Supplies'
-// import { useRoute } from 'vue-router'
+import { suppliesService } from '../services/SuppliesService.js'
+import { useRoute } from 'vue-router'
 export default {
   props: {
     supply: {
@@ -41,9 +43,23 @@ export default {
     }
   },
   setup(props) {
-    // const route = useRoute()
+    const editable = ref({})
+    const route = useRoute()
+    watchEffect(() => {
+      editable.value = { ...props.supply }
+    })
     return {
-      currentSupplies: computed(() => AppState.currentSupplies)
+      editable,
+      currentSupplies: computed(() => AppState.currentSupplies),
+      async isBringing(supplyId) {
+        try {
+          editable.value.isBringing = !editable.value.isBringing
+          await suppliesService.editSupplies(editable.value, route.params.tripId, supplyId)
+          // Pop.toast('item has been assigned', 'success')
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
 
     }
   }

@@ -6,10 +6,12 @@ import { api } from './AxiosService'
 
 class SuppliesService {
   async getSupplies(tripId) {
+    AppState.currentSupplies = []
     const res = await api.get(`api/trips/${tripId}/supplies`)
     logger.log('supplies list', res.data)
     AppState.supplies = res.data.map(s => new Supplies(s))
-    logger.log(AppState.supplies)
+    AppState.currentSupplies = AppState.supplies.find(s => s.tripId === tripId)
+    logger.log('current supplies', AppState.currentSupplies)
   }
 
   async gotoTripPage() {

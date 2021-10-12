@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <h1>Needed:</h1>
-      <SuppliesList :key="s.id" v-for="s in supplies" :supply="s" />
+      <SuppliesList :key="s.id" v-for="s in currentSupplies" :supply="s" />
     </div>
     <div class="row my-2">
       <h1>Assigned:</h1>
@@ -55,7 +55,7 @@ export default {
       }
     })
     return {
-      supplies: computed(() => AppState.supplies),
+      currentSupplies: computed(() => AppState.currentSupplies),
       async toTripPage() {
         try {
           await suppliesService.gotoTripPage()

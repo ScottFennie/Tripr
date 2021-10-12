@@ -30,19 +30,19 @@ import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 // import Pop from '../utils/Pop'
 // import { suppliesService } from '../services/SuppliesService'
-import { Supplies } from '../Models/Supplies'
+// import { Supplies } from '../Models/Supplies'
 // import { useRoute } from 'vue-router'
 export default {
-  props: {
-    supply: {
-      type: Supplies,
-      required: true
-    }
-  },
+  // props: {
+  //   supply: {
+  //     type: Supplies,
+  //     required: true
+  //   }
+  // },
   setup(props) {
     // const route = useRoute()
     return {
-      supplies: computed(() => AppState.supplies)
+      currentSupplies: computed(() => AppState.currentSupplies)
 
     }
   }

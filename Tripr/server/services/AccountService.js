@@ -76,9 +76,9 @@ class AccountService {
     return account
   }
 
-  async editProfile(proId, userId, proData) {
-    const profile = await dbContext.Account.findById(proId)
-    if (userId !== profile.creatorId.toString()) {
+  async editProfile(userId, proData) {
+    const profile = await dbContext.Account.findById(userId)
+    if (userId !== profile.id.toString()) {
       throw new Forbidden('you cant do that! STAHP!!!')
     }
     profile.name = proData.name || profile.name

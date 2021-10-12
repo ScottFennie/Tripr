@@ -15,7 +15,7 @@ class TripsService {
     AppState.trips.push(new Trip(res.data))
     const TravData = {}
     travelersService.createTraveler(res.data.id, TravData)
-    AppState.currentTripId = res.data.id
+    AppState.currentTripId = res.data.id.toString()
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
   }
 

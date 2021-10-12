@@ -91,6 +91,7 @@
 
 <script>
 import { router } from '../router'
+import Pop from '../utils/Pop'
 export default {
   name: 'AboutPage',
   setup() {

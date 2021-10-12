@@ -1,6 +1,6 @@
 <template>
-  <div class="component">
-    <div class="row">
+  <div class="container-fluid">
+    <div class="row d-flex">
       <div class="col-4">
         <img class="icon-logo pt-2 ps-2" src="../assets/img/circle-logo.png" alt="Tripr Logo">
       </div>

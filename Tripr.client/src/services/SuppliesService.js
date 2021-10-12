@@ -6,7 +6,6 @@ import { api } from './AxiosService'
 
 class SuppliesService {
   async getSupplies(tripId) {
-    debugger
     AppState.currentSupplies = []
     const res = await api.get(`api/trips/${tripId}/supplies`)
     logger.log('supplies list', res.data)

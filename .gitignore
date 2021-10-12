@@ -1,0 +1,7 @@
+Tripr.client/src/services/TripsService.js
+Tripr.client/src/services/TravelersService.js
+Tripr.client/src/pages/TripTravelersPage.vue
+Tripr.client/src/Models/Traveler.js
+Tripr.client/src/components/Traveler.vue
+Tripr.client/src/AppState.js
+Tripr/server/services/TravelersService.js

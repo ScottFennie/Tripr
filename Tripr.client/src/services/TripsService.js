@@ -4,6 +4,7 @@ import { router } from '../router'
 import { logger } from '../utils/Logger'
 import Pop from '../utils/Pop'
 import { api } from './AxiosService'
+import { travelersService } from './TravelersService'
 
 class TripsService {
   async createTrip(newTrip) {
@@ -12,7 +13,10 @@ class TripsService {
     AppState.trips.push(res.data)
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
-    router.push({ name: 'Trip', params: { tripId: res.data.id } })
+    const TravData = {}
+    AppState.currentTripId = res.data.id
+    await travelersService.createTraveler(res.data.id, TravData)
+    await router.push({ name: 'Trip', params: { tripId: res.data.id } })
   }
 
   async checkIfTrip(jkey) {

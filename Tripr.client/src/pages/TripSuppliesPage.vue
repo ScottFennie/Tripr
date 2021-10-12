@@ -1,5 +1,5 @@
 <template>
-  <div class="Supplies container-fluid">
+  <div class="supplies container-fluid">
     <div class="row my-3 p-0">
       <div class="">
         <img class="logo selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
@@ -72,9 +72,5 @@ export default {
 .logo {
   width: 64px;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
-}
-
-.Supplies{
-  background-color: #6d7746!important;
 }
 </style>

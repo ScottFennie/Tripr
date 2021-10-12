@@ -3,7 +3,7 @@ import { BadRequest } from '../utils/Errors'
 
 class TravelersService {
   async getTravelers() {
-    const res = await dbContext.Traveler.find()
+    const res = await dbContext.Traveler.find().populate('creator').populate('trip')
     if (!res) {
       throw new BadRequest('No travelers')
     }

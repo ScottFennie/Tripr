@@ -34,6 +34,7 @@ export const AppState = reactive({
       startDate: '11/30/2020'
     }
   ],
+  assignSupplies: [],
   supplies: [],
   supply: null,
   routeDetails: [],

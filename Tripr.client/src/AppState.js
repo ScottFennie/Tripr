@@ -31,5 +31,6 @@ export const AppState = reactive({
   ],
   supplies: [],
   routeDetails: [],
-  travelers: []
+  travelers: [],
+  trackedtrips: []
 })

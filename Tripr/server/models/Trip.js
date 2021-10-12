@@ -9,7 +9,7 @@ export const TripSchema = new Schema(
     location: { type: Array, required: true },
     travelType: { type: String, enum: ['Foot', 'Road', 'Camping'], required: true },
     startDate: { type: Date },
-    jkey: { type: String }
+    jkey: { type: String, required: true }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

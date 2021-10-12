@@ -48,6 +48,7 @@ import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { AuthService } from '../services/AuthService'
 import { router } from '../router'
+import { tripsService } from '../services/TripsService'
 export default {
   setup() {
     return {
@@ -55,6 +56,7 @@ export default {
       async login() {
         AuthService.loginWithPopup()
         router.push({ name: 'Account' })
+        await tripsService.getAllTrips()
       }
     }
   }

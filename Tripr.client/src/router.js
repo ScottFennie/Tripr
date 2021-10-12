@@ -19,27 +19,37 @@ const routes = [
   {
     path: '/trips/:tripId',
     name: 'Trip',
+    beforeEnter: authGuard,
+
     component: loadPage('TripPage')
   },
   {
     path: '/trips/:tripId/travelers',
     name: 'Trip.Travelers',
+    beforeEnter: authGuard,
+
     component: loadPage('TripTravelersPage')
 
   },
   {
     path: '/trips/:tripId/supplies',
     name: 'Trip.Supplies',
+    beforeEnter: authGuard,
+
     component: loadPage('TripSuppliesPage')
   },
   {
     path: '/trips/:tripId/routes',
     name: 'Trip.Routes',
+    beforeEnter: authGuard,
+
     component: loadPage('TripRoutesPage')
   },
   {
     path: '/trips/:tripId/routes/:routeId',
     name: 'Trip.RouteDetails',
+    beforeEnter: authGuard,
+
     component: loadPage('TripRouteDetailsPage')
   },
 

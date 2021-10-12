@@ -30,6 +30,13 @@ class SuppliesService {
     logger.log('edit supply', res.data)
     this.getSupplies(tripId)
   }
+
+  async removeSupply(supplyId, tripId) {
+    const res = await api.delete(`api/trips/${tripId}/supplies/` + supplyId)
+    logger.log('remove supply item', res.data)
+    AppState.supplies = AppState.supplies.filter(s => s.id !== supplyId)
+    AppState.currentSupplies = AppState.currentSupplies.filter(cs => cs.id !== supplyId)
+  }
 }
 
 export const suppliesService = new SuppliesService()

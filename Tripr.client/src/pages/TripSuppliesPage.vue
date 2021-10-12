@@ -16,7 +16,9 @@
       <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
         <SuppliesList v-if="!s.isBringing" :key="s.id" :supply="s" />
       </div>
-      <h1>Assigned:</h1>
+      <h1 class="mt-2">
+        Assigned:
+      </h1>
       <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
         <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
       </div>

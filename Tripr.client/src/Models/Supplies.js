@@ -5,5 +5,7 @@ export class Supplies {
     this.isBringing = supplyData.isBringing
     this.tripId = supplyData.tripId
     this.id = supplyData.id
+    this.creatorId = supplyData.creatorId
+    this.creator = supplyData.creator || {}
   }
 }

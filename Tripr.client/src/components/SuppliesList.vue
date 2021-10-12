@@ -19,6 +19,9 @@
               <p class="card-text">
                 QTY: {{ supply.quantity }}
               </p>
+              <div class="icon d-flex justify-content-end align-content-start p-0" v-if="account.id == supply.creatorId">
+                <i class="mdi mdi-close text-danger f-20 selectable" @click="removeSupply()" title="Remove THIS supply item"></i>
+              </div>
             </span>
           </div>
         </div>
@@ -51,6 +54,7 @@ export default {
     return {
       editable,
       currentSupplies: computed(() => AppState.currentSupplies),
+      account: computed(() => AppState.account),
       async isBringing(supplyId) {
         try {
           editable.value.isBringing = !editable.value.isBringing
@@ -59,8 +63,17 @@ export default {
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
+      },
+      async removeSupply() {
+        try {
+          const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Supply Item</em>?')
+          if (!yes) { return }
+          await suppliesService.removeSupply(props.supply.id, route.params.tripId)
+          Pop.toast('Suppy Item has been removed')
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
       }
-
     }
   }
 }

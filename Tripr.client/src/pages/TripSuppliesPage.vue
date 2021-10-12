@@ -73,4 +73,8 @@ export default {
   width: 64px;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
 }
+
+.Supplies{
+  background-color: #6d7746!important;
+}
 </style>

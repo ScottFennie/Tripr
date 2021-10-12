@@ -13,7 +13,7 @@
     </div>
     <div class="row">
       <h1>Needed:</h1>
-      <SuppliesList :key="s.id" v-for="s in currentSupplies" :supply="s" />
+      <SuppliesList v-for="s in currentSupplies" :key="s.id" :supply="s" />
     </div>
     <div class="row my-2">
       <h1>Assigned:</h1>
@@ -42,7 +42,8 @@ export default {
   props: {
     supply: {
       type: Supplies,
-      required: true
+      default: () => new Supplies()
+      // required: true
     }
   },
   setup() {

@@ -10,16 +10,28 @@
         </div>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
         <p>total trips: <span>{{ account.totalTrips }}</span></p>
-        <img v-if="account" :src="account.picture" alt="account picture" class="accountPicture rounded-circle">
+        <img v-if="account"
+             :src="account.picture"
+             alt="account picture"
+             class="accountPicture rounded-circle"
+             data-bs-toggle="modal"
+             data-bs-target="#editprofile-modal"
+        >
       </div>
     </div>
     <div class="row justify-content-center">
-      <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip" data-bs-toggle="modal" data-bs-target="#create-modal">
-      <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+      <button type="button" class="ms-2 mb-3 btn w-100">
+        <router-link :to="{ name: 'CreateTrip' }" class="">
+          <h2>
+            <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
+          </h2>
+        </router-link>
+        <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+      </button>
     </div>
-    <div class="mt-5 row align-items-end justify-content-between">
+    <div class="mt-1 row align-items-end justify-content-between">
       <div class="col-6">
-        <button type="button" class="ms-2 shadow btn bg-primary w-100">
+        <button type="button" class="ms-2 bg-primary btn w-100">
           <router-link :to="{ name: 'YourTrips' }" class="">
             <h2 class="text-shadow">
               Trips
@@ -37,12 +49,12 @@
       </div>
     </div>
   </div>
-  <Modal id="create-modal">
+  <Modal id="editprofile-modal">
     <template #modal-title>
-      <h5>New Road Trip!</h5>
+      <h5>Edit Profile</h5>
     </template>
     <template #modal-body>
-      <CreateTripForm />
+      <EditProfileForm />
     </template>
   </Modal>
   <Modal id="join-modal">

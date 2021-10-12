@@ -6,26 +6,35 @@
           <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
           <img class="profile-picture" :src="account.picture" alt="">
         </div>
-        <h2 class="trip-title">
-          {{ trip.title }}
-        </h2>
+        <div>
+          <h2 class="trip-title">
+            {{ trip.title }}
+          </h2>
+          <div @click="goToTripRoutes" class="d-flex justify-content-end" id="slide">
+            <h4 class="bg-body p-1 px-2 text-primary rounded">
+              Route Details
+            </h4>
+          </div>
+        </div>
       </div>
       <Map class="map" />
     </div>
     <div class="row">
-      <div @click="goToTravelersPage" class="bottom travelers">
-        <img class="negative-margin" src="../assets/img/travelers-bg_2.png" alt="">
-        <img class="travelers-bg" src="../assets/img/travelers-bg.png" alt="">
-        <i class="mdi mdi-account-multiple travelers-logo"></i>
+      <div class="bottom travelers">
+        <img class="selectable bottom-card t-height" src="../assets/img/traveler-bg(updated).png" alt="">
       </div>
       <div class="bottom supplies">
-        <img class="" src="../assets/img/supplies-bg.png" style="width:100vw;" alt="">
+        <img class="bottom-card s-height" src="../assets/img/supplies-bg(updated).png" style="width:100vw;" alt="">
         <h2 @click="goToSuppliesPage" class="selectable supplies-text">
           Supplies
           <svg style="width:36px;height:36px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
           </svg>
         </h2>
+        <div @click="goToTravelersPage" class="selectable">
+          <img class="travelers-bg" src="../assets/img/travelers-bg.png" alt="">
+          <i class="mdi mdi-account-multiple travelers-logo"></i>
+        </div>
         <div class="join-code">
           <h6 class="mb-0">
             Join Code:
@@ -65,6 +74,13 @@ export default {
           Pop.toast(error.message, 'error')
         }
       },
+      async goToTripRoutes() {
+        try {
+          router.push({ name: 'Trip.Routes' })
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
       copyText() {
         try {
           tripsService.copyText()
@@ -78,8 +94,12 @@ export default {
 </script>
 
 <style scoped lang='scss'>
-.negative-margin {
-  margin-left: -15px;
+.profile-picture {
+  border-radius: 50%;
+    width: 17vw;
+    position: absolute;
+    left: 7vw;
+    top: 3.5vh;
 }
 .map {
   z-index: 0;
@@ -136,8 +156,16 @@ h6 {
 }
 .travelers {
   z-index: 3;
-  height: 55vh;
   width: 100vw;
+}
+.t-height {
+  height: 35vh;
+}
+.s-height {
+  height: 28vh;
+}
+.bottom-card {
+  margin-left: -15px;
 }
 .travelers-shadow {
   z-index: 2;
@@ -149,15 +177,16 @@ h6 {
 }
 .travelers-bg {
   position: absolute;
-  bottom: 130px;
-  left: 15px;
+  bottom: 147px;
   width: 20vw;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
+  z-index: 10;
 }
 .travelers-logo {
+  z-index: 11;
   position: absolute;
-    bottom: 138px;
-    left: 33px;
+    bottom: 160px;
+    left: 23px;
     font-size: 2.3rem;
     color: #e7debe;
     text-shadow: 2px 1px 2px rgba(194, 194, 194, 0.5);

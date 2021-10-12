@@ -11,6 +11,7 @@ class TripsService {
     logger.log('new Trip', res)
     AppState.trips.push(res.data)
     logger.log('new trip', res.data)
+    AppState.trips.push(new Trip(res.data))
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
   }
 

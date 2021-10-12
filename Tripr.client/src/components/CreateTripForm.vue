@@ -10,15 +10,15 @@
              v-model="editable.title"
              required
       >
-      <label for="description" class="sr-only">Trip Description:</label>
+      <!-- <label for="description" class="sr-only">Trip Description:</label>
       <input type="text"
              class="form-control bg-primary"
              name="description"
              id="descrition"
              placeholder="For Da Boi's"
              v-model="editable.description"
-      >
-      <label for="location" class="sr-only">How Many Stops:</label>
+      > -->
+      <label for="location" class="sr-only">Where are you starting:</label>
       <input type="number"
              class="form-control bg-primary"
              name="location"
@@ -26,14 +26,14 @@
              placeholder="For Da Boi's"
              v-model="editable.location"
       >
-      <label for="startDate" class="sr-only">How long is the Trip:</label>
+      <!-- <label for="startDate" class="sr-only">How long is the Trip:</label>
       <input type="date"
              class="form-control bg-primary"
              name="startDate"
              id="startDate"
              placeholder="Start Today"
              v-model="editable.startDate"
-      >
+      > -->
       <label for="travelType" class="sr-only">Type of Outing:</label>
       <select class="form-control bg-primary"
               name="travelType"

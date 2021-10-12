@@ -1,4 +1,5 @@
 import { AppState } from '../AppState'
+import { Profile } from '../Models/Profile.js'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 
@@ -10,6 +11,12 @@ class AccountService {
     } catch (err) {
       logger.error('HAVE YOU STARTED YOUR SERVER YET???', err)
     }
+  }
+
+  async editProfile(pro) {
+    const res = await api.put('/account', pro)
+    logger.log('edit profile', res)
+    AppState.profile = new Profile(res.data)
   }
 }
 

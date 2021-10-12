@@ -34,10 +34,14 @@
     </div>
 
     <footer>
-      <div class="bg-grey text-light text-center px-4">
-        <p class="py-1">
-          Application Created by Nathan, Quinn, Scott, Drew, Jackson 2021
-        </p>
+      <div class="row">
+        <div class="col">
+          <div class="bg-grey text-light text-center px-4">
+            <p class="py-1 mb-0">
+              Application Created by Nathan, Quinn, Scott, Drew, Jackson 2021
+            </p>
+          </div>
+        </div>
       </div>
     </footer>
   </div>
@@ -94,13 +98,13 @@ h4 {
 }
 .thread-button {
   width: 40%;
-  border: 3px dashed #f2f2f2;
+  border: 2px dashed #f2f2f2;
   border-radius: 10px;
   padding: .25rem;
 }
 .btn-center {
   padding: .25rem .25rem;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
 .login{
@@ -109,5 +113,6 @@ h4 {
 footer{
   position: absolute;
   width: 100vw;
+  bottom: 0;
 }
 </style>

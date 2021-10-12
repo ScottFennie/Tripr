@@ -20,12 +20,15 @@
 import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { travelersService } from '../services/TravelersService'
+import { useRoute } from 'vue-router'
 export default {
   setup() {
+    const route = useRoute()
     onMounted(async() => {
-      await travelersService.getAllTravelers(TripId)
+      AppState.currentTripId = route.params.tripId
+      await travelersService.getAllTravelers(route.params.tripId)
     })
-    const travelers = computed(() => AppState.travelers)
+    const travelers = computed(() => AppState.currTravelers)
     const TripId = computed(() => AppState.currentTripId)
     return {
       travelers,

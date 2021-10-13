@@ -85,17 +85,13 @@
       </form>
     </div>
     <div class="row justify-content-center">
-<<<<<<< HEAD
-=======
       <div class="col-12"></div>
       <Map />
->>>>>>> 667a19018f0c02a64c040bf647a9c363ff3315c3
     </div>
   </div>
 </template>
 
 <script>
-<<<<<<< HEAD
 import { ref } from '@vue/reactivity'
 import { watchEffect } from '@vue/runtime-core'
 import { tripsService } from '../services/TripsService'
@@ -134,7 +130,6 @@ export default {
         }
       }
     }
-=======
 import leaflet from 'leaflet'
 import { onMounted } from '@vue/runtime-core'
 
@@ -153,7 +148,6 @@ export default {
         accessToken: 'pk.eyJ1Ijoic2Zlbm5pZSIsImEiOiJja3VvOW4wMTcyZGFlMnBteGtiM28za2RwIn0.NprbvWfSrFeKAZg6P_i8rA'
       }).addTo(mymap)
     })
->>>>>>> 667a19018f0c02a64c040bf647a9c363ff3315c3
   }
 }
 </script>

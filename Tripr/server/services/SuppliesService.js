@@ -32,9 +32,6 @@ class SuppliesService {
 
   async editSupplies(suppliesId, userId, suppliesData) {
     const supply = await this.getSupplyById(suppliesId)
-    if (userId !== supply.creatorId.toString()) {
-      throw new Forbidden('you cant do that')
-    }
     supply.description = suppliesData.description || supply.description
     supply.isBringing = suppliesData.isBringing == null ? supply.isBringing : suppliesData.isBringing
     supply.quantity = suppliesData.quantity || supply.quantity

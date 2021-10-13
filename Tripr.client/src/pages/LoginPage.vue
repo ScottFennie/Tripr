@@ -35,8 +35,8 @@
 
     <footer>
       <div class="row">
-        <div class="col">
-          <div class="bg-grey text-light text-center px-4">
+        <div class="col p-0">
+          <div class="bg-grey text-light text-center">
             <p class="py-1 mb-0">
               Application Created by Nathan, Quinn, Scott, Drew, Jackson 2021
             </p>

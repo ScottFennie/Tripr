@@ -1,11 +1,11 @@
 <template>
-  <div class="Supplies container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card text-center rounded shadow p-0 mt-2">
-          <div class="card-body">
-            <span class="d-flex justify-content-between p-0 m-0">
-              <label for="isBringing" class="sr-only">Who wants to bring:</label>
+        <div class="card text rounded shadow p-0 mt-2 mb-0 Supplies">
+          <div class="card-body p-2">
+            <span class="d-flex justify-content-between text-center p-0 m-0">
+              <label for="isBringing" class="sr-only card-text">Who wants to bring:</label>
               <input type="checkbox"
                      name="isBringing"
                      id="isBringing"
@@ -13,10 +13,10 @@
                      :checked="editable.isBringing"
                      @change="isBringing(supply.id)"
               >
-              <p class="card-text">
+              <p class="card-text m-0">
                 {{ supply.description }}
               </p>
-              <p class="card-text">
+              <p class="card-text m-0">
                 QTY: {{ supply.quantity }}
               </p>
               <div class="icon d-flex justify-content-end align-content-start p-0" v-if="account.id == supply.creatorId">
@@ -84,5 +84,20 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.Supplies{
+  background-color: #e7debe;
+  border: 3px dashed #C5C5C5;
+box-shadow: inset 4px 4px 4px rgba(108, 108, 108, 0.25);
+border-radius: 10px;
+}
+.text{
+  color: #353a22;
+}
 
+.card-text{
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+}
 </style>

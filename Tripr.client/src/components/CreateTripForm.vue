@@ -6,7 +6,8 @@
              class="form-control bg-primary"
              name="title"
              id="title"
-             placeholder="For Da Boi's"
+             placeholder="Max: 15"
+             maxlength="15"
              v-model="editable.title"
              required
       >

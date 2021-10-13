@@ -1,25 +1,27 @@
 <template>
-  <div class="supplies container-fluid">
-    <div class="row my-3 p-0">
-      <div class="">
-        <img class="logo selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
+  <div class="supplies container-fluid px-0">
+    <div class="row">
+      <div>
+        <img class="logo selectable m-2" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
       </div>
-      <div class="d-flex align-items-start justify-content-end">
-        <h1>Supplies</h1>
+      <div class="d-flex align-items-start justify-content-end text-center">
+        <h1>Supplies:</h1>
         <button title="Add Supplies" class="btn" data-bs-toggle="modal" data-bs-target="#supply-modal">
           <i class="mdi mdi-plus f-20"></i>
         </button>
       </div>
     </div>
     <div>
-      <h1>Needed:</h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
+      <h1 class="text-center border-top m-0">
+        Need:
+      </h1>
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-1">
         <SuppliesList v-if="!s.isBringing" :key="s.id" :supply="s" />
       </div>
-      <h1 class="mt-2">
+      <h1 class="mt-3 text-center border-top">
         Assigned:
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-1">
         <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
       </div>
     </div>
@@ -77,5 +79,23 @@ export default {
 .logo {
   width: 64px;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
+}
+
+.text-center{
+   font-family: Museo Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+}
+
+.supplies{
+  background-color: #6d7746;
+  height: 100vh;
+  color: #cca363;
+}
+
+.border-top{
+  border-color: #b5af98;
+  width: vw100;
 }
 </style>

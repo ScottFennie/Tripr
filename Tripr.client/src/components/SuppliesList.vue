@@ -1,8 +1,8 @@
 <template>
-  <div class="Supplies container-fluid">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card text-center rounded shadow p-0 mt-2">
+        <div class="card text-center rounded shadow p-0 mt-2 Supplies">
           <div class="card-body">
             <span class="d-flex justify-content-between p-0 m-0">
               <label for="isBringing" class="sr-only">Who wants to bring:</label>
@@ -84,5 +84,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.Supplies{
+  background-color: #e7debe;
+}
 </style>

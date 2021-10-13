@@ -1,7 +1,11 @@
 <template>
   <div class="container-fluid">
+    <div class="row justify-content-end">
+      <div class="col-1 justify-content-end d-flex">
+        <i @click="goToAccountPage" class="mdi mdi-close f-26 text-primary darken-30 close"></i>
+      </div>
+    </div>
     <div class="d-flex row text-center justify-content-center">
-      <i @click="goToAccountPage" class="mdi mdi-close f-26 text-primary darken-30 close"></i>
       <div class="col-10 create-trip-title bg-light">
         <h2 class="text-secondary margin-title">
           Create Trip
@@ -135,17 +139,13 @@ export default {
   clip-path: polygon(100% 45%, 100% 75%, 50% 100%, 0 75%, 0 45%);
   height: 15vh;
   border-radius: 10px;
-  margin-top: -3vh;
+  margin-top: -7vh;
 }
 .margin-title {
   margin-top: 8vh;
   font-family: museo-slab,serif;
   font-size: 1.75rem;
   font-weight: bold;
-}
-.close {
-  position: absolute;
-  right: -45vw;
 }
 .trip-type {
   width: 40vw;

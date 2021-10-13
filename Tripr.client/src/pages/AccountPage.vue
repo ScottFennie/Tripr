@@ -9,7 +9,7 @@
           <img class="pin mt-3" src="../assets/img/pin.png" alt="nope">
         </div>
         <p>last road trip: <span>{{ account.lastTrip }}</span></p>
-        <p>total trips: <span>{{ account.totalTrips }}</span></p>
+        <p>total trips: <span>{{ mytrips.length }}</span></p>
         <img v-if="account"
              :src="account.picture"
              alt="account picture"
@@ -77,9 +77,11 @@ export default {
   setup() {
     onMounted(async() => {
       await tripsService.getAllTrips()
+      await tripsService.getAllMyTrackedTrips()
     })
     return {
       account: computed(() => AppState.account),
+      mytrips: computed(() => AppState.mytrips),
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
       }

@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid p-0">
-    <div class="login">
+  <div class="container-fluid px-0">
+    <div class="login px-0">
       <div class="row">
         <div class="col d-flex flex-column align-items-center mb-4 p-0 w-100">
           <img class="logo" src="../assets/img/circle-logo.png" alt="Tripr Logo">

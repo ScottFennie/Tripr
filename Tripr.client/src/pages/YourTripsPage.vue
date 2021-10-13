@@ -25,12 +25,16 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { tripsService } from '../services/TripsService'
 export default {
   setup() {
+    onMounted(async() => {
+      await tripsService.getAllMyTrackedTrips()
+    })
     return {
-      trips: computed(() => AppState.trips)
+      trips: computed(() => AppState.mytrips)
 
     }
   }

@@ -1,4 +1,5 @@
 import { AppState } from '../AppState'
+import { TrackedTrip } from '../Models/TrackedTrip'
 import { Trip } from '../Models/Trip'
 import { router } from '../router'
 import { logger } from '../utils/Logger'
@@ -9,6 +10,7 @@ import { travelersService } from './TravelersService'
 class TripsService {
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
+    this.checkIfTrip(res.data.jkey)
     logger.log('new Trip', res)
     AppState.trips.push(res.data)
     logger.log('new trip', res.data)
@@ -40,6 +42,12 @@ class TripsService {
     const res = await api.get('api/trips')
     AppState.trips = res.data.map(t => new Trip(t))
     logger.log('all trips', AppState.trips)
+  }
+
+  async getAllMyTrackedTrips() {
+    const res = await api.get('account/trackedtrips')
+    AppState.mytrips = res.data.map(t => new TrackedTrip(t))
+    logger.log(AppState.mytrips)
   }
 }
 export const tripsService = new TripsService()

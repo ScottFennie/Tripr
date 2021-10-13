@@ -19,8 +19,10 @@
     "esm": "^3.2.25",
     "express": "^4.17.1",
     "helmet": "^4.6.0",
+    "mapbox-gl": "^2.5.1",
     "mongoose": "^6.0.6",
-    "socket.io": "4.1.2"
+    "socket.io": "4.1.2",
+    "vue-mapbox": "^0.4.1"
   },
   "engines": {
     "node": "^14.0.0"

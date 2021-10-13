@@ -12,11 +12,11 @@
           <div class="trip-card align-items-center">
             <div class="trip-border-2 d-flex justify-content-between">
               <h6 class="d-flex align-items-center">
-                {{ trip.title }}
+                {{ trip.trip.title }}
               </h6>
               <div class="d-flex align-items-center">
                 <p class="body-color m-0">
-                  {{ new Date(trip.startDate).toDateString() }}
+                  {{ new Date(trip.trip.createdAt).toDateString() }}
                 </p>
               </div>
             </div>

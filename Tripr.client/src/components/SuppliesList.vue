@@ -58,7 +58,7 @@ export default {
       async isBringing(supplyId) {
         try {
           editable.value.isBringing = !editable.value.isBringing
-          // NOTE setting assignedId in server side?
+          // NOTE setting assignedId in client side?
           // if (editable.value.isBringing) {
           //   editable.value.assignedId = this.account.id
           // } else { editable.value.assignedId = '' }

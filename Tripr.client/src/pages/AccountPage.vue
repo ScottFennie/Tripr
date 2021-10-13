@@ -8,7 +8,7 @@
           </h4>
           <img class="pin mt-3" src="../assets/img/pin.png" alt="nope">
         </div>
-        <p>last road trip: <span>{{ account.lastTrip }}</span></p>
+        <p>last road trip: <span>{{ }}</span></p>
         <p>total trips: <span>{{ mytrips.length }}</span></p>
         <img v-if="account"
              :src="account.picture"
@@ -82,6 +82,7 @@ export default {
     return {
       account: computed(() => AppState.account),
       mytrips: computed(() => AppState.mytrips),
+      lasttrip: computed(() => AppState.mytrips[AppState.mytrips.length - 1]),
       async logout() {
         AuthService.logout({ returnTo: window.location.origin })
       }

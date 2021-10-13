@@ -38,6 +38,14 @@ class TripsService {
     throw new Error('No trips found')
   }
 
+  async setCurrentTrip(tripID) {
+    const res = await api.get('api/trips')
+    AppState.trips = res.data.map(t => new Trip(t))
+    const trip = AppState.trips.find(t => t.id === tripID)
+    AppState.currentTrip = trip
+    logger.log('myID', trip)
+  }
+
   async getAllTrips() {
     const res = await api.get('api/trips')
     AppState.trips = res.data.map(t => new Trip(t))

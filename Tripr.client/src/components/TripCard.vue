@@ -27,17 +27,39 @@
     <div :id="'flush-' + trip.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <Map />
+        <div>
+          <router-link :to="{ name: 'Trip', params: { tripId: trip.trip.id } }">
+            <button class="btn btn-primary">
+              See Trip
+            </button>
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { router } from '../router'
+import { tripsService } from '../services/TripsService'
+import Pop from '../utils/Pop'
 export default {
   props: {
     trip: {
       type: Object,
       required: true
+    }
+  },
+  setup() {
+    return {
+      async gotToPage(tripId) {
+        try {
+          await tripsService.goToThePage(tripId)
+        } catch (error) {
+          Pop.toast(error)
+        }
+      }
+
     }
   }
 

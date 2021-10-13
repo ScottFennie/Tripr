@@ -14,26 +14,8 @@ export const AppState = reactive({
       { name: 'Barclay Bay', creator: 'Nathan', center: [43.5203215958237, -116.05359597446557] }
     ]
   },
-  trips: [
-    {
-      title: "The Boi's Trip",
-      travelType: 'Camping',
-      id: 1,
-      startDate: '11/20/2020'
-    },
-    {
-      title: 'The Dudes Trip',
-      travelType: 'Camping',
-      id: 2,
-      startDate: '11/30/2020'
-    },
-    {
-      title: 'The Dudes Trip',
-      travelType: 'Camping',
-      id: 3,
-      startDate: '11/30/2020'
-    }
-  ],
+  trips: [],
+  currenttrip: [],
   currentTripId: null,
   assignSupplies: [],
   currentSupplies: [],

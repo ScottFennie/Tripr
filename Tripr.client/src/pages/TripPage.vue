@@ -41,7 +41,7 @@
           </h6>
           <h3 @click="copyText" id="join-code" class="trip-code">
             <!-- {{ trip.tripCode }} -->
-            H5FRP
+            {{ trip.jkey }}
           </h3>
         </div>
       </div>
@@ -50,13 +50,18 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 import { router } from '../router'
+import { useRoute } from 'vue-router'
 export default {
   setup() {
+    const route = useRoute()
+    onMounted(async() => {
+      await tripsService.setCurrentTrip(route.params.tripId)
+    })
     return {
       trip: computed(() => AppState.currentTrip),
       account: computed(() => AppState.account),

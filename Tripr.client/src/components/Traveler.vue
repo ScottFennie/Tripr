@@ -17,7 +17,8 @@
         <div class="row pt-1">
           <div class="col-6">
             <div class="ps-1">
-              Supplies: <br> N/Y/A
+              Supplies: <br>
+              {{ travSupp }}
             </div>
           </div>
           <div class="col-6">
@@ -32,10 +33,11 @@
 </template>
 
 <script>
-// import { computed } from '@vue/runtime-core'
+import { computed } from '@vue/runtime-core'
 import { Traveler } from '../Models/Traveler'
 import { travelersService } from '../services/TravelersService'
 import Pop from '../utils/Pop'
+import { AppState } from '../AppState'
 export default {
   props: {
     traveler: {
@@ -43,10 +45,13 @@ export default {
       required: true
     }
   },
-  // travSupp: computed(()),
   // tarvPlace: computed(()),
   setup(props) {
     return {
+      // NOTE Not Sure if array is currentSupplies or just supplies
+      travSupp: computed(() =>
+        AppState.currentSupplies.filter(s => s.assignedId === props.traveler.creator.id).length
+      ),
       async removeTraveler(travelerId) {
         if (Pop.confirm()) {
           await travelersService.removeTraveler(props.traveler.tripId, travelerId)

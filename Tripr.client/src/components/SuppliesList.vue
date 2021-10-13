@@ -58,6 +58,10 @@ export default {
       async isBringing(supplyId) {
         try {
           editable.value.isBringing = !editable.value.isBringing
+          // NOTE setting assignedId in server side?
+          // if (editable.value.isBringing) {
+          //   editable.value.assignedId = this.account.id
+          // } else { editable.value.assignedId = '' }
           await suppliesService.editSupplies(editable.value, route.params.tripId, supplyId)
           // Pop.toast('item has been assigned', 'success')
         } catch (error) {

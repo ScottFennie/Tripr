@@ -58,7 +58,7 @@
             </ul>
           </div> -->
           <div class="justify-content-center d-flex my-4">
-            <Map class="map" />
+            <MapBox class="map" />
           </div>
           <label for="travelType" class="visually-hidden">Type of Outing:</label>
           <select class="form-select bg-light trip-type align-self-start ms-3"
@@ -157,6 +157,7 @@ export default {
 }
 .map {
   width: 85vw;
+  height: 45vh;
 }
 .create-trip-input {
   height: 3.5rem;

@@ -55,9 +55,9 @@ export class SuppliesController extends BaseController {
   async editSupplies(req, res, next) {
     try {
       // NOTE setting assignedId on server side?
-      // if (req.body.isBringing) {
-      //   req.body.assignedId = req.userInfo.id
-      // } else { req.body.assignedId = '' }
+      if (req.body.isBringing) {
+        req.body.assignedId = req.userInfo.id
+      } else { req.body.assignedId = '' }
       const supply = await suppliesService.editSupplies(req.params.suppliesId, req.userInfo.id, req.body)
       res.send(supply)
     } catch (error) {

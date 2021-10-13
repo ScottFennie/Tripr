@@ -21,7 +21,7 @@
       <h1 class="mt-3 text-center border-top">
         Assigned:
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-3">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-1">
         <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
       </div>
     </div>

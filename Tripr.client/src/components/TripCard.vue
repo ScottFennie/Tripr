@@ -16,7 +16,7 @@
               </h6>
               <div class="d-flex align-items-center">
                 <p class="body-color m-0">
-                  {{ new Date(trip.trip.startDate).toDateString() }}
+                  {{ new Date(trip.trip.createdAt).toDateString() }}
                 </p>
               </div>
             </div>

@@ -23,13 +23,13 @@
       <h1 class="text-center border-top m-0">
         Need
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-2">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row px-2">
         <SuppliesList v-if="!s.isBringing" :key="s.id" :supply="s" />
       </div>
       <h1 class="mt-3 text-center border-top">
         Assigned
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-2">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row px-2">
         <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
       </div>
     </div>

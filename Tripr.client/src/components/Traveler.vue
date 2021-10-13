@@ -3,27 +3,31 @@
     <div class="row justify-content-center">
       <div class="col-10 card py-2">
         <div class="row">
-          <div class="col-3 ps-2">
-            <img :src="traveler.creator.picture" class="icon rounded">
+          <div class="col-3 p-0 ps-2">
+            <img :src="traveler.creator.picture" class="icon rounded-circle">
           </div>
-          <div class="col-8">
-            {{ traveler.creator.name }}
+          <div class="col-8 text p-0">
+            <p>{{ traveler.creator.name }}</p>
           </div>
           <!-- v-if needed on this col-1 -->
-          <div class="col-1">
-            <i class="mdi mdi-delete text-danger selectable" @click="removeTraveler(traveler.id)"></i>
+          <div class="col-1 p-0 pe-1">
+            <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)"></i>
           </div>
         </div>
         <div class="row pt-1">
           <div class="col-6">
-            <div class="ps-1">
-              Supplies: <br>
-              {{ travSupp }}
+            <div class="ps-1 text">
+              <p>
+                Supplies: <br>
+                {{ travSupp }}
+              </p>
             </div>
           </div>
           <div class="col-6">
-            <div class="row">
-              Places: <br> N/Y/A
+            <div class="row text">
+              <p>
+                locations:
+              </p>
             </div>
           </div>
         </div>
@@ -52,8 +56,13 @@ export default {
       travSupp: computed(() => AppState.currentSupplies.filter(s => s.assignedId === AppState.account.id).length),
       account: computed(() => AppState.account),
       async removeTraveler(travelerId) {
-        if (Pop.confirm()) {
-          await travelersService.removeTraveler(props.traveler.tripId, travelerId)
+        try {
+          const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Traveler</em>?')
+          if (!yes) { return }
+          await travelersService.removeTraveler(props.traveler.id, travelerId)
+          Pop.toast('Suppy Item has been removed')
+        } catch (error) {
+          Pop.toast(error.message, 'error')
         }
       }
 
@@ -65,5 +74,19 @@ export default {
 <style lang="scss" scoped>
 .icon{
   height: 40px;
+}
+
+.card{
+  background-color: #cca363;
+  border: 3px dashed #C5C5C5;
+  border-radius: 10px;
+}
+
+.text{
+   color: #654e2a;
+   font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 20px;
 }
 </style>

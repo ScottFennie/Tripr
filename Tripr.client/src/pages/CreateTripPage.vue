@@ -84,10 +84,6 @@
         </div>
       </form>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-12"></div>
-      <Map />
-    </div>
   </div>
 </template>
 
@@ -135,8 +131,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-#mapid { height: 180px; }
-
 .create-trip-title {
   clip-path: polygon(100% 45%, 100% 75%, 50% 100%, 0 75%, 0 45%);
   height: 15vh;
@@ -188,7 +182,5 @@ export default {
 .submit-btn {
   width: 25vw;
 }
-.container-fluid {
-  max-height: 100vh;
-}
+
 </style>

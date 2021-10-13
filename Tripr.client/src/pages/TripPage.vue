@@ -188,7 +188,7 @@ h6 {
   z-index: 10;
 }
 .travelers-logo {
-  z-index: 11;
+  z-index: 10;
   position: absolute;
     bottom: 160px;
     left: 19px;

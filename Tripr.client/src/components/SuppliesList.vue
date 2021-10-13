@@ -2,10 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card text rounded shadow p-0 mt-2 Supplies">
-          <div class="card-body">
-            <span class="d-flex justify-content-between p-0 m-0">
-              <label for="isBringing" class="sr-only">Who wants to bring:</label>
+        <div class="card text rounded shadow p-0 mt-2 mb-0 Supplies">
+          <div class="card-body p-2">
+            <span class="d-flex justify-content-between text-center p-0 m-0">
+              <label for="isBringing" class="sr-only card-text">Who wants to bring:</label>
               <input type="checkbox"
                      name="isBringing"
                      id="isBringing"
@@ -13,10 +13,10 @@
                      :checked="editable.isBringing"
                      @change="isBringing(supply.id)"
               >
-              <p class="card-text">
+              <p class="card-text m-0">
                 {{ supply.description }}
               </p>
-              <p class="card-text">
+              <p class="card-text m-0">
                 QTY: {{ supply.quantity }}
               </p>
               <div class="icon d-flex justify-content-end align-content-start p-0" v-if="account.id == supply.creatorId">
@@ -58,7 +58,7 @@ export default {
       async isBringing(supplyId) {
         try {
           editable.value.isBringing = !editable.value.isBringing
-          // NOTE setting assignedId in server side?
+          // NOTE setting assignedId in client side?
           // if (editable.value.isBringing) {
           //   editable.value.assignedId = this.account.id
           // } else { editable.value.assignedId = '' }
@@ -92,5 +92,12 @@ border-radius: 10px;
 }
 .text{
   color: #353a22;
+}
+
+.card-text{
+  font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
 }
 </style>

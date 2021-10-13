@@ -10,6 +10,7 @@ class SuppliesService {
     const res = await api.get(`api/trips/${tripId}/supplies`)
     logger.log('supplies list', res.data)
     AppState.supplies = res.data.map(s => new Supplies(s))
+    // You shouldn't need to get all of the data then filter it on the client - build a server route that handles this if you havev't already. Why do we need the below code?
     AppState.currentSupplies = AppState.supplies.filter(s => s.tripId === tripId)
     logger.log('current supplies', AppState.currentSupplies)
   }

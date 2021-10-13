@@ -49,9 +49,8 @@ export default {
   setup(props) {
     return {
       // NOTE Not Sure if array is currentSupplies or just supplies
-      travSupp: computed(() =>
-        AppState.currentSupplies.filter(s => s.assignedId === props.traveler.creator.id).length
-      ),
+      travSupp: computed(() => AppState.currentSupplies.filter(s => s.assignedId === AppState.account.id).length),
+      account: computed(() => AppState.account),
       async removeTraveler(travelerId) {
         if (Pop.confirm()) {
           await travelersService.removeTraveler(props.traveler.tripId, travelerId)

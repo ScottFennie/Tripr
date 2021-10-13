@@ -85,11 +85,17 @@
       </form>
     </div>
     <div class="row justify-content-center">
+<<<<<<< HEAD
+=======
+      <div class="col-12"></div>
+      <Map />
+>>>>>>> 667a19018f0c02a64c040bf647a9c363ff3315c3
     </div>
   </div>
 </template>
 
 <script>
+<<<<<<< HEAD
 import { ref } from '@vue/reactivity'
 import { watchEffect } from '@vue/runtime-core'
 import { tripsService } from '../services/TripsService'
@@ -128,11 +134,33 @@ export default {
         }
       }
     }
+=======
+import leaflet from 'leaflet'
+import { onMounted } from '@vue/runtime-core'
+
+export default {
+  setup() {
+    let mymap
+    onMounted(() => {
+      mymap = leaflet.map('mapid').setView([51.505, -0.09], 13)
+
+      leaflet.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token=pk.eyJ1Ijoic2Zlbm5pZSIsImEiOiJja3VvOW4wMTcyZGFlMnBteGtiM28za2RwIn0.NprbvWfSrFeKAZg6P_i8rA', {
+        attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
+        maxZoom: 18,
+        id: 'mapbox/streets-v11',
+        tileSize: 512,
+        zoomOffset: -1,
+        accessToken: 'pk.eyJ1Ijoic2Zlbm5pZSIsImEiOiJja3VvOW4wMTcyZGFlMnBteGtiM28za2RwIn0.NprbvWfSrFeKAZg6P_i8rA'
+      }).addTo(mymap)
+    })
+>>>>>>> 667a19018f0c02a64c040bf647a9c363ff3315c3
   }
 }
 </script>
 
 <style lang="scss" scoped>
+#mapid { height: 180px; }
+
 .create-trip-title {
   clip-path: polygon(100% 45%, 100% 75%, 50% 100%, 0 75%, 0 45%);
   height: 15vh;

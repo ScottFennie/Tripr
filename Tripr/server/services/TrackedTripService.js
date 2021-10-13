@@ -24,6 +24,11 @@ class TrackedTripService {
     await trackedtrip.populate('trip')
     return trackedtrip
   }
+
+  async getMyTrackedTrips(accountId) {
+    const trips = await dbContext.TrackedTrip.find({ accountId: accountId }).populate('trip')
+    return trips
+  }
 }
 
 export const trackedTripService = new TrackedTripService()

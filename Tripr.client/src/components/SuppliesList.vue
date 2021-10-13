@@ -87,8 +87,8 @@ export default {
 .Supplies{
   background-color: #e7debe;
   border: 3px dashed #C5C5C5;
-box-shadow: inset 4px 4px 4px rgba(108, 108, 108, 0.25);
-border-radius: 10px;
+  box-shadow: inset 4px 4px 4px rgba(108, 108, 108, 0.25);
+  border-radius: 10px;
 }
 .text{
   color: #353a22;

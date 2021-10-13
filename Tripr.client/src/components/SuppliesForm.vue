@@ -13,7 +13,9 @@
              class="form-control bg-primary"
              name="quantity"
              placeholder="1"
+             min="1"
              v-model="editable.quantity"
+             required
       >
     </div>
     <div class="button-group">

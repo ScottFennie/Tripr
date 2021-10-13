@@ -2,7 +2,7 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-        <div class="card text-center rounded shadow p-0 mt-2 Supplies">
+        <div class="card text rounded shadow p-0 mt-2 Supplies">
           <div class="card-body">
             <span class="d-flex justify-content-between p-0 m-0">
               <label for="isBringing" class="sr-only">Who wants to bring:</label>
@@ -86,5 +86,11 @@ export default {
 <style lang="scss" scoped>
 .Supplies{
   background-color: #e7debe;
+  border: 3px dashed #C5C5C5;
+box-shadow: inset 4px 4px 4px rgba(108, 108, 108, 0.25);
+border-radius: 10px;
+}
+.text{
+  color: #353a22;
 }
 </style>

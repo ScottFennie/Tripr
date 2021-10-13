@@ -5,10 +5,10 @@
   </header>
   <div class="supplies container-fluid px-0">
     <div class="row">
-      <div>
+      <div class="col-4">
         <img class="logo selectable m-2" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
       </div>
-      <div class="d-flex align-items-start justify-content-end text-center">
+      <div class="col-8 d-flex align-items-start justify-content-end text-center mt-2">
         <h1>
           Supplies
         </h1>

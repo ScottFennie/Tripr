@@ -35,7 +35,7 @@ export default {
 
       const view = new MapView({
         map: map,
-        center: [-118.805, 34.027], // Longitude, latitude
+        center: [-111.805, 34.027], // Longitude, latitude
         zoom: 13, // Zoom level
         container: 'map' // Div element
       })

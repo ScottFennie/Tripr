@@ -1,5 +1,6 @@
 import { Auth0Provider } from '@bcwdev/auth0provider'
 import { accountService } from '../services/AccountService'
+import { trackedTripService } from '../services/TrackedTripService'
 import BaseController from '../utils/BaseController'
 
 export class AccountController extends BaseController {
@@ -8,6 +9,7 @@ export class AccountController extends BaseController {
     this.router
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
+      .get('/trackedtrips', this.getMyTrackedTrips)
       .put('', this.editProfile)
   }
 
@@ -24,6 +26,15 @@ export class AccountController extends BaseController {
     try {
       const profile = await accountService.editProfile(req.userInfo.id, req.body)
       res.send(profile)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async getMyTrackedTrips(req, res, next) {
+    try {
+      const trips = await trackedTripService.getMyTrackedTrips(req.userInfo.id)
+      res.send(trips)
     } catch (error) {
       next(error)
     }

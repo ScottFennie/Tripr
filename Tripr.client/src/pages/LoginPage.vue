@@ -1,6 +1,6 @@
 <template>
-  <div class="container-fluid p-0">
-    <div class="login">
+  <div class="container-fluid px-0">
+    <div class="login px-0">
       <div class="row">
         <div class="col d-flex flex-column align-items-center mb-4 p-0 w-100">
           <img class="logo" src="../assets/img/circle-logo.png" alt="Tripr Logo">
@@ -35,8 +35,8 @@
 
     <footer>
       <div class="row">
-        <div class="col">
-          <div class="bg-grey text-light text-center px-4">
+        <div class="col p-0">
+          <div class="bg-grey text-light text-center">
             <p class="py-1 mb-0">
               Application Created by Nathan, Quinn, Scott, Drew, Jackson 2021
             </p>

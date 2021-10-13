@@ -191,7 +191,7 @@ h6 {
   z-index: 11;
   position: absolute;
     bottom: 160px;
-    left: 23px;
+    left: 19px;
     font-size: 2.3rem;
     color: #e7debe;
     text-shadow: 2px 1px 2px rgba(194, 194, 194, 0.5);

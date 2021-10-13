@@ -30,7 +30,7 @@
         <div>
           <router-link :to="{ name: 'Trip', params: { tripId: trip.trip.id } }">
             <button class="btn btn-primary">
-              See Trip
+              Go to Trip
             </button>
           </router-link>
         </div>

@@ -73,6 +73,7 @@ export default {
 
 .card{
   background-color: #cca363;
+  border-radius: 10px;
 }
 
 .tripr_border{
@@ -81,10 +82,10 @@ export default {
 }
 
 .text{
-   color: #654e2a;
-   font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 20px;
+  color: #654e2a;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
 }
 </style>

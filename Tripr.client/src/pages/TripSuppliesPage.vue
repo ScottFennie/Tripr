@@ -1,6 +1,29 @@
 <template>
+  <div class="supplies container-fluid">
+    <div class="header row">
+      <div>
+        <img @click="toTripPage" class="logo selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo">
+        <h2>
+          Supplies
+        </h2>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control bg-body p-3" placeholder="Add Supply Item.." aria-label="Recipient's username" aria-describedby="button-addon2">
+          <button class="btn bg-primary mdi mdi-plus px-3 m-1" type="button" id="button-addon2">
+          </button>
+        </div>
+        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+          <path fill="#cca363" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
+        </svg>
+      </div>
+    </div>
+    <div class="need row">
+    </div>
+    <div class="assigned row">
+    </div>
+  </div>
+
   <!-- TODO take a look during hack-a-ton to determine a final choice -->
-  <header>
+  <!-- <header>
     <div class="border-top top"></div>
   </header>
   <div class="supplies container-fluid px-0">
@@ -45,7 +68,7 @@
     <template #modal-body>
       <SuppliesForm />
     </template>
-  </Modal>
+  </Modal> -->
 </template>
 
 <script>
@@ -88,7 +111,7 @@ export default {
 
 <style lang="scss" scoped>
 .logo {
-  width: 64px;
+  width: 25vw;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
 }
 .text{

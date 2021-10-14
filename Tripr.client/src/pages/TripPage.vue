@@ -22,11 +22,11 @@
       <Map class="map" />
     </div>
     <div class="row">
-      <div class="bottom travelers">
-        <img class="selectable bottom-card t-height" src="../assets/img/traveler-bg(updated).png" alt="">
+      <div class="bottom travelers p-0">
+        <img class="selectable t-height" src="../assets/img/traveler-bg(updated).png" alt="">
       </div>
-      <div class="bottom supplies">
-        <img class="bottom-card s-height" src="../assets/img/supplies-bg(updated).png" style="width:100vw;" alt="">
+      <div class="bottom supplies p-0">
+        <img class="s-height" src="../assets/img/supplies-bg(updated).png" style="width:100vw;" alt="">
         <h2 @click="goToSuppliesPage" class="selectable supplies-text">
           Supplies
           <svg style="width:36px;height:36px" viewBox="0 0 24 24">
@@ -188,9 +188,6 @@ h6 {
   z-index: 6;
   left: 5.5vw;
   top: 3.75vh;
-}
-.bottom-card {
-  margin-left: -15px;
 }
 .travelers-shadow {
   z-index: 2;

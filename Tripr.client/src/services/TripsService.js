@@ -22,7 +22,7 @@ class TripsService {
 
   async checkIfTrip(jkey) {
     // FIXME get trip by jkey async
-    const res = await api.get('api/trips?jkey=' + jkey)
+    const res = await api.get('api/trips?jkey=' + jkey.toUpperCase())
     // not a client side concern
     if (!res.data) {
       return Pop.toast('not a valid trip')

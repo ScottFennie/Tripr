@@ -25,7 +25,7 @@ export default {
       editable,
       async joinTrip() {
         try {
-          await tripsService.checkIfTrip(editable.value.jkey.toUpperCase())
+          await tripsService.checkIfTrip(editable.value.jkey)
         } catch (error) {
           Pop.toast(error, 'error')
         }

@@ -39,26 +39,7 @@
         <h2>Need</h2>
       </div>
       <div class="col-11 bg-body item px-1 mb-4" v-for="s in currentSupplies" :key="s.id">
-        <div class="d-flex justify-content-between align-items-center border-stitch">
-          <div class="d-flex align-items-center">
-            <input @change.prevent="isBringing(s.id)"
-                   :checked="editable.isBringing"
-                   type="checkbox"
-                   class="btn-check"
-                   id="{{s.id}}"
-                   autocomplete="off"
-            >
-            <label class="ps-2" for="{{s.id}}"><i v-if="s.isBringing && s.assignedId === account.id" class="mdi text-secondary f-28 mdi-check-circle"></i><i v-else class="mdi text-grey f-30 mdi-check-circle-outline"></i></label>
-            <h6 class="p-2 mt-2 text-grey darken-15 f-24">
-              {{ s.description }}
-            </h6>
-          </div>
-          <div>
-            <h6 class="pe-3 mt-2 f-20 text-grey darken-40">
-              {{ s.quantity || 1 }}
-            </h6>
-          </div>
-        </div>
+        <NeededItem :supply="s" />
       </div>
     </div>
     <div class="assigned row justify-content-center">
@@ -137,6 +118,7 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { useRoute } from 'vue-router'
 import { Supplies } from '../Models/Supplies'
+import { logger } from '../utils/Logger'
 export default {
   props: {
     supply: {
@@ -179,14 +161,6 @@ export default {
       async addToAssigned() {
         try {
           await suppliesService.editSupplies()
-        } catch (error) {
-          Pop.toast(error.message, 'error')
-        }
-      },
-      async isBringing(supplyId) {
-        try {
-          editable.value.isBringing = !editable.value.isBringing
-          await suppliesService.editSupplies(editable.value, route.params.tripId, supplyId)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

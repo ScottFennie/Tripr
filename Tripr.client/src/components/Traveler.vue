@@ -1,26 +1,28 @@
 <template>
   <div class="component py-2 my-2 ">
     <div class="row justify-content-center">
-      <div class="col-10 card py-2">
-        <div class="row">
-          <div class="col-3 p-0 ps-2">
-            <img :src="traveler.creator.picture" class="icon rounded-circle">
+      <div class="col-10 card p-1">
+        <div class="tripr_border p-2">
+          <div class="row">
+            <div class="col-3 ">
+              <img :src="traveler.creator.picture" class="icon rounded-circle">
+            </div>
+            <div class="col-8 text">
+              <p>{{ traveler.creator.name }}</p>
+            </div>
+            <!-- v-if needed on this col-1 -->
+            <div class="col-1 p-0 pe-1">
+              <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)"></i>
+            </div>
           </div>
-          <div class="col-8 text p-0">
-            <p>{{ traveler.creator.name }}</p>
-          </div>
-          <!-- v-if needed on this col-1 -->
-          <div class="col-1 p-0 pe-1">
-            <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)"></i>
-          </div>
-        </div>
-        <div class="row pt-1">
-          <div class="col-12">
-            <div class="ps-1 text">
-              <p>
-                Supplies:
-                {{ travSupp }}
-              </p>
+          <div class="row pt-1">
+            <div class="col-12">
+              <div class="ps-1 text">
+                <p>
+                  Supplies:
+                  {{ travSupp }}
+                </p>
+              </div>
             </div>
           </div>
         </div>
@@ -71,6 +73,9 @@ export default {
 
 .card{
   background-color: #cca363;
+}
+
+.tripr_border{
   border: 3px dashed #C5C5C5;
   border-radius: 10px;
 }

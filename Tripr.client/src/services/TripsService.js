@@ -40,8 +40,10 @@ class TripsService {
         throw Error('Traveler already exists for this trip!')
       }
       logger.log('new trackedtrip', res)
+      Pop.toast('You joined a trip!', 'success')
+    } else {
+      Pop.toast('Sorry no trip found', 'error')
     }
-    throw new Error('No trips found')
   }
 
   async setCurrentTrip(tripID) {

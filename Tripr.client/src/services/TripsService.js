@@ -11,8 +11,6 @@ class TripsService {
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
     this.checkIfTrip(res.data.jkey)
-    logger.log('new Trip', res)
-    AppState.trips.push(res.data)
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
     const TravData = {}

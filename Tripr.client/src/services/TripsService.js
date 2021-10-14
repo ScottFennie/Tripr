@@ -34,8 +34,10 @@ class TripsService {
       const travData = {}
       travelersService.createTraveler(res.data.tripId, travData)
       logger.log('new trackedtrip', res)
+      Pop.toast('You joined a trip!', 'success')
+    } else {
+      Pop.toast('Sorry no trip found', 'error')
     }
-    throw new Error('No trips found')
   }
 
   async setCurrentTrip(tripID) {

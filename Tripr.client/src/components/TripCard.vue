@@ -27,9 +27,9 @@
     <div :id="'flush-' + trip.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
       <div class="accordion-body">
         <Map />
-        <div>
+        <div class="bg-primary go-to-wrapper text-center py-1 shadow mt-2">
           <router-link :to="{ name: 'Trip', params: { tripId: trip.trip.id } }">
-            <button class="btn btn-primary">
+            <button class="btn bordr m-0">
               Go to Trip
             </button>
           </router-link>
@@ -40,7 +40,7 @@
 </template>
 
 <script>
-import { router } from '../router'
+// import { router } from '../router'
 import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 export default {
@@ -73,6 +73,17 @@ export default {
 .trip-border-2 {
   border: 2px dashed #e7debe;
   padding: .5vh 5vw;
+  border-radius: 10px;
+}
+.bordr{
+  background-color: #cca363;
+  border: 2px dashed #e7debe;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 3px 3px 5px #A28558;
+}
+.go-to-wrapper{
+  width: 25vw;
   border-radius: 10px;
 }
 h6 {

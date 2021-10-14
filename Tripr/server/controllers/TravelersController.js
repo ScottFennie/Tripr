@@ -16,7 +16,7 @@ export class TravelersController extends BaseController {
 
   async getTravelerById(req, res, next) {
     try {
-      const traveler = await travelersService.getTravelerById(req.body)
+      const traveler = await travelersService.getTravelerById(req.params.id)
       res.send(traveler)
     } catch (error) {
       next(error)

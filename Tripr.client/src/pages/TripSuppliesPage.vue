@@ -5,14 +5,14 @@
   </header>
   <div class="supplies container-fluid px-0">
     <div class="row">
-      <div>
+      <div class="col-4 p-0 ps-3">
         <img class="logo selectable m-2" src="../assets/img/circle-logo.png" alt="Tripr Logo" @click="toTripPage()">
       </div>
-      <div class="d-flex align-items-start justify-content-end text-center">
+      <div class="col-8 p-0 pe-3 d-flex align-items-start justify-content-end text-center mt-2">
         <h1>
           Supplies
         </h1>
-        <button title="Add Supplies" class="btn text" data-bs-toggle="modal" data-bs-target="#supply-modal">
+        <button title="Add Supplies" class="btn text p-0 px-1 mt-3 " data-bs-toggle="modal" data-bs-target="#supply-modal">
           <i><svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="currentColor" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
           </svg></i>
@@ -23,13 +23,13 @@
       <h1 class="text-center border-top m-0">
         Need
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-2">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row px-2">
         <SuppliesList v-if="!s.isBringing" :key="s.id" :supply="s" />
       </div>
       <h1 class="mt-3 text-center border-top">
         Assigned
       </h1>
-      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row p-2">
+      <div v-for="s in currentSupplies" :key="s.id" :supply="s" class="row px-2">
         <SuppliesList v-if="s.isBringing" :key="s.id" :supply="s" />
       </div>
     </div>

@@ -39,6 +39,7 @@ class TravelersService {
     } catch (error) {
       logger.log('What Happened?', error)
     }
+    this.getAllTravelers(tripId)
   }
 }
 

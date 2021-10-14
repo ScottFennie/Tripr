@@ -60,7 +60,7 @@ export default {
           const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Traveler</em>?')
           if (!yes) { return }
           await travelersService.removeTraveler(props.traveler.id, travelerId)
-          Pop.toast('Suppy Item has been removed')
+          Pop.toast('Traveler has been removed')
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

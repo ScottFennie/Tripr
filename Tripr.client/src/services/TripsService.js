@@ -10,19 +10,18 @@ import { travelersService } from './TravelersService'
 class TripsService {
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
-    this.checkIfTrip(res.data.jkey)
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
     const TravData = {}
     AppState.currentTripId = res.data.id.toString()
-    this.checkIfTrip(res.data.jkey)
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
     travelersService.createTraveler(res.data.id, TravData)
+    this.checkIfTrip(res.data.jkey)
   }
 
   async checkIfTrip(jkey) {
     // FIXME get trip by jkey async
-    const res = await api.get('api/trips?jkey=' + jkey)
+    const res = await api.get('api/trips?jkey=' + jkey.toUpperCase())
     // not a client side concern
     if (!res.data) {
       return Pop.toast('not a valid trip')

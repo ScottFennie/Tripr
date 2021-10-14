@@ -101,10 +101,12 @@ export default {
 <style scoped lang='scss'>
 .profile-picture {
   border-radius: 50%;
-    width: 17vw;
+    width: 18vw;
+    height: 18vw;
     position: absolute;
     left: 7vw;
     top: 3.5vh;
+    object-fit: cover;
 }
 .map {
   z-index: 0;

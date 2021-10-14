@@ -18,6 +18,7 @@
 import { ref } from '@vue/reactivity'
 import Pop from '../utils/Pop'
 import { tripsService } from '../services/TripsService'
+import { Modal } from 'bootstrap'
 export default {
   setup() {
     const editable = ref({})
@@ -26,6 +27,8 @@ export default {
       async joinTrip() {
         try {
           await tripsService.checkIfTrip(editable.value.jkey)
+          const modal = Modal.getInstance(document.getElementById('join-modal'))
+          modal.hide()
         } catch (error) {
           Pop.toast(error, 'error')
         }

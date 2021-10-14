@@ -1,20 +1,18 @@
 <template>
   <div class="container-fluid">
     <div class="row d-flex">
-      <div class="col-4">
+      <div class="col-12 text-center d-flex justify-content-between align-items-center">
         <img class="logo pt-2 ps-2"
              src="../assets/img/circle-logo.png"
              alt="Tripr Logo"
              @click="toTripPage()"
         >
-      </div>
-      <div class="col-8 text text-center pt-4">
-        <h1>
-          Travelers
+        <h1 class="m-0 mt-4 me-5 pe-5 text">
+          travelers
         </h1>
       </div>
     </div>
-    <div>
+    <div class="card-height scrollable-y">
       <Traveler v-for="t in travelers" :key="t.id" :traveler="t" />
     </div>
   </div>
@@ -60,6 +58,11 @@ export default {
   font-family: Museo Slab;
   font-style: normal;
   font-weight: normal;
+  font-size: 48px;
   color: #654e2a;
+}
+
+.card-height{
+  max-height: 70vh;
 }
 </style>

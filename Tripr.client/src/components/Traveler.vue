@@ -1,27 +1,28 @@
 <template>
-  <div class="component py-2 my-2 ">
-    <div class="row justify-content-center">
-      <div class="col-10 card p-1">
-        <div class="tripr_border p-2">
+  <div class="container-fluid component py-2 my-2">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-12 card p-1">
+        <div class="tripr_border p-1">
           <div class="row">
-            <div class="col-3 ">
+            <div class="col-12 d-flex justify-content-between align-items-center">
               <img :src="traveler.creator.picture" class="icon rounded-circle">
-            </div>
-            <div class="col-8 text">
-              <p>{{ traveler.creator.name }}</p>
-            </div>
-            <!-- v-if needed on this col-1 -->
-            <div class="col-1 p-0 pe-1">
-              <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)"></i>
-            </div>
-          </div>
-          <div class="row pt-1">
-            <div class="col-12">
-              <div class="ps-1 text">
-                <p>
-                  Supplies:
-                  {{ travSupp }}
-                </p>
+              <p class="ps-2 name-text">
+                {{ traveler.creator.name }}
+              </p>
+              <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)" />
+              <div class="row text">
+                <div class="col-12 p-0 text-end pe-2">
+                  <span>
+                    <p class="m-0 mb-3 p-0">
+                      Supplies:
+                      {{ travSupp }}
+                    </p>
+                    <p class="m-0 p-0">
+                      locations: 0
+                    <!-- locations value goes here -->
+                    </p>
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -68,7 +69,8 @@ export default {
 
 <style lang="scss" scoped>
 .icon{
-  height: 40px;
+  height: 64px;
+  width: 64px;
 }
 
 .card{
@@ -81,11 +83,19 @@ export default {
   border-radius: 10px;
 }
 
-.text{
+.name-text{
   color: #654e2a;
   font-family: Roboto;
   font-style: normal;
   font-weight: normal;
   font-size: 20px;
+}
+
+.text{
+  color: #654e2a;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 16px;
 }
 </style>

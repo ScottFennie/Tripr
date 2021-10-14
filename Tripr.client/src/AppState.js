@@ -26,5 +26,6 @@ export const AppState = reactive({
   currTravelers: [],
   trackedtrips: [],
   profile: null,
-  mytrips: []
+  mytrips: [],
+  tripMapSource: {}
 })

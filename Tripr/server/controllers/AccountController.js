@@ -10,6 +10,7 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .get('/trackedtrips', this.getMyTrackedTrips)
+      .delete('trackedtrips/:trackedTripID', this.deleteTrackedTrip)
       .put('', this.editProfile)
   }
 
@@ -35,6 +36,15 @@ export class AccountController extends BaseController {
     try {
       const trips = await trackedTripService.getMyTrackedTrips(req.userInfo.id)
       res.send(trips)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async deleteTrackedTrip(req, res, next) {
+    try {
+      const trip = await trackedTripService.deleteTrackedTrip(req.params.trackedTripID, req.userInfo.id)
+      res.send(trip)
     } catch (error) {
       next(error)
     }

@@ -27,10 +27,9 @@ export class MapService {
           accessToken: mapboxgl.accessToken, // Set the access token
           mapboxgl: mapboxgl, // Set the mapbox-gl instance
           marker: false, // Do not use the default marker style
-          placeholder: 'Search for a starting point', // Placeholder text for the search bar
-          position: 'bottom-left'
+          placeholder: 'Search for a starting point' // Placeholder text for the search bar
         })
-        map.addControl(geocoder, 'bottom-left')
+        map.addControl(geocoder, 'top-left')
         // Listen for the `result` event from the Geocoder
         // `result` event is triggered when a user makes a selection
         //  Add a marker at the result's coordinates

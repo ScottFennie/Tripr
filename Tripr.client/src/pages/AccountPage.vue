@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg-secondary account">
     <div class="row account-info-wrapper justify-content-center">
-      <div class="m-0 mt-4 account-info bg-body">
+      <div class="m-0 mt-4 mb-0 account-info bg-body">
         <div class="d-flex justify-content-between align-content-center">
           <h4 class="mt-2 font-m" v-if="account">
             {{ account.name }}
@@ -20,13 +20,13 @@
       </div>
     </div>
     <div class="row justify-content-center m-0 p-0">
-      <button type="button" class="m-0 ms-2 mb-3 p-0 btn w-100">
+      <button type="button" class="m-0 p-0 btn w-100">
         <router-link :to="{ name: 'CreateTrip' }" class="">
           <h2 class="m-0 p-0">
             <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
           </h2>
         </router-link>
-        <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+        <img class="cool-button patch m-0 mb-4" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
       </button>
     </div>
     <div class="mt-1 row align-items-end justify-content-between">
@@ -127,6 +127,7 @@ h2 {
 .patch {
   width: 55vw;
   height: auto;
+  margin:-50px ;
 }
 .text-shadow {
   border-radius: 10px;

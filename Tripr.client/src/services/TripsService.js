@@ -32,7 +32,7 @@ class TripsService {
     const trip = res.data
     if (trip) {
       const res = await api.post('api/trackedtrips', { jkey })
-      AppState.trackedtrips.push(new Trip(res.data))
+      AppState.trackedtrips.push(res.data)
       const travData = {}
       travelersService.createTraveler(res.data.tripId, travData)
       logger.log('new trackedtrip', res)

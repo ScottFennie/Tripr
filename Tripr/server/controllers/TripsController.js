@@ -43,7 +43,7 @@ export class TripsController extends BaseController {
   }
 
   async createTrip(req, res, next) {
-    const jkey = Math.random().toString(36).slice(-5)
+    const jkey = Math.random().toString(36).slice(-5).toUpperCase()
     try {
       req.body.jkey = jkey
       req.body.creatorId = req.userInfo.id

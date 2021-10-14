@@ -20,7 +20,6 @@ class TripsService {
   }
 
   async checkIfTrip(jkey) {
-    // FIXME get trip by jkey async
     const res = await api.get('api/trips?jkey=' + jkey.toUpperCase())
     // not a client side concern
     if (!res.data) {
@@ -74,6 +73,11 @@ class TripsService {
     } catch (error) {
       Pop.toast('Cannot Copy', 'error')
     }
+  }
+
+  async deleteTrip(tripId) {
+    const res = await api.delete(`account/trackedtrips/${tripId}`)
+    AppState.trips.trackedtrips.filter(t => t.id === tripId)
   }
 }
 export const tripsService = new TripsService()

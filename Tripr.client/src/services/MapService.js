@@ -1,3 +1,4 @@
+import { map } from 'leaflet'
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { mapboxToken } from '../env'
@@ -34,7 +35,17 @@ export class MapService {
         // `result` event is triggered when a user makes a selection
         //  Add a marker at the result's coordinates
         geocoder.on('result', ({ result }) => {
-          map.getSource('single-point').setData(result.geometry)
+          console.log('the result', result)
+
+          const source = map.getSource('my-data').serialize()
+          // TODO pair down the result object to keep only the data you need... ie name geo
+          source.data.features.push({
+            id: result.id,
+            type: result.type,
+            text: result.text,
+            geometry: result.geometry
+          })
+          map.getSource('my-data').setData(source.data)
         })
       } catch (e) {
         logger.error('[GEOCODER_ERROR]', e)
@@ -79,7 +90,7 @@ export class MapService {
             //     ]
             //   }
             // })
-            map.addSource('single-point', {
+            map.addSource('my-data', {
               type: 'geojson',
               data: {
                 type: 'FeatureCollection',
@@ -89,7 +100,7 @@ export class MapService {
             map.addLayer({
               id: 'point',
               type: 'symbol',
-              source: 'single-point',
+              source: 'my-data',
               layout: {
                 'icon-image': 'custom-marker',
                 // get the title name from the source's "title" property
@@ -109,12 +120,14 @@ export class MapService {
       }
 
       try {
-        loadPlugins()
+        // loadPlugins(map)
       } catch (error) {
         logger.error('error loading plugin', error)
       }
     })
     this.map = map
+    this.source = map.getSource('my-data')
+    window.banana = this
   }
 
   addPin(pinData) {
@@ -122,12 +135,36 @@ export class MapService {
   }
 
   saveMap() {
-    logger.log('saving', mapboxgl.Draw().getAll())
+    const data = this.map.getSource('my-data').serialize()
+    logger.log('saving', data)
+  }
+
+  loadMapSource(dataSource) {
+    const source = this.map.getSource('my-data')
+    source.data = dataSource.data
+    this.map.getSource('my-data').setData(source.data)
   }
 }
 
-function loadPlugins() {
-  const s = document.createElement('script')
-  s.src = 'https://bl.ocks.org/danswick/raw/36796153bd86ce982a59043cbe0ac8f7/mapbox-gl-draw.js'
-  document.body.appendChild(s)
-}
+// function loadPlugins(map) {
+//   const s = document.createElement('script')
+//   s.src = 'https://bl.ocks.org/danswick/raw/36796153bd86ce982a59043cbe0ac8f7/mapbox-gl-draw.js'
+//   document.body.appendChild(s)
+//   s.onload = () => {
+//     try {
+//       tryLoadDraw(map)
+//     } catch (error) {
+//       logger.error('unable to add control draw', error)
+//     }
+//   }
+// }
+
+// function tryLoadDraw(map) {
+//   setTimeout(() => {
+//     if (!mapboxgl.Draw) {
+//       return tryLoadDraw(map)
+//     }
+//     logger.log('there must be abetter way for plugins', 'draw loaded')
+//     map.addControl(mapboxgl.Draw())
+//   }, 1000)
+// }

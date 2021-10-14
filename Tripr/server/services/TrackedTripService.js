@@ -1,5 +1,5 @@
 import { dbContext } from '../db/DbContext'
-import { BadRequest } from '../utils/Errors'
+import { BadRequest, Forbidden } from '../utils/Errors'
 
 class TrackedTripService {
   async getTripByJkey(jkey) {
@@ -7,6 +7,15 @@ class TrackedTripService {
     if (!trip) {
       throw new BadRequest('invalid trip')
     }
+    return trip
+  }
+
+  async deleteTrackedTrip(tripId, userId) {
+    const trip = await dbContext.TrackedTrip.findOne({ id: tripId })
+    if (userId !== trip.accountId.toString()) {
+      throw new Forbidden('you cant do that')
+    }
+    await trip.delete()
     return trip
   }
 

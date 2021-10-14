@@ -12,7 +12,7 @@
         </h1>
       </div>
     </div>
-    <div>
+    <div class="card-height scrollable-y">
       <Traveler v-for="t in travelers" :key="t.id" :traveler="t" />
     </div>
   </div>
@@ -60,5 +60,9 @@ export default {
   font-weight: normal;
   font-size: 48px;
   color: #654e2a;
+}
+
+.card-height{
+  max-height: 70vh;
 }
 </style>

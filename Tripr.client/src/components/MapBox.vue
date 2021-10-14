@@ -89,7 +89,7 @@ export default {
 
 <style lang="scss">
 #map {
-  height: 45vh;
+  height: 40vh;
 }
 .mapbox-improve-map {
     display: none;

@@ -176,9 +176,11 @@ h6 {
 }
 .t-height {
   height: 35vh;
+  width: 100%;
 }
 .s-height {
   height: 28vh;
+  width: 100%;
 }
 .bottom-card {
   margin-left: -15px;

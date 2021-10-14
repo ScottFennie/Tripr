@@ -11,7 +11,7 @@ class SuppliesService {
   }
 
   async getSupplies(query) {
-    const supply = await dbContext.Supplies.find(query).populate('creator', 'name picture')
+    const supply = await dbContext.Supplies.find(query).populate('creator', 'name picture').populate('assigned')
     return supply
   }
 
@@ -37,6 +37,7 @@ class SuppliesService {
     supply.quantity = suppliesData.quantity || supply.quantity
     supply.assignedId = suppliesData.assignedId
     await supply.save()
+    await supply.populate('assigned', 'name picture')
     return supply
   }
 }

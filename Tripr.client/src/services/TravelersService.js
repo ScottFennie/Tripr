@@ -18,6 +18,12 @@ class TravelersService {
     }
   }
 
+  async getTravelerById(tripId, travelerId) {
+    const res = await api.get(`api/trips/${tripId}/travlers/${travelerId}`)
+    const foundTraveler = new Traveler(res.data)
+    return foundTraveler
+  }
+
   async createTraveler(tripId, travelerData) {
     try {
       const res = await api.post(`api/trips/${tripId}/travelers`, travelerData)

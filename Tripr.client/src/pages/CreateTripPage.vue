@@ -62,7 +62,7 @@
           </div>
           <div class="footer-cover" />
           <label for="travelType" class="visually-hidden">Type of Outing:</label>
-          <select class="form-select bg-light trip-type align-self-start ms-3"
+          <select class="form-select bg-light trip-type align-self-start ms-3 selectwrapper"
                   aria-label="travelType"
                   id="travelType"
                   required
@@ -190,6 +190,13 @@ export default {
   // background-color: red;
   height: 35px;
   width: 100vw;
+}
+
+.selectwrapper{
+  border: 2px dashed #e7debe;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #A28558;
 }
 
 </style>

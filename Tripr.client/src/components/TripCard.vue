@@ -29,7 +29,7 @@
         <Map />
         <div class="bg-primary go-to-wrapper text-center py-1 shadow mt-2">
           <router-link :to="{ name: 'Trip', params: { tripId: trip.trip.id } }">
-            <button class="btn bordr m-0">
+            <button class="btn bordr m-0 text">
               Go to Trip
             </button>
           </router-link>
@@ -91,5 +91,12 @@ h6 {
 }
 p {
   font-size: .85rem;
+}
+.text{
+  font-family: Museo Slab;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+color: #6e5a3c;
 }
 </style>

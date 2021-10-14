@@ -144,6 +144,7 @@ cursor: pointer;
 .accountPicture{
   height: 48px;
   width: 48px;
+  object-fit: cover;
 }
 .inset{
      -moz-box-shadow:    inset 0 0 10px #000000;

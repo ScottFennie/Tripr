@@ -1,8 +1,15 @@
 <template>
   <form @submit.prevent="joinTrip()">
-    <div class="form-group">
-      <label for="tripCode"></label>
-      <input class="bg-primary w-100 p-4 bord" name="tripCode" type="text" v-model="editable.jkey">
+    <div class="row d-flex">
+      <div class="form-group bord">
+        <label for="tripCode"></label>
+        <input class="bg-primary w-100 p-4 fs-2 font" placeholder="Trip Code.." name="tripCode" type="text" v-model="editable.jkey">
+      </div>
+      <div class="row d-flex justify-content-center align-content-center">
+        <button class="bg-primary joinbord p-3 w-50 mt-3 fs-2 font text-secondary">
+          Join
+        </button>
+      </div>
     </div>
   </form>
 </template>
@@ -37,5 +44,25 @@ export default {
   text-shadow: 0px 2px 2px rgba(255,255,255,0.5);
 }
 
-.bord{    border-color: #E62D90;    border-style: dashed; }
+.bord{
+  border-color: rgb(44, 44, 44, 0.25);
+  border-style: dashed;
+  border-radius: 10px;
+  padding: .3rem;}
+
+  .joinbord{
+  border-color: #d3d1c8;
+  border-style: dashed;
+  border-radius: 10px;
+  border-width: 3px;
+  }
+
+  .font{
+    font-family: Museo Slab;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 36px;
+  line-height: 43px;
+  text-align: center;
+  }
 </style>

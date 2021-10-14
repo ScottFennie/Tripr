@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-dialog-centered">
       <div class="modal-content">
         <div class="modal-header bg-body">
-          <h5 class="modal-title bg-body" id="exampleModalLabel">
+          <h5 class="modal-title bg-body text-center" id="exampleModalLabel">
             <slot name="modal-title"></slot>
           </h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

@@ -1,6 +1,6 @@
 <template>
   <form @submit.prevent="joinTrip()">
-    <div class="row d-flex">
+    <div class="row d-flex px-2">
       <div class="form-group bord">
         <label for="tripCode"></label>
         <input class="bg-primary w-100 p-4 fs-2 font" placeholder="Trip Code.." name="tripCode" type="text" v-model="editable.jkey">

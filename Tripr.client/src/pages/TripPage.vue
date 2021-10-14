@@ -5,7 +5,7 @@
         <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
           <div class="profile">
             <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
-            <img class="profile-picture selectable" :src="account.picture" alt="" @click="goToAccountPage()">
+            <img class="user-icon" src="../assets/img/user-icon_1.png" @click="goToAccountPage()">
           </div>
         </router-link>
         <div>
@@ -181,6 +181,13 @@ h6 {
 .s-height {
   height: 28vh;
   width: 100%;
+}
+.user-icon {
+  width: 20vw;
+  position: absolute;
+  z-index: 6;
+  left: 5.5vw;
+  top: 3.75vh;
 }
 .bottom-card {
   margin-left: -15px;

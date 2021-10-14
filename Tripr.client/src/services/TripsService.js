@@ -22,7 +22,7 @@ class TripsService {
 
   async checkIfTrip(jkey) {
     // FIXME get trip by jkey async
-    const res = await api.get('api/trips?jkey=' + jkey)
+    const res = await api.get('api/trips?jkey=' + jkey.toUpperCase())
     // not a client side concern
     if (!res.data) {
       return Pop.toast('not a valid trip')
@@ -32,7 +32,7 @@ class TripsService {
     if (trip) {
       const res = await api.post('api/trackedtrips', { jkey })
       AppState.trackedtrips.push(new TrackedTrip(res.data))
-      const traveler = travelersService.getTravelerById(res.data.tripId, res.data.accountId)
+      const traveler = await travelersService.getTravelerById(res.data.tripId, res.data.accountId)
       if (!traveler) {
         const travData = {}
         travelersService.createTraveler(res.data.tripId, travData)

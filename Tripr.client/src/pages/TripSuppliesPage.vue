@@ -1,24 +1,83 @@
 <template>
   <div class="supplies container-fluid">
     <div class="header row">
-      <div>
-        <img @click="toTripPage" class="logo selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo">
-        <h2>
-          Supplies
-        </h2>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control bg-body p-3" placeholder="Add Supply Item.." aria-label="Recipient's username" aria-describedby="button-addon2">
-          <button class="btn bg-primary mdi mdi-plus px-3 m-1" type="button" id="button-addon2">
-          </button>
+      <div class="col-12 d-flex justify-content-between mb-3">
+        <div>
+          <img @click="toTripPage" class="logo selectable mt-3" title="Go Back to Trip Page" src="../assets/img/circle-logo.png" alt="Tripr Logo">
         </div>
-        <svg style="width:24px;height:24px" viewBox="0 0 24 24">
-          <path fill="#cca363" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
-        </svg>
+        <div class="title">
+          <h1 class="mt-3 me-5 mb-0">
+            Supplies
+          </h1>
+          <!-- TODO add assigned supplies done amount -->
+          <p class="d-flex justify-content-end stats">
+            {{ assignedSupplies.length }}/{{ currentSupplies.length }}
+          </p>
+          <svg style="width:36px;height:36px" viewBox="0 0 24 24">
+            <path fill="#cca363" d="M14.3 21.7C13.6 21.9 12.8 22 12 22C6.5 22 2 17.5 2 12S6.5 2 12 2C13.3 2 14.6 2.3 15.8 2.7L14.2 4.3C13.5 4.1 12.8 4 12 4C7.6 4 4 7.6 4 12S7.6 20 12 20C12.4 20 12.9 20 13.3 19.9C13.5 20.6 13.9 21.2 14.3 21.7M7.9 10.1L6.5 11.5L11 16L21 6L19.6 4.6L11 13.2L7.9 10.1M18 14V17H15V19H18V22H20V19H23V17H20V14H18Z" />
+          </svg>
+        </div>
+      </div>
+      <div class="input-group mb-3 justify-content-center">
+        <div class="bg-body input-outline p-1 w-100">
+          <div class="border-stitch d-flex">
+            <input type="text"
+                   v-model="editable.description"
+                   class="form-control supply-input bg-body px-3"
+                   placeholder="Add Supply Item.."
+                   aria-label="Supply Item"
+                   aria-describedby="button-addon2"
+            >
+            <button @click="addSupplyItem" class="bg-primary mdi mdi-plus add" type="button" id="button-addon2">
+            </button>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="need row">
+    <div class="need row justify-content-center">
+      <div class="col-12 text-center mt-3">
+        <h2>Need</h2>
+      </div>
+      <div class="col-11 bg-body item px-1 mb-4" v-for="s in currentSupplies" :key="s.id">
+        <div class="d-flex justify-content-between align-items-center border-stitch">
+          <div class="d-flex align-items-center">
+            <input @change.prevent="isBringing(s.id)"
+                   :checked="editable.isBringing"
+                   type="checkbox"
+                   class="btn-check"
+                   id="{{s.id}}"
+                   autocomplete="off"
+            >
+            <label class="ps-2" for="{{s.id}}"><i v-if="s.isBringing && s.assignedId === account.id" class="mdi text-secondary f-28 mdi-check-circle"></i><i v-else class="mdi text-grey f-30 mdi-check-circle-outline"></i></label>
+            <h6 class="p-2 mt-2 text-grey darken-15 f-24">
+              {{ s.description }}
+            </h6>
+          </div>
+          <div>
+            <h6 class="pe-3 mt-2 f-20 text-grey darken-40">
+              {{ s.quantity || 1 }}
+            </h6>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="assigned row">
+    <div class="assigned row justify-content-center">
+      <div class="col-12 text-center mt-3">
+        <h2>Assigned</h2>
+      </div>
+      <div class="col-11 bg-body item px-1 mb-4" v-for="a in assignedSupplies" :key="a.id">
+        <div class="border-stitch d-flex justify-content-between align-items-center text-secondary">
+          <h6 class="ps-2 mt-1 text-grey darken-30">
+            {{ a.creator.name }}
+          </h6>
+          <p class="mt-3 f-20">
+            {{ a.description }}
+          </p>
+          <h6 class="pe-3 mt-2 text-grey darken-15">
+            {{ a.quantity || 1 }}
+          </h6>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -72,7 +131,7 @@
 </template>
 
 <script>
-import { computed, onMounted } from '@vue/runtime-core'
+import { computed, onMounted, ref } from '@vue/runtime-core'
 import { suppliesService } from '../services/SuppliesService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
@@ -87,6 +146,7 @@ export default {
     }
   },
   setup() {
+    const editable = ref({})
     const route = useRoute()
     onMounted(async() => {
       try {
@@ -96,10 +156,37 @@ export default {
       }
     })
     return {
-      currentSupplies: computed(() => AppState.currentSupplies),
+      editable,
+      currentSupplies: computed(() => AppState.currentSupplies.filter(s => s.isBringing === false || s.assignedId === AppState.account.id)),
+      assignedSupplies: computed(() => AppState.currentSupplies.filter(s => s.isBringing === true)),
+      account: computed(() => AppState.account),
+      async addSupplyItem() {
+        try {
+          await suppliesService.createSupplies(editable.value, route.params.tripId)
+          editable.value = {}
+          Pop.toast('Supply Item Added', 'success')
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
       async toTripPage() {
         try {
           await suppliesService.gotoTripPage()
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      async addToAssigned() {
+        try {
+          await suppliesService.editSupplies()
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
+      async isBringing(supplyId) {
+        try {
+          editable.value.isBringing = !editable.value.isBringing
+          await suppliesService.editSupplies(editable.value, route.params.tripId, supplyId)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
@@ -110,9 +197,44 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.title {
+  font-family: museo-slab,serif;
+}
+svg {
+  position: absolute;
+  top: 50px;
+  right: 35px;
+}
+h1 {
+  font-size: 2.5rem;
+}
+h2 {
+  font-family: museo-slab;
+  font-size: 2rem;
+}
+h6 {
+  font-weight: bold;
+}
+.supply-input {
+  border-radius: 10px;
+}
 .logo {
-  width: 25vw;
+  width: 20vw;
   filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));
+}
+.stats {
+  margin-top: -1vh;
+  margin-right: 16vw;
+  color: #a9b37f;
+  font-weight: bold;
+}
+.item {
+  border-radius: 10px;
+  font-family: museo-slab,serif;
+}
+.row {
+  border-bottom: 3px solid #e7d3b3;
+  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.5);
 }
 .text{
   font-family: Museo Slab;
@@ -120,7 +242,11 @@ export default {
   font-weight: normal;
   color: #cca363;
 }
-
+.border-stitch {
+  border: 2px dashed #b5af98;
+  border-radius: 10px;
+  margin: 3px 0;
+}
 .text-center{
   font-family: Museo Slab;
   font-style: normal;
@@ -138,12 +264,20 @@ export default {
   border-color: #b5af98;
   width: vw100;
 }
-
+.add {
+  color: #e7d3b3;
+  font-size: 2rem;
+  border-radius: 10px 10px 10px 0;
+  border: none;
+  margin: .25rem;
+}
 .top{
   border-color: #e7d3b3;
   height: 10px;
 }
-
+.input-outline {
+  border-radius: 10px;
+}
 .border-bottom{
   border-color: #e7d3b3;
   height: 10px;

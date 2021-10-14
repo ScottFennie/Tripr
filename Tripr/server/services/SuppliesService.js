@@ -11,13 +11,13 @@ class SuppliesService {
   }
 
   async getSupplies(query) {
-    const supply = await dbContext.Supplies.find(query).populate('creator')
+    const supply = await dbContext.Supplies.find(query).populate('creator', 'name picture')
     return supply
   }
 
   async createSupplies(suppliesData) {
     const supply = await dbContext.Supplies.create(suppliesData)
-    await supply.populate('creator')
+    await supply.populate('creator', 'name picture')
     return supply
   }
 

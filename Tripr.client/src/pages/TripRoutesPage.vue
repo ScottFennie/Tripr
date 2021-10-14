@@ -1,7 +1,7 @@
 <template>
   <header class="bg-light">
     <div class="d-flex justify-content-between">
-      <img class="m-3" src="../assets/img/circle-logo.png" alt="Tripr Logo" style="width:20vw;filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));">
+      <img class="m-3 selectable" src="../assets/img/circle-logo.png" alt="Tripr Logo" style="width:20vw;filter: drop-shadow(2px 0 4px rgba(0, 0, 0, 0.25));" @click="toTripPage()">
       <div class="d-flex flex-column align-items-end me-3 mt-3">
         <h2 class="trip-title">
           {{ trip.title }}
@@ -37,10 +37,19 @@
 <script>
 import { computed } from '@vue/runtime-core'
 import { AppState } from '../AppState'
+import { suppliesService } from '../services/SuppliesService'
+import Pop from '../utils/Pop'
 export default {
   setup() {
     return {
-      trip: computed(() => AppState.currentTrip)
+      trip: computed(() => AppState.currentTrip),
+      async toTripPage() {
+        try {
+          await suppliesService.gotoTripPage()
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      }
     }
   }
 }

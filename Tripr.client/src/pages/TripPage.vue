@@ -5,7 +5,7 @@
         <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
           <div class="profile">
             <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
-            <img class="profile-picture" :src="account.picture" alt="">
+            <img class="profile-picture selectable" :src="account.picture" alt="" @click="goToAccountPage()">
           </div>
         </router-link>
         <div>
@@ -81,6 +81,13 @@ export default {
           Pop.toast(error.message, 'error')
         }
       },
+      async goToAccountPage() {
+        try {
+          router.push({ name: 'Account' })
+        } catch (error) {
+          Pop.toast(error.message, 'error')
+        }
+      },
       async goToTripRoutes() {
         try {
           router.push({ name: 'Trip.Routes' })
@@ -112,7 +119,7 @@ export default {
 }
 .map {
   z-index: 0;
-  height: 90vh;
+  height: 80vh!important;
   width: 100vw;
   position: absolute;
 }

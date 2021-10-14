@@ -2,6 +2,11 @@ import { dbContext } from '../db/DbContext'
 import { BadRequest } from '../utils/Errors'
 
 class TravelersService {
+  async getTravelerById(id) {
+    const res = await dbContext.Traveler.findById(id)
+    return res
+  }
+
   async getTravelers() {
     const res = await dbContext.Traveler.find().populate('creator').populate('trip')
     if (!res) {

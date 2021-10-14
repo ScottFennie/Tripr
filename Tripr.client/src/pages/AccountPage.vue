@@ -59,7 +59,9 @@
   </Modal>
   <Modal id="join-modal">
     <template #modal-title>
-      <h5>Join a Road Trip!</h5>
+      <h5 class="join-modal-text">
+        Join Trip!
+      </h5>
     </template>
     <template #modal-body>
       <JoinTripForm />
@@ -154,5 +156,13 @@ cursor: pointer;
 .pin{
 height: 32px;
 width: 42px;
+}
+
+.join-modal-text{
+  color:#A28558;
+  font-family: museo-slab,serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 </style>

@@ -32,7 +32,7 @@ class TripsService {
     if (trip) {
       const res = await api.post('api/trackedtrips', { jkey })
       AppState.trackedtrips.push(new TrackedTrip(res.data))
-      const traveler = travelersService.getTravelerById(res.data.tripId, res.data.accountId)
+      const traveler = await travelersService.getTravelerById(res.data.tripId, res.data.accountId)
       if (!traveler) {
         const travData = {}
         travelersService.createTraveler(res.data.tripId, travData)
@@ -64,6 +64,17 @@ class TripsService {
     const res = await api.get('account/trackedtrips')
     AppState.mytrips = res.data.map(t => new TrackedTrip(t))
     logger.log(AppState.mytrips)
+  }
+
+  async copyText(tripID) {
+    try {
+      const found = AppState.trips.find(t => t.id === tripID)
+      // adds a value to the clipboard
+      navigator.clipboard.writeText(found.jkey)
+      Pop.toast('Code Copied', 'success')
+    } catch (error) {
+      Pop.toast('Cannot Copy', 'error')
+    }
   }
 }
 export const tripsService = new TripsService()

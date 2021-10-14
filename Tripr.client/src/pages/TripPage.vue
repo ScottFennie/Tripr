@@ -42,7 +42,6 @@
             Join Code:
           </h6>
           <h3 @click="copyText" id="join-code" class="trip-code">
-            <!-- {{ trip.tripCode }} -->
             {{ trip.jkey }}
           </h3>
         </div>
@@ -97,7 +96,7 @@ export default {
       },
       copyText() {
         try {
-          tripsService.copyText()
+          tripsService.copyText(route.params.tripId)
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

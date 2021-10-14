@@ -38,6 +38,7 @@
 import { ref } from '@vue/reactivity'
 import { accountService } from '../services/AccountService.js'
 import Pop from '../utils/Pop.js'
+import { Modal } from 'bootstrap'
 export default {
   setup() {
     const editable = ref({})
@@ -47,6 +48,9 @@ export default {
         try {
           await accountService.editProfile(editable.value)
           Pop.toast('Profile was Edited', 'success')
+          const modal = Modal.getInstance(document.getElementById('editprofile-modal'))
+          modal.hide()
+          editable.value = {}
         } catch (error) {
           Pop.toast(error.message, 'error')
         }

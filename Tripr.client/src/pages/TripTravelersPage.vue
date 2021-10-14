@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid p-0">
+  <div class="container-fluid">
     <div class="row d-flex">
       <div class="col-12 text-center d-flex justify-content-between align-items-center">
         <img class="logo pt-2 ps-2"

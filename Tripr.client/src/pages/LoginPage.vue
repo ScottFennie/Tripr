@@ -1,21 +1,21 @@
 <template>
-  <div class="container-fluid px-0">
-    <div class="login px-0">
-      <div class="row">
-        <div class="col d-flex flex-column align-items-center mb-4 p-0 w-100">
-          <img class="logo" src="../assets/img/circle-logo.png" alt="Tripr Logo">
+  <div class="container-fluid px-0 m-0 mt-5">
+    <div class="login px-0 m-0 mt-5">
+      <div class="row p-0 m-0 mt-5">
+        <div class="col d-flex flex-column align-items-center m-0 mt-5 my-4 p-0 w-100">
+          <img class="logo mt-5" src="../assets/img/circle-logo.png" alt="Tripr Logo">
           <h1>
             tripr
           </h1>
         </div>
       </div>
-      <div class="row my-2">
-        <div class="col d-flex flex-column align-items-center p-0 w-100">
+      <div class="row  m-0 my-2 p-0">
+        <div class="col d-flex flex-column align-items-center  m-0 p-0 w-100">
           <button
             class="btn bg-body thread-button mb-4"
             @click="login"
           >
-            <h3 class="btn-center bg-light">
+            <h3 class="btn-center bg-light p-0">
               Login
             </h3>
           </button>
@@ -23,7 +23,7 @@
           <button
             class="btn bg-body thread-button"
           >
-            <router-link :to="{ name: 'About' }" class="">
+            <router-link :to="{ name: 'About' }" class=" p-0">
               <h4 class="btn-center bg-light">
                 About
               </h4>
@@ -33,10 +33,10 @@
       </div>
     </div>
 
-    <footer>
-      <div class="row">
+    <footer class="m-0 p-0">
+      <div class="row m-0 p-0">
         <div class="col p-0">
-          <div class="bg-grey text-light text-center">
+          <div class="bg-grey text-light text-center p-0">
             <p class="py-1 mb-0">
               Application Created by Nathan, Quinn, Scott, Drew, Jackson 2021
             </p>

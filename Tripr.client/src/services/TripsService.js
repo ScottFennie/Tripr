@@ -65,5 +65,16 @@ class TripsService {
     AppState.mytrips = res.data.map(t => new TrackedTrip(t))
     logger.log(AppState.mytrips)
   }
+
+  async copyText(tripID) {
+    try {
+      const found = AppState.trips.find(t => t.id === tripID)
+      // adds a value to the clipboard
+      navigator.clipboard.writeText(found.jkey)
+      Pop.toast('Code Copied', 'success')
+    } catch (error) {
+      Pop.toast('Cannot Copy', 'error')
+    }
+  }
 }
 export const tripsService = new TripsService()

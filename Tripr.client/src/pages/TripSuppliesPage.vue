@@ -27,6 +27,8 @@
                    placeholder="Add Supply Item.."
                    aria-label="Supply Item"
                    aria-describedby="button-addon2"
+                   required
+                   minlength="1"
             >
             <button @click="addSupplyItem" class="bg-primary mdi mdi-plus add" type="button" id="button-addon2">
             </button>
@@ -148,7 +150,7 @@ export default {
           editable.value = {}
           Pop.toast('Supply Item Added', 'success')
         } catch (error) {
-          Pop.toast(error.message, 'error')
+          Pop.toast('Supply description is needed', 'error')
         }
       },
       async toTripPage() {

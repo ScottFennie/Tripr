@@ -43,4 +43,7 @@ export default {
 .mapboxgl-ctrl-geocoder--input{
 
 }
+.mapboxgl-ctrl-geocoder {
+   width: 300px!important;
+}
 </style>

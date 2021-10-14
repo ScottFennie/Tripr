@@ -6,7 +6,7 @@
           <h4 class="mt-2 font-m" v-if="account">
             {{ account.name }}
           </h4>
-          <img v-if="account.name === 'scooter'" class="pin mt-3" src="../assets/img/pin.png" alt="nope">
+          <img v-if="account.name === 'Scooter'" class="pin mt-3" src="../assets/img/pin.png" alt="nope">
         </div>
         <p>last road trip: <span>{{ }}</span></p>
         <p>total trips: <span>{{ mytrips.length }}</span></p>

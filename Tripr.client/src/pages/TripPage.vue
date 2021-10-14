@@ -2,10 +2,12 @@
   <div class="container">
     <div class="row">
       <div class="d-flex mt-3 justify-content-between top-bar overlay">
-        <div class="profile">
-          <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
-          <img class="profile-picture" :src="account.picture" alt="">
-        </div>
+        <router-link class="navbar-brand d-flex" :to="{ name: 'Account' }">
+          <div class="profile">
+            <img class="profile-bg" src="../assets/img/user-bg.png" alt="">
+            <img class="profile-picture" :src="account.picture" alt="">
+          </div>
+        </router-link>
         <div>
           <h2 class="trip-title">
             {{ trip.title }}

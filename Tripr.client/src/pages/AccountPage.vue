@@ -1,7 +1,7 @@
 <template>
   <div class="container-fluid bg-secondary account">
     <div class="row account-info-wrapper justify-content-center">
-      <div class="mt-4 account-info bg-body">
+      <div class="m-0 mt-4 mb-0 account-info bg-body">
         <div class="d-flex justify-content-between align-content-center">
           <h4 class="mt-2 font-m" v-if="account">
             {{ account.name }}
@@ -19,14 +19,14 @@
         >
       </div>
     </div>
-    <div class="row justify-content-center">
-      <button type="button" class="ms-2 mb-3 btn w-100">
+    <div class="row justify-content-center m-0 p-0">
+      <button type="button" class="m-0 p-0 btn w-100">
         <router-link :to="{ name: 'CreateTrip' }" class="">
-          <h2>
+          <h2 class="m-0 p-0">
             <img class=" cool-button patch mb-5" src="../assets/img/create.png" alt="Create Trip">
           </h2>
         </router-link>
-        <img class="cool-button patch" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
+        <img class="cool-button patch m-0 mb-4" src="../assets/img/join.png" alt="Join Trip" data-bs-toggle="modal" data-bs-target="#join-modal">
       </button>
     </div>
     <div class="mt-1 row align-items-end justify-content-between">
@@ -59,7 +59,9 @@
   </Modal>
   <Modal id="join-modal">
     <template #modal-title>
-      <h5>Join a Road Trip!</h5>
+      <h5 class="join-modal-text text-center">
+        Join Trip
+      </h5>
     </template>
     <template #modal-body>
       <JoinTripForm />
@@ -125,6 +127,7 @@ h2 {
 .patch {
   width: 55vw;
   height: auto;
+  margin:-50px ;
 }
 .text-shadow {
   border-radius: 10px;
@@ -154,5 +157,13 @@ cursor: pointer;
 .pin{
 height: 32px;
 width: 42px;
+}
+
+.join-modal-text{
+  color:#A28558;
+  font-family: museo-slab,serif;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0;
 }
 </style>

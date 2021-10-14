@@ -60,8 +60,9 @@
           <div class="justify-content-center d-flex my-4">
             <MapBox class="map" />
           </div>
+          <div class="footer-cover" />
           <label for="travelType" class="visually-hidden">Type of Outing:</label>
-          <select class="form-select bg-light trip-type align-self-start ms-3"
+          <select class="form-select bg-light trip-type align-self-start ms-3 selectwrapper"
                   aria-label="travelType"
                   id="travelType"
                   required
@@ -182,6 +183,20 @@ export default {
 }
 .submit-btn {
   width: 25vw;
+}
+
+.footer-cover{
+  background-color: #e7debe;
+  // background-color: red;
+  height: 35px;
+  width: 100vw;
+}
+
+.selectwrapper{
+  border: 2px dashed #e7debe;
+  padding: 5px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 5px #A28558;
 }
 
 </style>

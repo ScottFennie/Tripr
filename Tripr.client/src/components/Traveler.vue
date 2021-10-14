@@ -15,18 +15,11 @@
           </div>
         </div>
         <div class="row pt-1">
-          <div class="col-6">
+          <div class="col-12">
             <div class="ps-1 text">
               <p>
-                Supplies: <br>
+                Supplies:
                 {{ travSupp }}
-              </p>
-            </div>
-          </div>
-          <div class="col-6">
-            <div class="row text">
-              <p>
-                locations:
               </p>
             </div>
           </div>

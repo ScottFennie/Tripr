@@ -119,7 +119,7 @@ export default {
 }
 .map {
   z-index: 0;
-  height: 90vh;
+  height: 80vh!important;
   width: 100vw;
   position: absolute;
 }
@@ -176,9 +176,11 @@ h6 {
 }
 .t-height {
   height: 35vh;
+  width: 100%;
 }
 .s-height {
   height: 28vh;
+  width: 100%;
 }
 .bottom-card {
   margin-left: -15px;

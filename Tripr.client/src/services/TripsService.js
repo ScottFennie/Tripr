@@ -11,12 +11,11 @@ class TripsService {
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
     this.checkIfTrip(res.data.jkey)
-    logger.log('new Trip', res)
-    AppState.trips.push(res.data)
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
     const TravData = {}
     AppState.currentTripId = res.data.id.toString()
+    this.checkIfTrip(res.data.jkey)
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
     travelersService.createTraveler(res.data.id, TravData)
   }
@@ -32,9 +31,14 @@ class TripsService {
     const trip = res.data
     if (trip) {
       const res = await api.post('api/trackedtrips', { jkey })
-      AppState.trackedtrips.push(res.data)
-      const travData = {}
-      travelersService.createTraveler(res.data.tripId, travData)
+      AppState.trackedtrips.push(new TrackedTrip(res.data))
+      const traveler = travelersService.getTravelerById(res.data.tripId, res.data.accountId)
+      if (!traveler) {
+        const travData = {}
+        travelersService.createTraveler(res.data.tripId, travData)
+      } else {
+        throw Error('Traveler already exists for this trip!')
+      }
       logger.log('new trackedtrip', res)
     }
     throw new Error('No trips found')

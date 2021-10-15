@@ -19,7 +19,8 @@ class TravelersService {
   }
 
   async getTravelerById(tripId, travelerId) {
-    const res = await api.get(`api/trips/${tripId}/travlers/${travelerId}`)
+    const res = await api.get(`api/trips/${tripId}/travelers/${travelerId}`)
+    logger.log('this be the trav data', res)
     return res.data
   }
 

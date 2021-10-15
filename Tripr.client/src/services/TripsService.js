@@ -76,7 +76,7 @@ class TripsService {
   }
 
   async deleteTrip(tripId) {
-    const res = await api.delete(`account/trackedtrips/${tripId}`)
+    await api.delete(`account/trackedtrips/${tripId}`)
     AppState.trips.trackedtrips.filter(t => t.id === tripId)
   }
 }

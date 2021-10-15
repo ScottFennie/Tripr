@@ -228,7 +228,14 @@ h6 {
   font-weight: normal;
   font-size: 48px;
 }
-
+.assigned {
+  max-height: 30vh;
+  overflow-y: scroll;
+}
+.need {
+  max-height: 45vh;
+  overflow-y: scroll;
+}
 .supplies{
   background-color: #6d7746;
   height: 100vh;

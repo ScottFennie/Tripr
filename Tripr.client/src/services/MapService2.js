@@ -1,4 +1,4 @@
-import { map } from 'leaflet'
+
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { AppState } from '../AppState'
@@ -7,7 +7,7 @@ import { logger } from '../utils/Logger'
 
 const DrawPlugin = null
 
-export class MapService {
+export class MapService2 {
   constructor(container, config = { style: 'mapbox://styles/mapbox/outdoors-v11' }) {
     mapboxgl.accessToken = mapboxToken
     const map = new mapboxgl.Map({
@@ -40,16 +40,15 @@ export class MapService {
 
           const source = map.getSource('my-data').serialize()
           // TODO pair down the result object to keep only the data you need... ie name geo
-          if (source.data.features.length === 0) {
-            source.data.features.push({
-              id: result.id,
-              type: result.type,
-              text: result.text,
-              geometry: result.geometry
-            })
-            AppState.tripMapSource = source
-            logger.log('frigg off', AppState.tripMapSource)
-          }
+
+          source.data.features.push({
+            id: result.id,
+            type: result.type,
+            text: result.text,
+            geometry: result.geometry
+          })
+          AppState.tripMapSource = source
+
           map.getSource('my-data').setData(source.data)
         })
       } catch (e) {

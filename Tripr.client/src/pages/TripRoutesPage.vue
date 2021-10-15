@@ -7,27 +7,27 @@
           {{ trip.title }}
         </h2>
         <p>
-          <!-- locations: {{ trip.locations.length }} -->
+          <!-- locations: {{ trip.features.length }} -->
         </p>
       </div>
     </div>
   </header>
   <div>
-    <Map class="map" />
+    <TripMapBox class="map" />
   </div>
   <footer class="bg-light">
     <ul class="list-group">
-      <li class="selectable list-group-item d-flex justify-content-between" v-for="l in trip.locations" :key="l.id">
+      <li class="selectable list-group-item d-flex justify-content-between" v-for="l in trip.features" :key="l.id">
         <div class="d-flex align-items-center">
           <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="#E26363" d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" />
           </svg>
           <h3 class="text-grey">
-            {{ (trip.locations.indexOf(l) +1) }}
+            {{ (trip.features.indexOf(l) +1) }}
           </h3>
         </div>
         <h4 class="text-primary">
-          {{ l.name }}
+          {{ l.text }}
         </h4>
       </li>
     </ul>

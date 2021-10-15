@@ -16,6 +16,7 @@ class SuppliesService {
   }
 
   async createSupplies(suppliesData) {
+    suppliesData.assignedId = undefined
     const supply = await dbContext.Supplies.create(suppliesData)
     await supply.populate('creator', 'name picture')
     return supply
@@ -35,7 +36,7 @@ class SuppliesService {
     supply.description = suppliesData.description || supply.description
     supply.isBringing = suppliesData.isBringing == null ? supply.isBringing : suppliesData.isBringing
     supply.quantity = suppliesData.quantity || supply.quantity
-    supply.assignedId = suppliesData.assignedId
+    supply.assignedId = suppliesData.assignedId == null ? supply.assignedId : suppliesData.assignedId
     await supply.save()
     await supply.populate('assigned', 'name picture')
     return supply

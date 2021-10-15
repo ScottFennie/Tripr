@@ -11,8 +11,6 @@ export const SuppliesSchema = new Schema({
   travlerId: { type: Schema.Types.ObjectId, ref: 'Traveler' }
 }, { timestamps: true, toJSON: { virtuals: true } })
 
-SuppliesSchema.index({ assignedId: 1 }, { unique: true })
-
 SuppliesSchema.virtual('trip', {
   localField: 'tripId',
   foreignField: '_id',

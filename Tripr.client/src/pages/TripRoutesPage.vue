@@ -27,7 +27,7 @@
           </h3>
         </div>
         <h4 class="text-primary">
-          {{ l.name }}
+          {{ l.text }}
         </h4>
       </li>
     </ul>

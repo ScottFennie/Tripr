@@ -48,7 +48,6 @@ export class MapService2 {
             geometry: result.geometry
           })
           AppState.tripMapSource = source
-          logger.log('frigg off', AppState.tripMapSource)
 
           map.getSource('my-data').setData(source.data)
         })

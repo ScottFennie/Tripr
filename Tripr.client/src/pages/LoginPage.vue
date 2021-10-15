@@ -58,7 +58,7 @@ export default {
     return {
       user: computed(() => AppState.user),
       async login() {
-        AuthService.loginWithPopup()
+        // AuthService.loginWithPopup()
         router.push({ name: 'Account' })
         await tripsService.getAllTrips()
       }

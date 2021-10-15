@@ -71,6 +71,8 @@ export default {
       },
       async deleteTrip(TripId) {
         try {
+          const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Trip</em>?')
+          if (!yes) { return }
           await tripsService.deleteTrip(TripId)
         } catch (error) {
           Pop.toast(error, 'error')

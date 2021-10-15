@@ -149,7 +149,7 @@ export default {
           editable.value = {}
           Pop.toast('Supply Item Added', 'success')
         } catch (error) {
-          Pop.toast('Supply description is needed', 'error')
+          Pop.toast(error.message, 'error')
         }
       },
       async toTripPage() {

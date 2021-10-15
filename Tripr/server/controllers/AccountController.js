@@ -10,7 +10,7 @@ export class AccountController extends BaseController {
       .use(Auth0Provider.getAuthorizedUserInfo)
       .get('', this.getUserAccount)
       .get('/trackedtrips', this.getMyTrackedTrips)
-      .delete('trackedtrips/:trackedTripID', this.deleteTrackedTrip)
+      .delete('/trackedtrips/:trackedTripID', this.deleteTrackedTrip)
       .put('', this.editProfile)
   }
 

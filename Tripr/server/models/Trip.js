@@ -6,7 +6,7 @@ export const TripSchema = new Schema(
     title: { type: String, required: true, minlength: 3, maxlength: 15 },
     creatorId: { type: Schema.Types.ObjectId, ref: 'Account', required: true },
     description: { type: String },
-    locations: { type: Array },
+    features: { type: Array, required: true },
     travelType: { type: String, enum: ['Camping', 'Travel', 'Party', 'Other'], required: true },
     startDate: { type: Date },
     jkey: { type: String, required: true }

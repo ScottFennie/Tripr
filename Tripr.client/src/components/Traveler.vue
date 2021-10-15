@@ -60,7 +60,6 @@ export default {
         try {
           const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Traveler</em>?')
           if (!yes) { return }
-          debugger
           const traveler = await AppState.travelers.find(t => t.id === travelerId)
           logger.log('traveler', traveler)
           const trackedTrip = await AppState.trackedtrips.find(f => f.tripId === traveler.trip.id && f.accountId === traveler.creator.id)

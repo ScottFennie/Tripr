@@ -17,7 +17,7 @@ import Pop from '../utils/Pop'
 export default {
   setup() {
     let map = null
-    const mapSource = computed(() => AppState.tripMapSource)
+    const mapSource = computed(() => AppState.currentTrip.features)
     onMounted(() => {
       map = new MapService2()
       setTimeout(() => {

@@ -16,7 +16,20 @@
         </div>
       </div>
     </div>
-    <div class="row d-flex justify-content-center">
+    <div v-if="trips.length === 0" class="row justify-content-center mt-5 px-3">
+      <h2 class="text-secondary text-start">
+        You have no trips, go Create an adventure!
+      </h2>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDIgoDqDPUbqOhdDr0NAWnDJhtKmjuFna2t1fK3wUUXerBnSSDvk71mRU_wHIVD1fW6OA&usqp=CAU" alt="">
+      <button type="button" class="mt-5 mb-5 bg-secondary btn trip-border">
+        <router-link :to="{ name: 'CreateTrip' }" class="">
+          <h2 class="text-primary">
+            Create a Trip
+          </h2>
+        </router-link>
+      </button>
+    </div>
+    <div v-else class="row d-flex justify-content-center">
       <div class="accordion accordion-flush" id="accordionFlushExample">
         <TripCard :trip="t" v-for="t in trips" :key="t.id" />
       </div>

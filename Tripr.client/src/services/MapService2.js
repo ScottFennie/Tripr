@@ -1,4 +1,4 @@
-import { map } from 'leaflet'
+
 import mapboxgl from 'mapbox-gl'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import { AppState } from '../AppState'
@@ -7,7 +7,7 @@ import { logger } from '../utils/Logger'
 
 const DrawPlugin = null
 
-export class MapService {
+export class MapService2 {
   constructor(container, config = { style: 'mapbox://styles/mapbox/outdoors-v11' }) {
     mapboxgl.accessToken = mapboxToken
     const map = new mapboxgl.Map({

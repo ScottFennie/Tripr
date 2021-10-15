@@ -12,10 +12,8 @@ class TripsService {
     const res = await api.post('api/trips', newTrip)
     logger.log('new trip', res.data)
     AppState.trips.push(new Trip(res.data))
-    const TravData = {}
     AppState.currentTripId = res.data.id.toString()
     router.push({ name: 'Trip', params: { tripId: res.data.id } })
-    travelersService.createTraveler(res.data.id, TravData)
     this.checkIfTrip(res.data.jkey)
   }
 
@@ -30,13 +28,8 @@ class TripsService {
     if (trip) {
       const res = await api.post('api/trackedtrips', { jkey })
       AppState.trackedtrips.push(new TrackedTrip(res.data))
-      const traveler = await travelersService.getTravelerById(res.data.tripId, res.data.accountId)
-      if (traveler !== '') {
-        const travData = {}
-        travelersService.createTraveler(res.data.tripId, travData)
-      } else {
-        throw Error('Traveler already exists for this trip!')
-      }
+      const travData = {}
+      travelersService.createTraveler(res.data.tripId, travData)
       logger.log('new trackedtrip', res)
       Pop.toast('You joined a trip!', 'success')
     } else {

@@ -13,7 +13,7 @@
     </div>
   </header>
   <div>
-    <Map class="map" />
+    <TripMapBox class="map" />
   </div>
   <footer class="bg-light">
     <ul class="list-group">

@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="save()">
+    <!-- <button @click="save()">
       save
-    </button>
+    </button> -->
     <div id="map">
     </div>
   </div>
@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss">
 #map {
-  height: 40vh;
+ height: 75vh;
 }
 .mapboxgl-ctrl-attrib-inner {
     display: none;

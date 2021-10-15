@@ -1,8 +1,8 @@
 <template>
   <div>
-    <button @click="save()">
+    <!-- <button @click="save()">
       save
-    </button>
+    </button> -->
     <div id="map">
     </div>
   </div>
@@ -17,7 +17,7 @@ import Pop from '../utils/Pop'
 export default {
   setup() {
     let map = null
-    const mapSource = computed(() => AppState.tripMapSource)
+    const mapSource = computed(() => AppState.currentTrip)
     onMounted(() => {
       map = new MapService2()
       setTimeout(() => {
@@ -45,7 +45,7 @@ export default {
 
 <style lang="scss">
 #map {
-  height: 40vh;
+ height: 75vh;
 }
 .mapboxgl-ctrl-attrib-inner {
     display: none;

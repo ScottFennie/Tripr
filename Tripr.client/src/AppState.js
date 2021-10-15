@@ -8,10 +8,31 @@ export const AppState = reactive({
     title: "The Boi's Trip",
     travelType: 'Camping',
     id: 1,
-    locations: [
-      { name: 'Discovery State Park', creator: 'Scott', center: [43.525421, -116.065550] },
-      { name: 'Foothills Trail', creator: 'Drew', center: [43.53757473082576, -116.0656981015533] },
-      { name: 'Barclay Bay', creator: 'Nathan', center: [43.5203215958237, -116.05359597446557] }
+    features: [
+      {
+        id: 'place.9454360526012190',
+        type: 'Feature',
+        text: 'Boston',
+        geometry: {
+          type: 'Point',
+          coordinates: [
+            -71.0596,
+            42.3605
+          ]
+        }
+      },
+      {
+        id: 'place.9454360526012190',
+        type: 'Feature',
+        text: 'Who Knows',
+        geometry: {
+          type: 'Point',
+          coordinates: [
+            -95.0596,
+            50.3605
+          ]
+        }
+      }
     ]
   },
   trips: [],

@@ -9,7 +9,9 @@
               <p class="ps-2 name-text">
                 {{ traveler.creator.name }}
               </p>
-              <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)" />
+              <div :class="account.id === traveler.accountId || account.id === traveler.trip.creatorId ? '' : 'visually-hidden' ">
+                <i class="mdi mdi-close text-danger selectable f-16" @click="removeTraveler(traveler.id)" />
+              </div>
               <div class="row text">
                 <div class="col-12 p-0 text-end pe-2">
                   <span>
@@ -38,6 +40,9 @@ import { Traveler } from '../Models/Traveler'
 import { travelersService } from '../services/TravelersService'
 import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
+import { api } from '../services/AxiosService'
+import { router } from '../router'
+import { logger } from '../utils/Logger'
 export default {
   props: {
     traveler: {
@@ -55,13 +60,24 @@ export default {
         try {
           const yes = await Pop.confirm('are you sure <b>you</b> want to remove this <em>Traveler</em>?')
           if (!yes) { return }
-          await travelersService.removeTraveler(props.traveler.id, travelerId)
-          Pop.toast('Traveler has been removed')
+          const traveler = await AppState.travelers.find(t => t.id === travelerId)
+          logger.log('traveler', traveler)
+          const trackedTrip = await AppState.trackedtrips.find(f => f.tripId === traveler.trip.id && f.accountId === traveler.creator.id)
+          logger.log('trackedTrip', trackedTrip)
+          await this.removeBoth(traveler, trackedTrip)
+          // const deletedTrack = await api.delete(`account/trackedtrips/${trackedTrip.id}`)
+          // await travelersService.removeTraveler(props.traveler.id, travelerId)
+          router.push({ name: 'YourTrips' })
+          Pop.toast('Traveler has been removed, & Tracker removed')
         } catch (error) {
           Pop.toast(error.message, 'error')
         }
-      }
+      },
 
+      removeBoth(traveler, trackedTrip) {
+        api.delete(`account/trackedtrips/${trackedTrip.id}`)
+        travelersService.removeTraveler(traveler.trip.id, traveler.id)
+      }
     }
   }
 }

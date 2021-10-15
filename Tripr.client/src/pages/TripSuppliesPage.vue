@@ -51,7 +51,7 @@
       <div class="col-11 bg-body item px-1 mb-4" v-for="a in assignedSupplies" :key="a.id">
         <div class="border-stitch d-flex justify-content-between align-items-center text-secondary">
           <h6 class="ps-2 mt-1 text-grey darken-30">
-            {{ a.creator.name }}
+            {{ a.assigned.name }}
           </h6>
           <p class="mt-3 f-20">
             {{ a.description }}

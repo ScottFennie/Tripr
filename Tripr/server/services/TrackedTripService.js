@@ -11,9 +11,9 @@ class TrackedTripService {
   }
 
   async deleteTrackedTrip(tripId, userId) {
-    const trip = await dbContext.TrackedTrip.findOne({ id: tripId })
+    const trip = await dbContext.TrackedTrip.findById(tripId)
     if (userId !== trip.accountId.toString()) {
-      throw new Forbidden('you cant do that')
+      throw new Forbidden('you cant do that, idk why')
     }
     await trip.delete()
     return trip

@@ -120,7 +120,6 @@ import Pop from '../utils/Pop'
 import { AppState } from '../AppState'
 import { useRoute } from 'vue-router'
 import { Supplies } from '../Models/Supplies'
-import { logger } from '../utils/Logger'
 export default {
   props: {
     supply: {

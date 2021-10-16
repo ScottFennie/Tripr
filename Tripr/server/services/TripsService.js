@@ -20,7 +20,7 @@ class TripsService {
   }
 
   async getTripById(id) {
-    const trip = await dbContext.Trip.find(id).populate('creator')
+    const trip = await dbContext.Trip.findById(id).populate('creator')
     if (!trip) {
       throw new BadRequest('Invalid Trip Id')
     }

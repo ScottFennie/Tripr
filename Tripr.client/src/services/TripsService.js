@@ -12,6 +12,7 @@ class TripsService {
     const res = await api.put(`api/trips/${tripId}`, tripData)
     AppState.trips = new Trip(res.data)
     this.setCurrentTrip(tripId)
+    logger.log('this is the edited trip', res)
   }
 
   async createTrip(newTrip) {

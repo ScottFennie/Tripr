@@ -46,7 +46,7 @@ export default {
 </script>
 
 <style lang="scss">
-.map {
+#map {
  height: 40vh;
 }
 .mapboxgl-ctrl-attrib-inner {

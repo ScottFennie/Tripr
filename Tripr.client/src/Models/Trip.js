@@ -5,7 +5,7 @@ export class Trip {
     this.title = tripData.title
     this.creatorId = tripData.creatorId
     this.description = tripData.description
-    this.geo = tripData.geo
+    this.geo = tripData.geo || {}
     this.travelType = tripData.travelType
     this.startDate = tripData.startDate
     this.creator = tripData.creator

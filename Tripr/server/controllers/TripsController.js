@@ -11,6 +11,7 @@ export class TripsController extends BaseController {
       .get('/:tripId', this.getTripById)
       .get('/:jkey', this.getTripByJKey)
       .post('', this.createTrip)
+      .post('/:tripId', this.editTrip)
       .put('/:tripId', this.editTrip)
       .delete('/:tripId', this.removeTrip)
   }

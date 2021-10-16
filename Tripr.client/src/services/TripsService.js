@@ -9,7 +9,7 @@ import { travelersService } from './TravelersService'
 
 class TripsService {
   async editTrip(tripId, tripData) {
-    const res = await api.put(`api/trips/${tripId}`, tripData)
+    const res = await api.post(`api/trips/${tripId}`, tripData)
     AppState.trips = new Trip(res.data)
     this.setCurrentTrip(tripId)
     logger.log('this is the edited trip', res)

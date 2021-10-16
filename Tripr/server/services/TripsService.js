@@ -2,6 +2,13 @@ import { dbContext } from '../db/DbContext.js'
 import { BadRequest, Forbidden } from '../utils/Errors.js'
 
 class TripsService {
+  async updateGeo(tripId, body) {
+    const trip = await this.getTripById(tripId)
+    trip.geo = body.geo || trip.geo
+    await trip.save()
+    return trip
+  }
+
   updatePins(body) {
     throw new Error('Method not implemented.')
   }

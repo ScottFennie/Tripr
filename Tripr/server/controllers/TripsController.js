@@ -11,7 +11,7 @@ export class TripsController extends BaseController {
       .get('/:tripId', this.getTripById)
       .get('/:jkey', this.getTripByJKey)
       .post('', this.createTrip)
-      .post('/:tripId', this.editTrip)
+      // .post('/:tripId', this.updateGeo)
       .put('/:tripId', this.editTrip)
       .delete('/:tripId', this.removeTrip)
   }
@@ -58,6 +58,15 @@ export class TripsController extends BaseController {
   async editTrip(req, res, next) {
     try {
       const trip = await tripsService.editTrip(req.params.tripId, req.userInfo.id, req.body)
+      res.send(trip)
+    } catch (error) {
+      next(error)
+    }
+  }
+
+  async updateGeo(req, res, next) {
+    try {
+      const trip = await tripsService.updateGeo(req.params.tripId, req.body)
       res.send(trip)
     } catch (error) {
       next(error)

@@ -48,9 +48,7 @@ class TripsService {
     AppState.trips = res.data.map(t => new Trip(t))
     const trip = AppState.trips.find(t => t.id === tripID)
     AppState.currentTrip = trip
-    if (trip.geo) {
-      AppState.tripMapSource = trip.geo
-    }
+    AppState.tripMapSource = trip.geo
     logger.log('myID', trip)
   }
 

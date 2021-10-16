@@ -13,14 +13,16 @@ import { computed, onMounted, ref, watchEffect } from '@vue/runtime-core'
 import { MapService2 } from '../services/MapService2'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
+import { logger } from '../utils/Logger'
 
 export default {
   setup() {
     let map = null
-    const mapSource = computed(() => AppState.currentTrip)
+    const mapSource = computed(() => AppState.trial)
     onMounted(() => {
       map = new MapService2()
       setTimeout(() => {
+        AppState.trial = { ...AppState.trial }
       }, 2000)
       // go load TripMapSourceByTripId
     })

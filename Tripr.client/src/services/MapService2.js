@@ -48,6 +48,7 @@ export class MapService2 {
             geometry: result.geometry
           })
           AppState.tripMapSource = source
+          logger.log('disit', AppState.tripMapSource)
 
           map.getSource('my-data').setData(source.data)
         })

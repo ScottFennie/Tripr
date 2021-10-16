@@ -58,7 +58,7 @@
             </ul>
           </div> -->
           <div class="justify-content-center d-flex my-4">
-            <StartLocationMap class="map" />
+            <MapBox class="map" />
           </div>
           <div class="footer-cover" />
           <label for="travelType" class="visually-hidden">Type of Outing:</label>

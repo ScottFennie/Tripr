@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { AppState } from '../AppState'
 import { mapboxToken } from '../env'
 import { logger } from '../utils/Logger'
+import { tripsService } from './TripsService'
 
 const DrawPlugin = null
 
@@ -48,6 +49,7 @@ export class MapService2 {
             geometry: result.geometry
           })
           AppState.tripMapSource = source
+          tripsService.editTrip(AppState.currentTrip.id, AppState.tripMapSource)
           logger.log('disit', AppState.tripMapSource)
 
           map.getSource('my-data').setData(source.data)

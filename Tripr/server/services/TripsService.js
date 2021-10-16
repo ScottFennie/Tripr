@@ -14,7 +14,7 @@ class TripsService {
   }
 
   async getTrips(query) {
-    const trips = await dbContext.Trip.find(query).populate('creator')
+    const trips = await dbContext.Trip.find(query).select('-geo').populate('creator')
     return trips
   }
 
@@ -44,7 +44,7 @@ class TripsService {
     const trip = await this.getTripById(tripId)
     trip.title = tripData.title || trip.title
     trip.description = tripData.description || trip.description
-    trip.geo = tripData.geo || trip.geo
+    trip.geo = tripData.data || trip.geo
     trip.travelType = tripData.travelType || trip.travelType
     trip.travelerId = tripData.travelerId || trip.travelerId
     trip.creatorId = tripData.creatorId || trip.creatorId

@@ -21,20 +21,23 @@ export default {
     const mapSource = computed(() => AppState.tripMapSource)
     onMounted(() => {
       map = new MapService2()
-      setTimeout(() => {
-        AppState.tripMapSource = { ...AppState.tripMapSource }
-      }, 2000)
-      // go load TripMapSourceByTripId
+      loadMap(map, mapSource)
     })
 
     watchEffect(() => {
-      if (mapSource.value.id && map) {
+      loadMap(map, mapSource)
+    })
+
+    function loadMap(map, mapSource) {
+      if (map && mapSource.value) {
+        console.log('da dta', mapSource.value)
         map.loadMapSource(mapSource.value)
         Pop.toast('map loaded')
       }
-    })
+    }
 
     return {
+      mapSource,
       async save() {
         map.saveMap()
       }

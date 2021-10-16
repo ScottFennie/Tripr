@@ -10,7 +10,7 @@ import { travelersService } from './TravelersService'
 class TripsService {
   async editTrip(tripId, tripData) {
     const res = await api.put(`api/trips/${tripId}`, tripData)
-    AppState.trips = new Trip(res.data)
+    // AppState.trips = new Trip(res.data)
     this.setCurrentTrip(tripId)
     logger.log('this is the edited trip', res)
   }
@@ -45,12 +45,9 @@ class TripsService {
   }
 
   async setCurrentTrip(tripID) {
-    const res = await api.get('api/trips')
-    AppState.trips = res.data.map(t => new Trip(t))
-    const trip = AppState.trips.find(t => t.id === tripID)
-    AppState.currentTrip = trip
-    AppState.tripMapSource = trip.geo
-    logger.log('myID', trip)
+    const res = await api.get('api/trips/' + tripID)
+    AppState.currentTrip = new Trip(res.data)
+    AppState.tripMapSource = res.data.geo
   }
 
   async getAllTrips() {

@@ -3,7 +3,7 @@
     <button @click="save()">
       save
     </button>
-    <div id="map">
+    <div class="map" id="map">
     </div>
   </div>
 </template>
@@ -17,43 +17,10 @@ import Pop from '../utils/Pop'
 export default {
   setup() {
     let map = null
-    const mapSource = computed(() => AppState.tripMapSource)
+    const mapSource = computed(() => AppState.tripStartSource)
     onMounted(() => {
       map = new MapService()
       setTimeout(() => {
-        AppState.tripMapSource = {
-          id: 'my-fake-id',
-          type: 'geojson',
-          data: {
-            type: 'FeatureCollection',
-            features: [
-              {
-                id: 'place.15042767980230180',
-                type: 'Feature',
-                text: 'Boise',
-                geometry: {
-                  type: 'Point',
-                  coordinates: [
-                    -116.2044,
-                    43.615
-                  ]
-                }
-              },
-              {
-                id: 'place.9607189446701850',
-                type: 'Feature',
-                text: 'Chicago',
-                geometry: {
-                  type: 'Point',
-                  coordinates: [
-                    -87.6244,
-                    41.8756
-                  ]
-                }
-              }
-            ]
-          }
-        }
       }, 2000)
       // go load TripMapSourceByTripId
     })
@@ -77,7 +44,7 @@ export default {
 </script>
 
 <style lang="scss">
-#map {
+.map {
   height: 40vh;
 }
 .mapboxgl-ctrl-attrib-inner {

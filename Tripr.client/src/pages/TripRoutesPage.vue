@@ -7,7 +7,7 @@
           {{ trip.title }}
         </h2>
         <p>
-          <!-- locations: {{ trip.features.length }} -->
+          locations: {{ trip.geo.features.length }}
         </p>
       </div>
     </div>

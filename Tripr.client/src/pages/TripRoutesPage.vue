@@ -35,12 +35,18 @@
 </template>
 
 <script>
-import { computed } from '@vue/runtime-core'
+import { computed, onMounted } from '@vue/runtime-core'
 import { AppState } from '../AppState'
 import { suppliesService } from '../services/SuppliesService'
 import Pop from '../utils/Pop'
+import { tripsService } from '../services/TripsService'
+import { useRoute } from 'vue-router'
 export default {
   setup() {
+    const route = useRoute()
+    onMounted(async() => {
+      await tripsService.setCurrentTrip(route.params.tripId)
+    })
     return {
       trip: computed(() => AppState.currentTrip),
       async toTripPage() {

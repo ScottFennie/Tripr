@@ -8,6 +8,12 @@ import { api } from './AxiosService'
 import { travelersService } from './TravelersService'
 
 class TripsService {
+  async editTrip(tripId, tripData) {
+    const res = await api.put(`api/trips/${tripId}`, tripData)
+    AppState.trips = new Trip(res.data)
+    this.setCurrentTrip(tripId)
+  }
+
   async createTrip(newTrip) {
     const res = await api.post('api/trips', newTrip)
     logger.log('new trip', res.data)
@@ -42,6 +48,7 @@ class TripsService {
     AppState.trips = res.data.map(t => new Trip(t))
     const trip = AppState.trips.find(t => t.id === tripID)
     AppState.currentTrip = trip
+    AppState.tripMapSource = trip.geo
     logger.log('myID', trip)
   }
 

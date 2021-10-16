@@ -35,9 +35,6 @@ class TripsService {
 
   async editTrip(tripId, userId, tripData) {
     const trip = await this.getTripById(tripId)
-    if (userId !== trip.creatorId.toString()) {
-      throw new Forbidden('You are Not Authorized')
-    }
     trip.title = tripData.title || trip.title
     trip.description = tripData.description || trip.description
     trip.geo = tripData.geo || trip.geo

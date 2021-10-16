@@ -16,7 +16,7 @@
     <TripMapBox class="map" />
   </div>
   <footer class="bg-light">
-    <ul class="list-group">
+    <ul class="list-group" v-if="trip.geo.features">
       <li class="selectable list-group-item d-flex justify-content-between" v-for="l in trip.geo.features" :key="l.id">
         <div class="d-flex align-items-center">
           <svg style="width:24px;height:24px" viewBox="0 0 24 24">

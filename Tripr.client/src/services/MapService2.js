@@ -49,7 +49,7 @@ export class MapService2 {
             geometry: result.geometry
           })
           AppState.tripMapSource = source
-          tripsService.editTrip(AppState.currentTrip.id, AppState.tripMapSource)
+          tripsService.editTrip(AppState.currentTrip.id, source)
           logger.log('disit', AppState.tripMapSource)
 
           map.getSource('my-data').setData(source.data)

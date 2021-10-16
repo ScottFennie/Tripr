@@ -2,6 +2,10 @@ import { dbContext } from '../db/DbContext.js'
 import { BadRequest, Forbidden } from '../utils/Errors.js'
 
 class TripsService {
+  updatePins(body) {
+    throw new Error('Method not implemented.')
+  }
+
   async getTrips(query) {
     const trips = await dbContext.Trip.find(query).populate('creator')
     return trips
@@ -36,7 +40,7 @@ class TripsService {
     }
     trip.title = tripData.title || trip.title
     trip.description = tripData.description || trip.description
-    trip.location = tripData.location || trip.location
+    trip.geo = tripData.geo || trip.geo
     trip.travelType = tripData.travelType || trip.travelType
     trip.travelerId = tripData.travelerId || trip.travelerId
     trip.creatorId = tripData.creatorId || trip.creatorId

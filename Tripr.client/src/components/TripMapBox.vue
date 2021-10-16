@@ -18,11 +18,11 @@ import { logger } from '../utils/Logger'
 export default {
   setup() {
     let map = null
-    const mapSource = computed(() => AppState.trial)
+    const mapSource = computed(() => AppState.tripMapSource)
     onMounted(() => {
       map = new MapService2()
       setTimeout(() => {
-        AppState.trial = { ...AppState.trial }
+        AppState.tripMapSource = { ...AppState.tripMapSource }
       }, 2000)
       // go load TripMapSourceByTripId
     })

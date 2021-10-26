@@ -117,6 +117,7 @@ export default {
             Pop.toast('Trip has been adjusted', 'success')
           } else {
             editable.value.geo = AppState.tripMapSource
+            editable.value.tripImgUrl = AppState.startingImg
             await tripsService.createTrip(editable.value)
             Pop.toast('Trip has been Planned', 'success')
             editable.value = {}

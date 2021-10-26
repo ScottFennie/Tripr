@@ -52,7 +52,7 @@
             </h2>
             <div class="d-flex justify-content-end me-3">
               <a href="https://github.com/drewmcreynolds"><i class=" ps-1 mdi mdi-github f-22 text-primary"></i></a>
-              <a href="https://www.linkedin.com/in/andrew-mcreynolds-30011358/"><i class=" ps-1 mdi mdi-linkedin f-22 text-primary"></i></a>
+              <a href="https://www.linkedin.com/in/drewmcreynolds/"><i class=" ps-1 mdi mdi-linkedin f-22 text-primary"></i></a>
             </div>
           </div>
         </div>
@@ -63,7 +63,8 @@
             </h2>
             <div class="d-flex justify-content-start me-3">
               <a href="https://github.com/JacksonSchacher"><i class=" ps-1 mdi mdi-github f-22 text-primary"></i></a>
-              <i class=" ps-1 mdi mdi-linkedin f-22 text-primary"></i>
+              <a href="https://www.linkedin.com/in/jackson-schacher/">
+                <i class=" ps-1 mdi mdi-linkedin f-22 text-primary"></i></a>
             </div>
           </div>
           <div>

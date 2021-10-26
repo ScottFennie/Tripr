@@ -146,7 +146,8 @@ export class MapService {
 
   loadMapSource(dataSource) {
     const source = this.map.getSource('my-data')
-    source.data = dataSource.data
+    if (!source) { return setTimeout(() => this.loadMapSource(dataSource), 100) }
+    source.data = dataSource
     this.map.getSource('my-data').setData(source.data)
   }
 }

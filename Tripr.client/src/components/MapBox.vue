@@ -1,8 +1,5 @@
 <template>
   <div>
-    <button @click="save()">
-      save
-    </button>
     <div class="map" id="map">
     </div>
   </div>

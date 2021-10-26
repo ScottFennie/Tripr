@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <Map class="map" />
+      <TripMapBox class="map" />
     </div>
     <div class="row">
       <div class="bottom travelers p-0">

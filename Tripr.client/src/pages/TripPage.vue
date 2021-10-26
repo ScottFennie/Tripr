@@ -19,7 +19,7 @@
           </div>
         </div>
       </div>
-      <TripMapBox class="map" />
+      <img :src="trip.tripImgUrl" class="map" />
     </div>
     <div class="row">
       <div class="bottom travelers p-0">

@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { AppState } from '../AppState'
 import { mapboxToken } from '../env'
 import { logger } from '../utils/Logger'
+import { tripsService } from './TripsService'
 
 const DrawPlugin = null
 
@@ -48,7 +49,9 @@ export class MapService {
               geometry: result.geometry
             })
             AppState.tripMapSource = source
-            logger.log('frigg off', AppState.tripMapSource)
+            // AppState.startingLocation = source
+            tripsService.editTrip(AppState.currentTrip.id, source)
+            logger.log('added trip', AppState.tripMapSource)
           }
           map.getSource('my-data').setData(source.data)
         })

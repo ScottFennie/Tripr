@@ -98,6 +98,7 @@ import { watchEffect } from '@vue/runtime-core'
 import { tripsService } from '../services/TripsService'
 import Pop from '../utils/Pop'
 import { router } from '../router'
+import { AppState } from '../AppState'
 export default {
 //   props: {
 //     trip: { type: Trip }
@@ -115,6 +116,7 @@ export default {
             await tripsService.editTrip(editable.value)
             Pop.toast('Trip has been adjusted', 'success')
           } else {
+            editable.value.geo = AppState.startingLocation
             await tripsService.createTrip(editable.value)
             Pop.toast('Trip has been Planned', 'success')
             editable.value = {}

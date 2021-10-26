@@ -49,7 +49,6 @@ export class MapService {
               geometry: result.geometry
             })
             AppState.tripMapSource = source
-            // AppState.startingLocation = source
             tripsService.editTrip(AppState.currentTrip.id, source)
             logger.log('added trip', AppState.tripMapSource)
           }

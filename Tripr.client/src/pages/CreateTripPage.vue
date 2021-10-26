@@ -116,7 +116,7 @@ export default {
             await tripsService.editTrip(editable.value)
             Pop.toast('Trip has been adjusted', 'success')
           } else {
-            editable.value.geo = AppState.startingLocation
+            editable.value.geo = AppState.tripMapSource
             await tripsService.createTrip(editable.value)
             Pop.toast('Trip has been Planned', 'success')
             editable.value = {}

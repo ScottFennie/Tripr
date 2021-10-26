@@ -10,9 +10,13 @@ import { computed, onMounted, ref, watchEffect } from '@vue/runtime-core'
 import { MapService } from '../services/MapService'
 import { AppState } from '../AppState'
 import Pop from '../utils/Pop'
+import { useRoute } from 'vue-router'
+import { tripsService } from '../services/TripsService'
 
 export default {
   setup() {
+    const editable = ref({})
+    const route = useRoute()
     let map = null
     const mapSource = computed(() => AppState.tripStartSource)
     onMounted(() => {
@@ -25,6 +29,10 @@ export default {
     watchEffect(() => {
       if (mapSource.value.id && map) {
         map.loadMapSource(mapSource.value)
+        const img = map.getCanvas().toDataURL()
+        editable.value.tripImgUrl = img
+        tripsService.updateScreenShot(route.params.tripId, editable.value)
+
         Pop.toast('map loaded')
       }
     })
@@ -36,7 +44,6 @@ export default {
 
     }
   }
-
 }
 </script>
 

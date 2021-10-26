@@ -7,7 +7,7 @@
           {{ trip.title }}
         </h2>
         <p v-if="trip.geo">
-          locations: {{ trip.geo.features.length }}
+          <!-- locations: {{ trip.geo.features.length }} -->
         </p>
       </div>
     </div>

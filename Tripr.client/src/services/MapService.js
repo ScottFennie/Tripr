@@ -15,6 +15,7 @@ export class MapService {
       container: 'map',
       center: [-96, 37.8],
       zoom: 1,
+      preserveDrawingBuffer: true,
       ...config
     })
     window.mapboxgl = mapboxgl
@@ -48,6 +49,10 @@ export class MapService {
               text: result.text,
               geometry: result.geometry
             })
+            setTimeout(() => {
+              const img = map.getCanvas().toDataURL()
+              AppState.startingImg = img
+            }, 3000)
             AppState.tripMapSource = source
             tripsService.editTrip(AppState.currentTrip.id, source)
             logger.log('added trip', AppState.tripMapSource)

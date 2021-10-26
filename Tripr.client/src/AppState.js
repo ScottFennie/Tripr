@@ -20,6 +20,7 @@ export const AppState = reactive({
   mytrips: [],
   tripMapSource: {},
   tripStartSource: {},
-  startingLocation: null
+  startingLocation: null,
+  startingImg: ''
 
 })

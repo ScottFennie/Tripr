@@ -82,6 +82,8 @@ class TripsService {
 
   async updateScreenShot(tripId, tripData) {
     const res = await api.put(`api/trips/${tripId}`, tripData)
+    this.getAllTrips()
+    this.getAllMyTrackedTrips()
     AppState.currentTrip = new Trip(res.data)
     logger.log('Updated ScreenShot ', res)
   }

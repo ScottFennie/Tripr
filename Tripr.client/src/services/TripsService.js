@@ -79,5 +79,10 @@ class TripsService {
     AppState.mytrips = newlist
     logger.log('heres the new appstate', AppState.mytrips)
   }
+
+  async updateScreenShot(tripId, tripData) {
+    const res = await api.put(`api/trips/${tripId}`, tripData)
+    logger.log('Updated ScreenShot ', res)
+  }
 }
 export const tripsService = new TripsService()

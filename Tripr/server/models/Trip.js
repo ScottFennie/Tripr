@@ -9,7 +9,8 @@ export const TripSchema = new Schema(
     geo: { type: Object },
     travelType: { type: String, enum: ['Camping', 'Travel', 'Party', 'Other'], required: true },
     startDate: { type: Date },
-    jkey: { type: String, required: true }
+    jkey: { type: String, required: true },
+    tripImgUrl: { type: String }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

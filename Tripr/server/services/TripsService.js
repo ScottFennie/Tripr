@@ -45,6 +45,7 @@ class TripsService {
     trip.title = tripData.title || trip.title
     trip.description = tripData.description || trip.description
     trip.geo = tripData.data || trip.geo
+    trip.tripImgUrl = tripData.tripImgUrl || trip.tripImgUrl
     trip.travelType = tripData.travelType || trip.travelType
     trip.travelerId = tripData.travelerId || trip.travelerId
     trip.creatorId = tripData.creatorId || trip.creatorId

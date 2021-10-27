@@ -10,7 +10,8 @@ export const TripSchema = new Schema(
     travelType: { type: String, enum: ['Camping', 'Travel', 'Party', 'Other'], required: true },
     startDate: { type: Date },
     jkey: { type: String, required: true },
-    tripImgUrl: { type: String }
+    tripImgUrl: { type: String },
+    tripLine: { type: Array }
   },
   { timestamps: true, toJSON: { virtuals: true } }
 )

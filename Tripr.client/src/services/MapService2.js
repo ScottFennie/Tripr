@@ -6,6 +6,7 @@ import { mapboxToken } from '../env'
 import { logger } from '../utils/Logger'
 import { api } from './AxiosService'
 import { tripsService } from './TripsService'
+import lineString from 'turf-linestring'
 
 const DrawPlugin = null
 
@@ -56,6 +57,37 @@ export class MapService2 {
             tripData.tripImgUrl = img
             tripsService.updateScreenShot(AppState.currentTrip.id, tripData)
           }, 3000)
+          // Turf.js using to create a lineString
+          // for (i=0; i<source.data.geo.features.length; i++) {
+          //   let a = source.data.geo.features[i].geometry.coordinates[0]
+          //   let b = source.data.geo.features[i].geometry.coordinates[1]
+          // var positions = [
+
+          //   ]
+          const positions = []
+          source.data.features.forEach((l) => {
+            positions.push(Array.from(l.geometry.coordinates))
+          })
+          logger.log('Positions Coordinates: ', positions)
+          const linestring = lineString(positions)
+
+          map.addLayer({
+            id: 'route',
+            type: 'line',
+            source: {
+              type: 'geojson',
+              data: linestring
+            },
+            layout: {
+              'line-join': 'round',
+              'line-cap': 'round'
+            },
+            paint: {
+              'line-color': '#6d7746',
+              'line-width': 5
+            }
+          })
+
           AppState.tripMapSource = source
           tripsService.editTrip(AppState.currentTrip.id, source)
           logger.log('disit', AppState.tripMapSource)

@@ -11,5 +11,6 @@ export class Trip {
     this.creator = tripData.creator
     this.travelers = tripData.travelers
     this.tripImgUrl = tripData.tripImgUrl
+    this.tripLine = tripData.tripLine
   }
 }

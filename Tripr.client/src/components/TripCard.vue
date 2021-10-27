@@ -25,7 +25,7 @@
       </button>
     </h2>
     <div :id="'flush-' + trip.id" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
-      <div class="accordion-body">
+      <div class="accordion-body rounded-10">
         <img :src="trip.trip.tripImgUrl" class="map" />
         <div class="d-flex justify-content-between">
           <div class="bg-primary go-to-wrapper text-center shadow-sm py-1 mt-2">
@@ -117,5 +117,14 @@ font-style: normal;
 font-weight: normal;
 font-size: 16px;
 color: #6e5a3c;
+}
+.map {
+  object-fit: cover;
+  width: 80vw;
+  height: 80vw;
+  border-radius: 10px;
+}
+.rounded-10 {
+  border-radius: 10px;
 }
 </style>

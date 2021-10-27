@@ -17,6 +17,7 @@ export default {
     const mapSource = computed(() => AppState.tripStartSource)
     onMounted(() => {
       map = new MapService()
+
       setTimeout(() => {
       }, 2000)
       // go load TripMapSourceByTripId

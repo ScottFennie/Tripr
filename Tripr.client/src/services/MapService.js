@@ -7,14 +7,29 @@ import { logger } from '../utils/Logger'
 import { tripsService } from './TripsService'
 
 const DrawPlugin = null
+let long = -116.286
+let lat = 43.606
+function getLocation() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition)
+  } else {
+    long = -116.286
+    lat = 43.606
+  }
+}
+function showPosition(position) {
+  long = position.coords.longitude
+  lat = position.coords.latitude
+}
 
 export class MapService {
-  constructor(container, config = { style: 'mapbox://styles/mapbox/outdoors-v11' }) {
+  constructor(container, config = { style: 'mapbox://styles/mapbox/light-v10' }) {
     mapboxgl.accessToken = mapboxToken
+    getLocation()
     const map = new mapboxgl.Map({
       container: 'map',
-      center: [-96, 37.8],
-      zoom: 1,
+      center: [long, lat],
+      zoom: 7,
       preserveDrawingBuffer: true,
       ...config
     })
@@ -65,7 +80,7 @@ export class MapService {
       // setup layers
       try {
         map.loadImage(
-          'https://i.postimg.cc/HWPXn5VJ/pin-small.png',
+          'https://i.postimg.cc/1tR57gb3/centered-pin-large.png',
           (error, image) => {
             if (error) throw error
             map.addImage('custom-marker', image)
@@ -158,6 +173,8 @@ export class MapService {
     this.map.getSource('my-data').setData(source.data)
   }
 }
+
+// export const mapService = new MapService()
 
 // function loadPlugins(map) {
 //   const s = document.createElement('script')

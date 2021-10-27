@@ -123,4 +123,7 @@ text-shadow: 0 1px 2px rgba(255, 255, 255, 0.4);
 .close-btn {
   color: #A28558;
 }
+.container-fluid {
+  height: 100vh;
+}
 </style>

@@ -10,7 +10,7 @@ import { tripsService } from './TripsService'
 const DrawPlugin = null
 
 export class MapService2 {
-  constructor(container, config = { style: 'mapbox://styles/mapbox/outdoors-v11' }) {
+  constructor(container, config = { style: 'mapbox://styles/mapbox/light-v10' }) {
     mapboxgl.accessToken = mapboxToken
     const map = new mapboxgl.Map({
       container: 'map',
@@ -68,7 +68,7 @@ export class MapService2 {
       // setup layers
       try {
         map.loadImage(
-          'https://i.postimg.cc/HWPXn5VJ/pin-small.png',
+          'https://i.postimg.cc/1tR57gb3/centered-pin-large.png',
           (error, image) => {
             if (error) throw error
             map.addImage('custom-marker', image)

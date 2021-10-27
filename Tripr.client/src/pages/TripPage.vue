@@ -117,7 +117,9 @@ export default {
     object-fit: cover;
 }
 .map {
+  padding: 0;
   z-index: 0;
+  object-fit: cover;
   height: 80vh!important;
   width: 100vw;
   position: absolute;

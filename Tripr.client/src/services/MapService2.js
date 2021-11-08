@@ -84,7 +84,7 @@ export class MapService2 {
             },
             paint: {
               'line-color': '#6d7746',
-              'line-width': 5
+              'line-width': 6
             }
           })
 

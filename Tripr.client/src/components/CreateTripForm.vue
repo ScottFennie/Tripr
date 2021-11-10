@@ -35,18 +35,6 @@
              placeholder="Start Today"
              v-model="editable.startDate"
       > -->
-      <label for="travelType" class="sr-only">Type of Outing:</label>
-      <select class="form-control bg-primary"
-              name="travelType"
-              id="travelType"
-              required
-              v-model="editable.travelType"
-      >
-        <option disabled selected value="" />
-        <option>Foot</option>
-        <option>Road</option>
-        <option>Camping</option>
-      </select>
     </div>
     <div class="button-group">
       <button type="submit" class="btn" title="Create a Trip" data-bs-dismiss="modal" aria-label="Close">

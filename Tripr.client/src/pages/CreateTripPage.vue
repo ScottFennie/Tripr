@@ -61,26 +61,6 @@
             <MapBox class="map" />
           </div>
           <div class="footer-cover" />
-          <label for="travelType" class="visually-hidden">Type of Outing:</label>
-          <select class="form-select bg-light trip-type align-self-start ms-3 selectwrapper"
-                  aria-label="travelType"
-                  id="travelType"
-                  required
-                  v-model="editable.travelType"
-          >
-            <option value="Camping" selected>
-              Camping
-            </option>
-            <option value="Travel">
-              Travel
-            </option>
-            <option value="Party">
-              Party
-            </option>
-            <option value="Other">
-              Other
-            </option>
-          </select>
         </div>
         <div class="btn-group d-flex justify-content-end">
           <button type="submit" class="submit p-0">

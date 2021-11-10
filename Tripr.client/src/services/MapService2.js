@@ -4,7 +4,6 @@ import 'mapbox-gl/dist/mapbox-gl.css'
 import { AppState } from '../AppState'
 import { mapboxToken } from '../env'
 import { logger } from '../utils/Logger'
-import { api } from './AxiosService'
 import { tripsService } from './TripsService'
 import lineString from 'turf-linestring'
 

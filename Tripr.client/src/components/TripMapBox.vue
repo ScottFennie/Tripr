@@ -3,8 +3,7 @@
     <!-- <button @click="save()">
       save
     </button> -->
-    <div id="map">
-    </div>
+    <div id="map"></div>
   </div>
 </template>
 
@@ -32,7 +31,6 @@ export default {
       if (map && mapSource.value) {
         console.log('da dta', mapSource.value)
         map.loadMapSource(mapSource.value)
-        Pop.toast('map loaded')
       }
     }
 
@@ -50,19 +48,18 @@ export default {
 
 <style lang="scss">
 #map {
- height: 65vh;
+  height: 65vh;
 }
 .mapboxgl-ctrl-attrib-inner {
-    display: none;
+  display: none;
 }
-.mapboxgl-ctrl.mapboxgl-ctrl-attrib{
-    display: none;
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none;
 }
 
-.mapboxgl-ctrl-geocoder--input{
-
+.mapboxgl-ctrl-geocoder--input {
 }
 .mapboxgl-ctrl-geocoder {
-   width: 300px!important;
+  width: 300px !important;
 }
 </style>

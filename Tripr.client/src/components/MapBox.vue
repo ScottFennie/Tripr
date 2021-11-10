@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div class="map" id="map">
-    </div>
+    <div class="map" id="map"></div>
   </div>
 </template>
 
@@ -26,7 +25,6 @@ export default {
     watchEffect(() => {
       if (mapSource.value.id && map) {
         map.loadMapSource(mapSource.value)
-        Pop.toast('map loaded')
       }
     })
 
@@ -45,16 +43,15 @@ export default {
   height: 40vh;
 }
 .mapboxgl-ctrl-attrib-inner {
-    display: none;
+  display: none;
 }
-.mapboxgl-ctrl.mapboxgl-ctrl-attrib{
-    display: none;
+.mapboxgl-ctrl.mapboxgl-ctrl-attrib {
+  display: none;
 }
 
-.mapboxgl-ctrl-geocoder--input{
-
+.mapboxgl-ctrl-geocoder--input {
 }
 .mapboxgl-ctrl-geocoder {
-   width: 300px!important;
+  width: 300px !important;
 }
 </style>

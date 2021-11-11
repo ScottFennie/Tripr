@@ -75,7 +75,6 @@ class TripsService {
 
   async deleteTrip(tripId) {
     await api.delete(`account/trackedtrips/${tripId}`)
-    await api.delete(`api/trips/${tripId}`)
     const newlist = AppState.mytrips.filter(t => t.id !== tripId)
     AppState.mytrips = newlist
     logger.log('heres the new appstate', AppState.mytrips)
@@ -87,6 +86,13 @@ class TripsService {
     this.getAllMyTrackedTrips()
     AppState.currentTrip = new Trip(res.data)
     logger.log('Updated ScreenShot ', res)
+  }
+
+  async deletePin(locationId, tripId) {
+    const pins = AppState.currentTrip.geo.data.features.find(p => p.id !== locationId)
+    AppState.currentTrip.geo.data.features = pins
+    const newData = AppState.currentTrip
+    await api.put(`api/trips/${tripId}`, newData)
   }
 }
 export const tripsService = new TripsService()

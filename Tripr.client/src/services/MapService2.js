@@ -43,7 +43,7 @@ export class MapService2 {
 
           const source = map.getSource('my-data').serialize()
           // TODO pair down the result object to keep only the data you need... ie name geo
-
+          console.log('source', source)
           source.data.features.push({
             id: result.id,
             type: result.type,
@@ -68,24 +68,24 @@ export class MapService2 {
             positions.push(Array.from(l.geometry.coordinates))
           })
           logger.log('Positions Coordinates: ', positions)
-          const linestring = lineString(positions)
+          // const linestring = lineString(positions)
 
-          map.addLayer({
-            id: 'route',
-            type: 'line',
-            source: {
-              type: 'geojson',
-              data: linestring
-            },
-            layout: {
-              'line-join': 'round',
-              'line-cap': 'round'
-            },
-            paint: {
-              'line-color': '#6d7746',
-              'line-width': 6
-            }
-          })
+          // map.addLayer({
+          //   id: 'route',
+          //   type: 'line',
+          //   source: {
+          //     type: 'geojson',
+          //     data: linestring
+          //   },
+          //   layout: {
+          //     'line-join': 'round',
+          //     'line-cap': 'round'
+          //   },
+          //   paint: {
+          //     'line-color': '#6d7746',
+          //     'line-width': 6
+          //   }
+          // })
 
           AppState.tripMapSource = source
           tripsService.editTrip(AppState.currentTrip.id, source)

@@ -89,7 +89,7 @@ class TripsService {
   }
 
   async deletePin(locationId, tripId) {
-    const pins = AppState.currentTrip.geo.data.features.find(p => p.id !== locationId)
+    const pins = AppState.currentTrip.geo.data.find(p => p.features.id !== locationId)
     logger.log('pins', pins)
     AppState.currentTrip.geo.data.features = pins
     const newData = AppState.currentTrip

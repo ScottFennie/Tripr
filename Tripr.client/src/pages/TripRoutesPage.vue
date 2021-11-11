@@ -17,7 +17,7 @@
   </div>
   <footer class="bg-light">
     <ul class="list-group" v-if="trip.geo">
-      <li class="selectable list-group-item d-flex justify-content-between" v-for="(l, i) in trip.geo.features" :key="l.id" click="deletePin(l.id)">
+      <li class="selectable list-group-item d-flex justify-content-between" v-for="(l, i) in trip.geo.features" :key="l.id" @click="deletePin(l.id)">
         <div class="d-flex align-items-center">
           <svg style="width:24px;height:24px" viewBox="0 0 24 24">
             <path fill="#E26363" d="M16,12V4H17V2H7V4H8V12L6,14V16H11.2V22H12.8V16H18V14L16,12Z" />

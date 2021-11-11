@@ -41,7 +41,9 @@ export class MapService2 {
         geocoder.on('result', ({ result }) => {
           console.log('the result', result)
 
-          const source = map.getSource('my-data').serialize()
+          const source = map.getSource('my-data', {
+            type: 'geojson'
+          }).serialize()
           // TODO pair down the result object to keep only the data you need... ie name geo
           console.log('source', source)
           source.data.features.push({
